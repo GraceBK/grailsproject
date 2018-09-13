@@ -23,6 +23,8 @@ class BootStrap {
             UserRole.create(playerTwoUser, gamingRole, true)
 
             new Match(winner: playerUser, looser: playerTwoUser, winnerScore: 10, looserScore: 1).save(flush:true, failOnError:true)
+            new Match(winner: playerTwoUser, looser: playerUser, winnerScore: 20, looserScore: 15).save(flush:true, failOnError:true)
+            new Match(winner: playerUser, looser: playerTwoUser, winnerScore: 10, looserScore: 9).save(flush:true, failOnError:true)
 
             new Message(author: playerUser, target: playerTwoUser, content: "nananère").save(flush:true, failOnError:true)
             new Message(author: playerTwoUser, target: playerUser, content: ":(").save(flush:true, failOnError:true)
