@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: grailsproject
+        defaultPackage: fr.mbds.tp
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
@@ -126,3 +126,6 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+server:
+    port: 8081
+    context-path: /tp
