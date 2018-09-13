@@ -19,7 +19,20 @@ class User implements Serializable {
     boolean passwordExpired
     Date dateCreated
     Date lastUpdated
-    
+
+    static hasMany = [                      // Pour créer une liste des matchs gagnés et des matchs perdus
+                                            matchWon:Match,
+                                            matchLost: Match,
+                                            messageSent: Message,
+                                            messageReceived: Message];
+
+    static mappedBy = [                     // On va ensuite faire un binding pour garder la trace
+                                            matchWon: "winner",
+                                            matchLost: "looser",
+                                            messageSent: "author",
+                                            messageReceived: "target"];
+
+
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
     }
