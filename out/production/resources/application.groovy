@@ -27,5 +27,9 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+// DONE Page HOME apres connexion
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/example'
+
 // DONE Correction de Bug lors que l'utilisateur se deconnecte
 grails.plugin.springsecurity.logout.postOnly = false
