@@ -10,6 +10,7 @@ import grails.compiler.GrailsCompileStatic
 class User implements Serializable {
 
     private static final long serialVersionUID = 1
+    transient springSecurityService
 
     String username
     String password
@@ -18,7 +19,9 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
     Date dateCreated
-    Date lastUpdated
+    Miniatures miniatures
+
+    static transients = ['springSecurityService']
 
     static hasMany = [                      // Pour créer une liste des matchs gagnés et des matchs perdus
                                             matchWon:Match,
@@ -40,9 +43,15 @@ class User implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+        miniatures nullable: true
     }
 
     static mapping = {
 	    password column: '`password`'
+        miniatures cascade: 'all-delete-orphan'
     }
+
+    /*protected void crypterMDP() {
+        password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+    }*/
 }

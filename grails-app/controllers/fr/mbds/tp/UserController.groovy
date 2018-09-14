@@ -1,11 +1,16 @@
 package fr.mbds.tp
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.validation.ValidationException
+import org.springframework.boot.SpringApplicationRunListener
+
 import static org.springframework.http.HttpStatus.*
 
 class UserController {
 
     UserService userService
+    SpringSecurityService springSecurityService
+    ProjectService projectService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -45,7 +50,18 @@ class UserController {
     }
 
     def edit(Long id) {
-        respond userService.get(id)
+        User it = springSecurityService.getCurrentUser()
+        User user1 = User.get(id)
+        if(it){
+            if(projectService.hasAUthorityOn(it, user1)){
+                render(view: "/user/edit", model: [me:it, user:user1])
+            }else {
+                response.sendError(403)
+            }
+        }else {
+            response.sendError(404)
+        }
+        //respond userService.get(id)
     }
 
     def update(User user) {
