@@ -19,9 +19,33 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <f:table collection="${userList}" />
+    <%--f:table collection="${userList}" /--%>
 
-    <f:table collection="${userList}" properties="['Username']" />
+    <%--f:table collection="${userList}" properties="['miniatures', 'Username', 'accountLocked', 'passwordExpired', 'matchWon', 'matchLost', 'messageSent', 'messageReceived']" /--%>
+
+    <g:collect in="${userList}" expr="${it}">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><g:link action="show" id="${it.id}">${it.username}</g:link></h5>
+                <%--g:message message="${it.messageReceived}" />
+                <g:message message="${it.accountLocked}" />
+                <g:message message="${it.passwordExpired}" />
+                <g:message message="${it.matchWon}" />
+                <g:message message="${it.matchLost}" />
+                <g:message message="${it.messageReceived}" /--%>
+                ${it.messageReceived}
+                ${it.accountLocked}
+                ${it.passwordExpired}
+                ${it.matchWon}
+                ${it.matchLost}
+                ${it.messageSent}
+                ${it.messageReceived}
+                <g:message message="${it.messageReceived}" />
+            </div>
+        </div>
+    </g:collect>
+
+
 
     <div class="pagination">
         <g:paginate total="${userCount ?: 0}" />

@@ -25,7 +25,7 @@ class HomeController {
         //render("")
     }
 
-    def show() {
-        render("coucou")
+    def show(Long id) {
+        respond userService.get(id)
     }
 }
