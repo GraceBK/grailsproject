@@ -20,6 +20,7 @@ class User implements Serializable {
     boolean passwordExpired
     Date dateCreated
     Miniatures miniatures
+    String avatar
 
     static transients = ['springSecurityService']
 
@@ -44,6 +45,7 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         miniatures nullable: true
+        avatar nullable: true
     }
 
     static mapping = {
