@@ -1,10 +1,10 @@
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'fr.mbds.tp.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.mbds.tp.UserRole'
-grails.plugin.springsecurity.authority.className = 'fr.mbds.tp.Role'
-grails.plugin.springsecurity.requestMap.className = 'fr.mbds.tp.UserRole'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'fr.mbds.grails.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.mbds.grails.UserRole'
+grails.plugin.springsecurity.authority.className = 'fr.mbds.grails.Role'
+grails.plugin.springsecurity.requestMap.className = 'fr.mbds.grails.UserRole'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**',               access: ['permitAll']],
@@ -19,11 +19,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/favicon.ico', access: ['permitAll']]
 ]
 
-/*[pattern: '/',               access: ['permitAll']],
-		[pattern: '/user/**',          access: ['ROLE_ADMIN']],
-	[pattern: '/user/show',          access: ['ROLE_USER']],
-	[pattern: '/user/edit',          access: ['ROLE_USER']],*/
-
 grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
@@ -32,9 +27,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
-
-// DONE Page HOME apres connexion
-//grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
 
 // DONE Correction de Bug lors que l'utilisateur se deconnecte
 grails.plugin.springsecurity.logout.postOnly = false

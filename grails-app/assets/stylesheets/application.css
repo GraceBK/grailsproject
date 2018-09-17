@@ -11,7 +11,5 @@
 *= require grails
 *= require main
 *= require mobile
-*= require w3
-*= require dashboard
 *= require_self
 */

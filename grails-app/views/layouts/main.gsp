@@ -13,44 +13,46 @@
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
-
-
-    <style>
-        body, html {
-            height: 100%;
-            font-family: "Inconsolata", sans-serif;
-        }
-    </style>
 </head>
-<body style="background-color: #FFFFFF;">
-<sec:ifLoggedIn>
-        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-            <div class="collapse navbar-collapse" id="navbarsExample09">
-                <ul class="navbar-nav mr-auto">
-                    <sec:ifAnyGranted roles="ROLE_ADMIN">
-                        <li class="nav-item"><g:link class="nav-link" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></li>
-                        <li class="nav-item"><g:link class="nav-link" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                    </sec:ifAnyGranted>
+<body>
+
+    <!--div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#">
+		    <asset:image src="grails.svg" alt="Grails Logo"/>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <g:pageProperty name="page.nav" />
                 </ul>
             </div>
-            <ul class="navbar-nav px-3">
-                <li class="nav-link">
-                    <g:link class="nav-link" controller='logout'>Logout</g:link>
-                </li>
-            </ul>
-        </nav>
-</sec:ifLoggedIn>
+        </div>
+    </div-->
+
+    <sec:ifLoggedIn>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <li class="nav-item"><g:link class="nav-link" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></li>
+            <li><g:link class="create" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+        </sec:ifAnyGranted>
+        <g:link class="nav-link" controller='logout'>Logout</g:link>
+    </sec:ifLoggedIn>
 
     <g:layoutBody/>
 
-<!--div class="footer" role="contentinfo"></div-->
+    <div id="spinner" class="spinner" style="display:none;">
+        <g:message code="spinner.alt" default="Loading&hellip;"/>
+    </div>
 
-<div id="spinner" class="spinner" style="display:none;">
-    <g:message code="spinner.alt" default="Loading&hellip;"/>
-</div>
-
-<asset:javascript src="application.js"/>
+    <asset:javascript src="application.js"/>
 
 </body>
 </html>
