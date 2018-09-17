@@ -32,11 +32,27 @@
 
                 <sec:ifLoggedIn>
                     <sec:ifLoggedIn>
-                        <div class="col-sm-4">
-                            <h2><g:message code="grailsproject.home.about.me"/></h2>
-                            <h5><sec:username/></h5>
-                            <div class="fakeimg" style="height: 200px;background: #aaa;">Fake Image</div>
-                            <hr class="d-sm-none">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                                    <div class="sidebar-sticky">
+                                        <ul class="nav-item">
+                                            <li class="nav-link"><g:link class="nav-link" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></li>
+                                        </ul>
+                                        <ul class="nav-item">
+                                            <li class="nav-link"><g:link class="nav-link" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                                    <div class="col-sm-4">
+                                        <h2><g:message code="grailsproject.home.about.me"/></h2>
+                                        <h5><sec:username/></h5>
+                                        <div class="fakeimg" style="height: 200px;background: #aaa;">Fake Image</div>
+                                        <hr class="d-sm-none">
+                                    </div>
+                                </main>
+                            </div>
                         </div>
                     </sec:ifLoggedIn>
                 </sec:ifLoggedIn>

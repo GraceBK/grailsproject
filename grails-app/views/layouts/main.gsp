@@ -23,27 +23,26 @@
     </style>
 </head>
 <body style="background-color: #FFFFFF;">
+<sec:ifLoggedIn>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+                <ul class="navbar-nav mr-auto">
+                    <sec:ifAnyGranted roles="ROLE_ADMIN">
+                        <li class="nav-item"><g:link class="nav-link" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></li>
+                        <li class="nav-item"><g:link class="nav-link" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                    </sec:ifAnyGranted>
+                </ul>
+            </div>
+            <ul class="navbar-nav px-3">
+                <li class="nav-link">
+                    <g:link class="nav-link" controller='logout'>Logout</g:link>
+                </li>
+            </ul>
+        </nav>
+</sec:ifLoggedIn>
 
-    <div class="w3-top" role="navigation">
-        <div class="w3-row w3-padding w3-black">
-            <sec:ifLoggedIn>
-                <div class="w3-col s3">
-                    <a class="w3-button w3-block w3-black" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-                </div>
-
-                <sec:ifAnyGranted roles="ROLE_ADMIN">
-                    <div class="w3-col s3"><g:link class="w3-button w3-block w3-black" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></div>
-                    <div class="w3-col s3"><g:link class="w3-button w3-block w3-black" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></div>
-                </sec:ifAnyGranted>
-
-                <div class="w3-col s3"><g:link class="w3-button w3-block w3-black" controller='logout'>Logout</g:link></div>
-            </sec:ifLoggedIn>
-        </div>
-    </div>
-
-<div style="padding-top: 2.5%">
     <g:layoutBody/>
-</div>
 
 <!--div class="footer" role="contentinfo"></div-->
 
