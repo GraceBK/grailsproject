@@ -7,7 +7,7 @@ grails.plugin.springsecurity.authority.className = 'fr.mbds.grails.Role'
 grails.plugin.springsecurity.requestMap.className = 'fr.mbds.grails.UserRole'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/**',               access: ['permitAll']],
+	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
@@ -16,7 +16,11 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/js/**',       access: ['permitAll']],
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
-	[pattern: '/**/favicon.ico', access: ['permitAll']]
+	[pattern: '/**/favicon.ico', access: ['permitAll']],
+	[pattern: '/login',          access: ['permitAll']],
+	[pattern: '/login/**',       access: ['permitAll']],
+	[pattern: '/logout',         access: ['permitAll']],
+	[pattern: '/logout/**',      access: ['permitAll']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [

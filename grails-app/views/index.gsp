@@ -70,13 +70,15 @@
                     <div class="alert alert-link" role="alert">Login</div>
                 </g:link>
             </sec:ifNotLoggedIn>
-
-            <sec:ifLoggedIn>
-                <h2><g:message code="grailsproject.home.about.me"/></h2>
-                <h2><sec:username/></h2>
-            </sec:ifLoggedIn>
         </section>
     </sec:ifNotLoggedIn>
+
+    <sec:ifLoggedIn>
+        <h1 style="margin-top: 100px">AZERTY</h1>
+        <h2><g:message code="grailsproject.home.about.me"/></h2>
+        <h2><sec:username/></h2>
+        <h2><sec:username/></h2>
+    </sec:ifLoggedIn>
     </div>
 
 </body>
