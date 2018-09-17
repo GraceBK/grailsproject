@@ -1,107 +1,52 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <!-- https://www.oodlestechnologies.com/blogs/Using-Spring-security-taglibs-in-Grails -->
+    <sec:ifNotLoggedIn>
+        <meta name="layout" content="main"/>
+    </sec:ifNotLoggedIn>
+    <sec:ifLoggedIn>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <meta name="layout" content="admin"/>
+        </sec:ifAnyGranted>
+        <sec:ifAnyGranted roles="ROLE_USER">
+            <meta name="layout" content="other"/>
+        </sec:ifAnyGranted>
+    </sec:ifLoggedIn>
+
     <title>Welcome to Grails</title>
 </head>
 <body>
-    <!--content tag="nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
-            </ul>
-        </li>
-    </content-->
 
-    <!--div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+        <div id="content" role="main">
+            <sec:ifNotLoggedIn>
+                <section class="row colset-2-its">
+                    <h1>Welcome to Grails</h1>
+
+                    <p>
+                        Congratulations, you have successfully started your first Grails application! At the moment
+                        this is the default page, feel free to modify it to either redirect to a controller or display
+                        whatever content you may choose. Below is a list of controllers that are currently deployed in
+                        this application, click on each to execute its default action:
+                    </p>
+
+                    <sec:ifNotLoggedIn>
+                        <g:link controller="login" action="auth">Login</g:link>
+                    </sec:ifNotLoggedIn>
+
+                    <!--div id="controllers" role="navigation">
+                        <h2>Available Controllers:</h2>
+                        <ul>
+                            <%--g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                                <li class="controller">
+                                    <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
+                                </li>
+                            </g:each--%>
+                        </ul>
+                    </div-->
+                </section>
+            </sec:ifNotLoggedIn>
         </div>
-    </div-->
-
-
-<!--div class="container">
-    <g:form name="myForm">
-        <div class="form-group">
-            <label><%= "Username" %></label>
-            <g:textField name="username" value=""/>
-        </div>
-        <div class="form-group">
-            <label><%= "Mot de Passe" %></label>
-            <g:passwordField name="password"/>
-        </div>
-    </g:form>
-
-    <!--form>
-        <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form-->
-<!--/div-->
-
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
-
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
-            </div>
-        </section>
-    </div>
 
 </body>
 </html>
