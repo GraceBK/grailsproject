@@ -14,7 +14,6 @@
     <g:layoutHead/>
 </head>
 <body>
-    <a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <div class="nav" role="navigation">
         <ul>
             <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -26,13 +25,11 @@
             <li><g:link controller='logout'>Logout</g:link></li>
         </ul>
     </div>
-    <div id="list-user" class="content scaffold-list" role="main">
 
-        <g:layoutBody/>
+    <g:layoutBody/>
 
-        <sec:ifLoggedIn>
-            Vous etes <sec:username/>
-        </sec:ifLoggedIn>
-    </div>
+    <sec:ifLoggedIn>
+        Vous etes <sec:username/>
+    </sec:ifLoggedIn>
 </body>
 </html>

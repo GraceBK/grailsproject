@@ -1,3 +1,4 @@
+<%@ page import="fr.mbds.tp.Picture" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,13 +7,6 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
         <div id="create-user" class="content scaffold-create" role="main">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -25,10 +19,24 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+<<<<<<< HEAD
             <g:form resource="${this.user}" method="POST">
                 <fieldset class="form">
                     <f:all bean="user" except="featuredImageUrl"/>
                 </fieldset>
+=======
+            <g:form resource="${this.user}" method="POST" action="save" controller="picture"><!-- controller="picture" -->
+                <!--input type="file" name="file">
+                <label for="username">Identifiant</label>
+                <input type="text" name="username" id="username" placeholder="Identifiant">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" placeholder="Identifiant"-->
+
+                <%--f:all bean="user" except="['addMatch', 'password']"/--%>
+
+                <%--f:all bean="user"/--%>
+
+>>>>>>> 9d02c570024d6938360842d53f2c2f3a50a8df27
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
