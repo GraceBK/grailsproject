@@ -3,7 +3,7 @@ package grailsproject
 class UrlMappings {
 
     static mappings = {
-        "/auth"(controller: "login", action: "auth")
+        //"/auth"(controller: "Login", action: "auth")
 
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

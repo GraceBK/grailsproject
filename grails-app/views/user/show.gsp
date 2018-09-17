@@ -25,7 +25,7 @@
             <f:display bean="user"/>
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
-                    <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                    <g:link class="edit" action="featuredImage" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit Featured Image" /></g:link>
                     <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                 </fieldset>
             </g:form>

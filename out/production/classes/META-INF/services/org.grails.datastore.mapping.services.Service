@@ -3,3 +3,4 @@ fr.mbds.tp.$MatchServiceImplementation
 fr.mbds.tp.$MessageServiceImplementation
 fr.mbds.tp.$RoleServiceImplementation
 fr.mbds.tp.$UserServiceImplementation
+fr.mbds.tp.$MiniaturesServiceImplementation
