@@ -11,9 +11,29 @@ class UserController {
     UserService userService
     SpringSecurityService springSecurityService
     ProjectService projectService
+    ImageService imageService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+
+    def list( ) {
+        User me = springSecurityService.getCurrentUser()
+        if( me ) {
+            if (me.getAuthorities()[0].authority == 'ROLE_ADMIN') {
+                def users = User.withCriteria {
+                    order('username', 'asc')
+                }
+                render(view: '/user/list', model: [me: me, users: users])
+            }
+        }
+//            else if( me.getAuthorities()[0].authority == 'ROLE_USER' ) {
+////                Role adminRole = Role.findByAuthority('ROLE_ADMIN')
+//                Role modRole = Role.findByAuthority('ROLE_USER')
+//                def roles = UserRole.findAllByRole(modRole)
+//render( view:'/user/list', model:[me:me, users:roles.user])
+//            }
+//        }
+    }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond userService.list(params), model:[userCount: userService.count()]
@@ -65,6 +85,8 @@ class UserController {
     }
 
     def update(User user) {
+        //User it = springSecurityService.getCurrentUser()
+        //User user1 = user
         if (user == null) {
             notFound()
             return
@@ -87,20 +109,56 @@ class UserController {
     }
 
     def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
+        User it = springSecurityService.getCurrentUser()
+        User user1 = User.get(id)
 
-        userService.delete(id)
+        if (it){
+            if(projectService.myRoleIs(it, 'ROLE_ADMIN')){
+                user1.matchLost.collect().each {Match match ->
+                    user1.removeFromMatchLost(match)
+                    user1.save()
+                }
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
-                redirect action:"index", method:"GET"
+                user1.matchWon.collect().each {Match match ->
+                    user1.removeFromMatchWon(match)
+                    user1.save()
+                }
+
+                user1.messageReceived.collect().each {Message message ->
+                    user1.removeFromMessageReceived(message)
+                    user1.save()
+                }
+
+                user1.messageSent.collect().each {Message message ->
+                    user1.removeFromMatchLost(message)
+                    user1.save()
+                }
+
+                user1.miniatures = null;
+                user1.save()
+                user1.delete()
+                redirect(controller:"user", action: "list")
+            }else{
+                response.sendError(403)
             }
-            '*'{ render status: NO_CONTENT }
+        }else {
+            response.sendError(404)
         }
+
+//        if (id == null) {
+//            notFound()
+//            return
+//        }
+//
+//        userService.delete(id)
+//
+//        request.withFormat {
+//            form multipartForm {
+//                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+//                redirect action:"index", method:"GET"
+//            }
+//            '*'{ render status: NO_CONTENT }
+//        }
     }
 
     protected void notFound() {
