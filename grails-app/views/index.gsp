@@ -77,7 +77,8 @@
         <h1 style="margin-top: 100px">AZERTY</h1>
         <h2><g:message code="grailsproject.home.about.me"/></h2>
         <h2><sec:username/></h2>
-        <h2><sec:username/></h2>
+        <h2><f:display bean="user"/></h2>
+        <!--img src="${createLink(controller:'user', action:'displayStaffImage', id:"${validKeysInstance.id}") }" width='100'/-->
     </sec:ifLoggedIn>
     </div>
 
