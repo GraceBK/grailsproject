@@ -39,8 +39,12 @@ class UserController {
             return
         }
 
+        String isUpload = avatarService.uploadFile(downloadedFile, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
+
         try {
-            avatarService.uploadFile(downloadedFile, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
+            if (isUpload) {
+                user.avatar = "${baseImage}.jpg"
+            }
             userService.save(user)
         } catch (ValidationException e) {
             respond user.errors, view:'create'
