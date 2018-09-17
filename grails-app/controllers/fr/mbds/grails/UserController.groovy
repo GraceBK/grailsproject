@@ -26,10 +26,10 @@ class UserController {
 
     def save(User user) {
 
-        if (user.avatar == null) {
+        /*if (user.avatar == null) {
             notFound()
             return
-        }
+        }*/
 
         String baseImage = UUID.randomUUID().toString()
         def downloadedFile = request.getFile("avatarFile")
