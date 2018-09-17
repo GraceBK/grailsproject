@@ -23,10 +23,10 @@ class BootStrap {
             def playerUser = new User(username: "player", password: "coucou").save(flush:true, failOnError:true)
             def playerTwoUser = new User(username: "player2", password: "coucou").save(flush:true, failOnError:true)
 
-            superAdmin = projectService.createUser(username: "mohamed-kms96", password: "password", imageType: '', role: adminRole)
-            UserRole.create(adminUser, adminRole, true)
-            UserRole.create(playerUser, gamingRole, true)
-            UserRole.create(playerTwoUser, gamingRole, true)
+            //superAdmin = projectService.createUser(username: "mohamed-kms96", password: "password", imageType: '', role: adminRole)
+            //UserRole.create(adminUser, adminRole, true)
+            //UserRole.create(playerUser, gamingRole, true)
+            //UserRole.create(playerTwoUser, gamingRole, true)
 
             new Match(winner: playerUser, looser: playerTwoUser, winnerScore: 10, looserScore: 1).save(flush:true, failOnError:true)
             new Match(winner: playerTwoUser, looser: playerUser, winnerScore: 20, looserScore: 15).save(flush:true, failOnError:true)

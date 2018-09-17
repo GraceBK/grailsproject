@@ -32,6 +32,12 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+<<<<<<< HEAD
+            <g:form resource="${this.user}" method="POST">
+                <fieldset class="form">
+                    <f:all bean="user" except="featuredImageUrl"/>
+                </fieldset>
+=======
             <g:form resource="${this.user}" method="POST" action="save" controller="picture"><!-- controller="picture" -->
 
                 <input type="file" name="myFile" enctype="multipart/form-data" class="inputfile" />
@@ -48,6 +54,7 @@
 
                 <%--f:all bean="user"/--%>
 
+>>>>>>> 9d02c570024d6938360842d53f2c2f3a50a8df27
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>

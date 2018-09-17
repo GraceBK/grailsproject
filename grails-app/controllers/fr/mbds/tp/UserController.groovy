@@ -16,6 +16,39 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 
+    def editFeaturedImage(Long id){
+        User user = userService.get(id)
+        if (!user){
+            notFound()
+            return
+        }
+        [user: user]
+    }
+
+    /*def uploadFeaturedImage(FeaturedImageCommand cmd){
+        if (cmd.hasErrors()){
+            respond(cmd, model: [user: cmd], view: 'editFeaturedImage')
+            return
+        }
+
+        User user = imageService.uploadFeaturedImage(cmd)
+
+        if (user == null){
+            notFound()
+            return
+        }
+
+        if (user.hasErrors()){
+            respond(user, model: [user: user], view: 'editFeaturedImage')
+            return
+        }
+
+        Locale locale = request.locale
+        flash.message = crudMessageService.message(CRUD.UPDATE, domainName(locale), user.id, locale)
+        redirect user
+    }*/
+
+
     def list( ) {
         User me = springSecurityService.getCurrentUser()
         if( me ) {
@@ -52,6 +85,9 @@ class UserController {
             notFound()
             return
         }
+
+        String uploadFeaturedImageUrl = imageService.uploadFeaturedImage(params.featuredImageFile)
+        user.featuredImageUrl = uploadFeaturedImageUrl;
 
         try {
             userService.save(user)

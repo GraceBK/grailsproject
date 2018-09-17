@@ -1,5 +1,6 @@
 package fr.mbds.tp
 
+import grails.plugin.springsecurity.LoginController
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 

@@ -2,6 +2,7 @@ package fr.mbds.tp
 
 import grails.gorm.services.Service
 
+@SuppressWarnings(['LineLength', 'UnusedVariable', 'SpaceAfterOpeningBrace', 'SpaceBeforeClosingBrace'])
 @Service(User)
 interface UserService {
 
@@ -15,4 +16,7 @@ interface UserService {
 
     User save(User user)
 
+    User updateFeaturedImageUrl(Serializable id, Long version, String featuredImageUrl)
+
+    //User updateName(Serializable id, Long version, String name)
 }
