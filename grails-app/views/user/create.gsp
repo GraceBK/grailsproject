@@ -25,25 +25,11 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-<<<<<<< HEAD
-            <g:form resource="${this.user}" method="POST" enctype="multipart/form-data">
-
-                <div class="fieldcontain">
-                    <label>Profile image</label>
-                    <input type="file" name="featuredImageFile"/>
-                    -</div>
-
-                <fieldset class="form">
-                    <f:all bean="user"/>
-                </fieldset>
-
-=======
             <g:uploadForm controller="user" action="save" resource="${this.user}" method="POST">
                 <fieldset class="form">
                     <g:field type="file" name="avatarFile"/>
                     <f:all bean="user"/>
                 </fieldset>
->>>>>>> e0b58e565cbbe6aa41df82db544ef38ce468971f
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save"
                                     value="${message(code: 'default.button.create.label', default: 'Create')}"/>

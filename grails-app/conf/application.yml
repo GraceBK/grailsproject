@@ -60,11 +60,7 @@ grails:
             xml:
               - text/xml
               - application/xml
-<<<<<<< HEAD
 
-
-=======
->>>>>>> e0b58e565cbbe6aa41df82db544ef38ce468971f
     urlmapping:
         cache:
             maxsize: 1000
@@ -132,7 +128,6 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 server:
-<<<<<<< HEAD
     port: 8088
     contextPath: /tp
 
@@ -141,12 +136,7 @@ guides:
   cdnRootUrl: "http://localhost:8888"
 
 
-=======
-    port: 8081
-    contextPath: /tp
-
 # Access image in server Apache
 imagepathfile:
-    filePath: /Applications/MAMP/htdocs
+    filePath: /var/www/uploadImages
     fileUrl: http://localhost:8888/
->>>>>>> e0b58e565cbbe6aa41df82db544ef38ce468971f

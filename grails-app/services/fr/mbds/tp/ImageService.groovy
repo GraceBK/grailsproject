@@ -1,5 +1,6 @@
 package fr.mbds.tp
 
+import fr.mbds.grails.UserService
 import grails.config.Config
 import grails.core.support.GrailsConfigurationAware
 import groovy.transform.CompileStatic

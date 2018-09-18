@@ -18,10 +18,6 @@ class BootStrap {
             def playerUser = new User(username: "player", password: "coucou").save(flush: true, failOnError: true)
             def playerTwoUser = new User(username: "player2", password: "coucou").save(flush: true, failOnError: true)
 
-<<<<<<< HEAD
-            //superAdmin = projectService.createUser(username: "mohamed-kms96", password: "password", imageType: '', role: adminRole)
-=======
->>>>>>> e0b58e565cbbe6aa41df82db544ef38ce468971f
             UserRole.create(adminUser, adminRole, true)
             UserRole.create(playerUser, gamingRole, true)
             UserRole.create(playerTwoUser, gamingRole, true)
