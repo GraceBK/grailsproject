@@ -46,11 +46,8 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         miniatures nullable: true
-<<<<<<< HEAD
         featuredImageUrl nullable: true
-=======
         avatar nullable: true
->>>>>>> 9d02c570024d6938360842d53f2c2f3a50a8df27
     }
 
     static mapping = {

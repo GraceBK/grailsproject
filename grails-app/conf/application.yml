@@ -63,9 +63,6 @@ grails:
               - text/xml
               - application/xml
 
-    guides:
-        cdnFolder: /var/www/uploadImages
-        cdnRootUrl: http://localhost:8888
 
     urlmapping:
         cache:
@@ -138,7 +135,11 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 server:
-    port: 8087
+    port: 8088
     contextPath: /tp
+
+guides:
+  cdnFolder: "/var/www/uploadImages"
+  cdnRootUrl: "http://localhost:8888"
 
 

@@ -15,42 +15,58 @@ class ImageService implements GrailsConfigurationAware{
     String cdnRootUrl
 
     def plateformeGrails
+    ImageService imageService
 
     @Override
     void setConfiguration(Config co) {
-        cdnFolder = co.getRequiredProperty('grails.guides.cdnFolder')
-        cdnRootUrl = co.getRequiredProperty('grails.guides.cdnRootUrl')
+        cdnFolder = co.getProperty('guides.cdnFolder')
+        cdnRootUrl = co.getProperty('guides.cdnRootUrl')
     }
-
 
     @SuppressWarnings('JavaToPackageAccess')
-    String uploadFeaturedImage(MultipartFile featuredImageFile){
-        //def ext = FilenameUtils.getExtension(cmd.originalFilename)
-        String ext = 'jpg'
-        def file = File.createTempFile('img', '.' + ext, new File(cdnFolder))
-        file.createNewFile()
+    String uploadFeaturedImage(MultipartFile featuredImageFile) {
 
-        featuredImageFile.transferTo(new File(cdnFolder + '/' + file))
-        featuredImageFile
-        /*
-        String filename = cmd.featuredImageFile.originalFilename
-        String folderPath = "${cdnFolder}/user/${cmd.id}" ////// ATTENTIONNN
-        File folder = new File(folderPath)
-        if (!folder.exists()){
-            folder.mkdirs()
-        }
-        String path = "${folderPath}/${filename}"
-        cmd.featuredImageFile.transferTo(new File(path))
+        def extention = 'jpg'//FilenameUtils.getExtension(featuredImageFile.originalFilename)
+        String filename = UUID.randomUUID().toString() + '.' + extention
+        File folder = new File(cdnFolder + '/' + filename)
+        folder.createNewFile()
 
-        String featuredImageUrl = "${cdnRootUrl}//user/${cmd.id}/${filename}"
-        User user = userService.updateFeaturedImageUrl(cmd.id, cmd.version, featuredImageUrl)
 
-        if (!user || user.hasErrors()){
-            File f = new File(path)
-            f.delete()
-        }
-        user*/
+
+        featuredImageFile.transferTo(new File(cdnFolder + '/' + filename))
+
+        filename
     }
+
+
+//    @SuppressWarnings('JavaToPackageAccess')
+//    String uploadFeaturedImage(MultipartFile featuredImageFile){
+//        //def ext = FilenameUtils.getExtension(cmd.originalFilename)
+//        String ext = 'jpg'
+//        def file = File.createTempFile('img', '.' + ext, new File(cdnFolder))
+//        file.createNewFile()
+//
+//        featuredImageFile.transferTo(new File(cdnFolder + '/' + file))
+//        featuredImageFile
+//        /*
+//        String filename = cmd.featuredImageFile.originalFilename
+//        String folderPath = "${cdnFolder}/user/${cmd.id}" ////// ATTENTIONNN
+//        File folder = new File(folderPath)
+//        if (!folder.exists()){
+//            folder.mkdirs()
+//        }
+//        String path = "${folderPath}/${filename}"
+//        cmd.featuredImageFile.transferTo(new File(path))
+//
+//        String featuredImageUrl = "${cdnRootUrl}//user/${cmd.id}/${filename}"
+//        User user = userService.updateFeaturedImageUrl(cmd.id, cmd.version, featuredImageUrl)
+//
+//        if (!user || user.hasErrors()){
+//            File f = new File(path)
+//            f.delete()
+//        }
+//        user*/
+//    }
     /*@SuppressWarnings('JavaToPackageAccess')
     User uploadFeaturedImage(FeaturedImageCommand cmd){
         String filename = cmd.featuredImageFile.originalFilename

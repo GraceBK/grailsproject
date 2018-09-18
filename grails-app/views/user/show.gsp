@@ -11,10 +11,6 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <!--
-            'Username', 'miniatures', 'matchLost', 'matchWon', 'passwordExpired', 'accountExpired', 'accountLocked', 'messageSent', 'messageReceived', 'enabled'
-            -->
-            <%--f:all bean="user" except="['matchWon', 'password']"/--%>
             <f:display bean="user" except="['password']"/>
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
