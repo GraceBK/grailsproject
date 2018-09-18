@@ -78,7 +78,27 @@
         <h2><g:message code="grailsproject.home.about.me"/></h2>
         <h2><sec:username/></h2>
         <h2><f:display bean="user"/></h2>
-        <!--img src="${createLink(controller:'user', action:'displayStaffImage', id:"${validKeysInstance.id}") }" width='100'/-->
+        <img src="http://localhost:8888/22537642-bf51-4c4a-b852-2ffddc591c68.jpg"/>
+        <sec:loggedInUserInfo field="username"/>
+
+        <img src="${sec.loggedInUserInfo([field:'username'])}"/>
+
+
+        <g:set var="photo"  value="${sec.loggedInUserInfo([field:'username'])}"/>
+        <g:set var="userId"  value="${sec.loggedInUserInfo([field:'id'])}"/>
+
+        <g:if test="${photo != null  && !(photo.empty)}" >
+            <g:link controller="userAccount" action="myInfo" id="${userId}">
+                <img id="profile_photo" src="${createLink(controller:'image', action:'profilePhoto', id:photo, params:[maxWidth:190.0,maxHeight:190.0])}" alt="${photo}" />
+            </g:link>
+        </g:if>
+        <g:else>
+            <g:link controller="userAccount" action="myInfo" id="${id}">
+                <img id="profile_photo" src="${resource(dir:'images', file:'no_image_blue.gif')}" alt="No Image" width="200" height="200"/>
+            </g:link>
+        </g:else>
+
+
     </sec:ifLoggedIn>
     </div>
 

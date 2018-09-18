@@ -24,6 +24,21 @@ class UserController {
         respond new User(params)
     }
 
+    // controller action
+    def displayImg = {
+        /*def img // byte array
+        //...
+        response.setHeader('Content-length', img.length)
+        response.contentType = 'image/png' // or the appropriate image content type
+        response.outputStream << img
+        response.outputStream.flush()*/
+
+        def validKeyInstance = File.get(params.id)
+        response.setContentType("image/jpg")
+        response.outputStream << validKeyInstance.staffImg
+        response.outputStream.flush()
+    }
+
     def save(User user) {
 
         /*if (user.avatar == null) {
@@ -43,7 +58,7 @@ class UserController {
 
         try {
             if (isUpload) {
-                user.avatar = "${baseImage}.jpg"
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
             }
             userService.save(user)
         } catch (ValidationException e) {

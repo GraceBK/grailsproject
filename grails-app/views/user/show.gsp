@@ -20,6 +20,10 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="user" except="['password']"/>
+
+
+            <img src="${user.avatar}"/>
+
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

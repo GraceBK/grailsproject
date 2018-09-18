@@ -1,5 +1,5 @@
-fr.mbds.grails.$UserRoleServiceImplementation
-fr.mbds.grails.$MatchServiceImplementation
-fr.mbds.grails.$MessageServiceImplementation
-fr.mbds.grails.$RoleServiceImplementation
 fr.mbds.grails.$UserServiceImplementation
+fr.mbds.grails.$UserRoleServiceImplementation
+fr.mbds.grails.$MessageServiceImplementation
+fr.mbds.grails.$MatchServiceImplementation
+fr.mbds.grails.$RoleServiceImplementation
