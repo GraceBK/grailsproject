@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
     <title>
         <g:layoutTitle default="Grails"/>
     </title>
@@ -15,15 +16,43 @@
 </head>
 <body>
 
-<g:layoutBody/>
+    <!--div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#">
+		    <asset:image src="grails.svg" alt="Grails Logo"/>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <g:pageProperty name="page.nav" />
+                </ul>
+            </div>
+        </div>
+    </div-->
 
-<!--div class="footer" role="contentinfo"></div-->
+    <sec:ifLoggedIn>
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <li class="nav-item"><g:link class="nav-link" action="index" controller="user"><g:message code="default.list.label" args="[entityName]"  /></g:link></li>
+            <li><g:link class="create" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+        </sec:ifAnyGranted>
+        <g:link class="nav-link" controller='logout'>Logout</g:link>
+    </sec:ifLoggedIn>
 
-<div id="spinner" class="spinner" style="display:none;">
-    <g:message code="spinner.alt" default="Loading&hellip;"/>
-</div>
+    <g:layoutBody/>
 
-<asset:javascript src="application.js"/>
+    <div id="spinner" class="spinner" style="display:none;">
+        <g:message code="spinner.alt" default="Loading&hellip;"/>
+    </div>
+
+    <asset:javascript src="application.js"/>
 
 </body>
 </html>

@@ -2,14 +2,12 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: fr.mbds.tp
+        defaultPackage: fr.mbds.grails
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
-
-
 info:
     app:
         name: '@info.app.name@'
@@ -62,19 +60,11 @@ grails:
             xml:
               - text/xml
               - application/xml
-
-    guides:
-        cdnFolder: /var/www/uploadImages
-        cdnRootUrl: http://localhost:8888
-
     urlmapping:
         cache:
             maxsize: 1000
     controllers:
         defaultScope: singleton
-        upload:
-            maxFileSize: 26214400
-            maxRequestSize: 26214400
     converters:
         encoding: UTF-8
     views:
@@ -137,7 +127,10 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 server:
-    port: 8087
+    port: 8081
     contextPath: /tp
 
-
+# Access image in server Apache
+imagepathfile:
+    filePath: /Applications/MAMP/htdocs
+    fileUrl: http://localhost:8888/

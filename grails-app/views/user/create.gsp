@@ -1,4 +1,3 @@
-<%@ page import="fr.mbds.tp.Picture" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +6,13 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
+        <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <!--div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+            </ul>
+        </div-->
         <div id="create-user" class="content scaffold-create" role="main">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -19,6 +25,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+<<<<<<< HEAD
             <g:form resource="${this.user}" method="POST" enctype="multipart/form-data">
 
                 <div class="fieldcontain">
@@ -30,11 +37,18 @@
                     <f:all bean="user"/>
                 </fieldset>
 
+=======
+            <g:uploadForm controller="user" action="save" resource="${this.user}" method="POST">
+                <fieldset class="form">
+                    <g:field type="file" name="avatarFile"/>
+                    <f:all bean="user"/>
+                </fieldset>
+>>>>>>> e0b58e565cbbe6aa41df82db544ef38ce468971f
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save"
                                     value="${message(code: 'default.button.create.label', default: 'Create')}"/>
                 </fieldset>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>
