@@ -19,6 +19,13 @@ class ApiController {
         render(User.get(2)) as JSON
     }
 
+    /*
+    * Pour les users, je dois créer une methode qui permet d'utiliser l'api
+    * Avec un switch case, si je fasi un GET sans parametre par exemple, en retour j'ai la liste de tous les users
+    * Si je donne un ID en parametre, en retour j'ai le user associé à cet ID
+    *
+    * Avec un POST, je fais soit un create, si le user n'existe pas, ou un update s'il existe
+    * */
     def user(Long id){
         switch (request.getMethod()){
             case "GET":
