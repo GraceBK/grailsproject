@@ -1,6 +1,8 @@
 package fr.mbds.grails
 
 import grails.validation.ValidationException
+import org.springframework.web.multipart.MultipartFile
+
 import static org.springframework.http.HttpStatus.*
 
 class UserController {
@@ -41,11 +43,6 @@ class UserController {
 
     def save(User user) {
 
-        /*if (user.avatar == null) {
-            notFound()
-            return
-        }*/
-
         String baseImage = UUID.randomUUID().toString()
         def downloadedFile = request.getFile("avatarFile")
 
@@ -53,6 +50,8 @@ class UserController {
             notFound()
             return
         }
+
+        println("----------------"+params)
 
         String isUpload = avatarService.uploadFile(downloadedFile, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
 
@@ -80,12 +79,27 @@ class UserController {
     }
 
     def update(User user) {
+
+        String baseImage = UUID.randomUUID().toString()
+        def f = request.getPart("avatarFile")
+
+        user.avatar = null
+
+
         if (user == null) {
             notFound()
             return
         }
 
+        println("----------------"+f)
+        println("----------------"+params)
+
+        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
+
         try {
+            if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }
             userService.save(user)
         } catch (ValidationException e) {
             respond user.errors, view:'edit'

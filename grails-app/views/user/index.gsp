@@ -55,12 +55,18 @@
                             <img class="img-fluid" src="${it.avatar}">
                         </g:if>
                     </td>
+                    <script>
+                        $(function () {
+                            $(".content a").each(function () {
+                                $(this).attr("rel", "external")
+                            })
+                        })
+                    </script>
                     <th style="padding-left: 0;">
                         <div class="card-body" style="padding-left: 5px; padding-top: 5px">
                             <h5 class="card-title">${it.username}</h5>
-                            <g:link controller="user" action="show" class="card-link" id="${it.id}">Details</g:link>
-                            <a href="#" class="card-link">Edit</a>
-                            <g:link controller="user" action="delete" class="card-link" id="${it.id}">Supprimer</g:link>
+                            <g:link controller="user" action="show" class="card-link btn btn-light" id="${it.id}">Details</g:link>
+                            <a href="edit.gsp" rel="external">COUCOU</a>
                         </div>
                     </th>
                 </tr>

@@ -34,3 +34,5 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 
 // DONE Correction de Bug lors que l'utilisateur se deconnecte
 grails.plugin.springsecurity.logout.postOnly = false
+// DONE Page HOME apres connexion
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/user'

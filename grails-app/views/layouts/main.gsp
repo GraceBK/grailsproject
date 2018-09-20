@@ -10,12 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 
-    <sec:ifNotLoggedIn>
+    <%--sec:ifNotLoggedIn>
         <asset:stylesheet src="application.css"/>
     </sec:ifNotLoggedIn>
-    <sec:ifLoggedIn>
+    <sec:ifLoggedIn--%>
         <asset:stylesheet src="bootstrap_min.css"/>
-    </sec:ifLoggedIn>
+    <%--/sec:ifLoggedIn--%>
 
     <g:layoutHead/>
 </head>
@@ -62,8 +62,8 @@
                             User
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
-                            <g:link class="dropdown-item" action="index" controller="user"><g:message code="default.list.label" args="[entityName]" /></g:link>
-                            <g:link class="dropdown-item" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="index" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.list.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="create" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityName]" /></g:link>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -71,8 +71,8 @@
                             Match
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuMatch">
-                            <g:link class="dropdown-item" action="index" controller="user"><g:message code="default.list.label" args="[entityName]" /></g:link>
-                            <g:link class="dropdown-item" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="index" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.list.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="create" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityName]" /></g:link>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -80,8 +80,8 @@
                             Message
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuMessage">
-                            <g:link class="dropdown-item" action="index" controller="user"><g:message code="default.list.label" args="[entityName]" /></g:link>
-                            <g:link class="dropdown-item" action="create" controller="user"><g:message code="default.new.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="index" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.list.label" args="[entityName]" /></g:link>
+                            <g:link class="dropdown-item" action="create" controller="user"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityName]" /></g:link>
                         </div>
                     </li>
                 </sec:ifAnyGranted>

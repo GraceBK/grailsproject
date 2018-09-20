@@ -33,4 +33,18 @@ class AvatarService {
             return null
         }
     }
+
+    String uploadFeaturedImage(MultipartFile featuredImageFile, String destinationDirectory) {
+
+        def extention = 'jpg'//FilenameUtils.getExtension(featuredImageFile.originalFilename)
+        String filename = UUID.randomUUID().toString() + '.' + extention
+        File folder = new File(destinationDirectory + '/' + filename)
+        folder.createNewFile()
+
+
+
+        featuredImageFile.transferTo(new File(destinationDirectory + '/' + filename))
+
+        filename
+    }
 }
