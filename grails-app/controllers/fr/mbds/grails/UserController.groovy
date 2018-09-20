@@ -94,12 +94,12 @@ class UserController {
         println("----------------"+f)
         println("----------------"+params)
 
-        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
+//        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
 
         try {
-            if (isUpload) {
+            /*if (isUpload) {
                 user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
-            }
+            }*/
             userService.save(user)
         } catch (ValidationException e) {
             respond user.errors, view:'edit'
