@@ -65,6 +65,7 @@
                     <th style="padding-left: 0;">
                         <div class="card-body" style="padding-left: 5px; padding-top: 5px">
                             <h5 class="card-title">${it.username}</h5>
+                            <p class="card-text">Role User</p>
                             <g:link controller="user" action="show" class="card-link btn btn-light" id="${it.id}">Details</g:link>
                             <a href="edit.gsp" rel="external">COUCOU</a>
                         </div>

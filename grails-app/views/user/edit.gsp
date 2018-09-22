@@ -34,14 +34,14 @@
                     </g:hasErrors>
 
 
-                    <g:uploadForm controller="user" action="update" resource="${this.user}" method="PUT" enctype="multipart/form-data" style="width: 30rem;">
+                    <g:uploadForm controller="user" action="update" resource="${this.user}" method="PUT" enctype="multipart/form-data" datatype="file" style="width: 30rem;">
                         <div class="form-group">
                             <label for="exampleInputUsername">Username</label>
                             <g:textField name="username" value="${user.username}" class="form-control" id="exampleInputUsername" placeholder="Username"/>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword">Password</label>
-                            <g:passwordField name="password" value="${password}" class="form-control" id="exampleInputPassword" placeholder="Password"/>
+                            <g:passwordField name="password" value="" class="form-control" id="exampleInputPassword" placeholder="Password"/>
                         </div>
                         <!--div class="form-group form-check">
                             <label for="exampleInputPassword">Password</label>
@@ -71,14 +71,27 @@
                             <label class="form-check-label" for="exampleCheck1">Enabled</label>
                             <g:field name="password" type="checkbox" class="form-check-input" id="exampleCheck1" value="${avatar}"/--%>
                         </div>
-                        <div class="form-group">
+                        <!--div class="form-group">
                             <label for="avatarFileA">File input</label>
-                            <%--g:field type="file" id="avatarFile" name="avatarFile" value="${user.avatar}"/--%>
+                            <%--g:field type="file" id="avatarFileA" name="avatarFile" value=""/>
+
+                            <!--input type="file" name="avatarFile" class="form-control-file" id="avatarFileA">
+                            <g:field type="file" name="avatarFile" value="${avatar}"/--%>
+                        </div-->
+                        <g:actionSubmit name="update" class="btn btn-primary btn-block" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                    </g:uploadForm>
+
+
+                    <g:uploadForm controller="user" action="updateAvatar" datatype="file">
+                        <g:hiddenField name="id" value="${user.id}"/>
+                        <div class="form-group" style="padding-top: 50px">
+                            <label for="avatarFileA">File input</label>
+                            <g:field type="file" id="avatarFileA" name="avatarFile" value=""/>
 
                             <!--input type="file" name="avatarFile" class="form-control-file" id="avatarFileA"-->
                             <%--g:field type="file" name="avatarFile" value="${avatar}"/--%>
                         </div>
-                        <g:submitButton name="save" class="save btn btn-primary btn-block" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                        <g:submitButton name="update" class="btn btn-primary btn-block" value="${message(code: 'grailsproject.button.update.label', default: 'Update')}" />
                     </g:uploadForm>
 
                 </div>

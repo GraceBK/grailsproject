@@ -78,23 +78,74 @@ class UserController {
         respond userService.get(id)
     }
 
-    def update(User user) {
-
+    def updateAvatar() {
+        User user = User.get(params.id)
         String baseImage = UUID.randomUUID().toString()
-        def f = request.getPart("avatarFile")
+        def file = request.getFile('avatarFile')
 
-        user.avatar = null
+        // user.avatar = null
 
+        println("+++++++++++++"+params)
+
+        String isUpload = avatarService.uploadFile(file, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
+        if (isUpload) {
+            user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+        }
+
+        if (!user.avatar) {
+            response.sendError(404)
+            return
+        }
+
+        try {
+            /*if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }*/
+            userService.save(user)
+        } catch (ValidationException e) {
+            respond user.errors, view:'edit'
+            return
+        }
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                redirect user
+            }
+            '*'{ respond user, [status: OK] }
+        }
+
+//        def f = request.getPart("file")
+//        println("+++++++++++++"+f)
+//        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
+
+
+        /*if (user.avatar == null) {
+
+            if (file.empty) {
+                flash.message = "File cannot be empty"
+            } else {
+                String isUpload = avatarService.uploadFeaturedImage(file, grailsApplication.config.imagepathfile.filePath)
+                //user.avatar = file.bytes
+                if (isUpload) {
+                    user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+                }
+                user.save(flush: true, failOnError: true)
+            }
+        } else {
+            print "something else"
+        }*/
+        //redirect(view: 'user/show', action: 'index')
+    }
+
+    def update(User user) {
 
         if (user == null) {
             notFound()
             return
         }
 
-        println("----------------"+f)
         println("----------------"+params)
-
-//        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
 
         try {
             /*if (isUpload) {
