@@ -183,6 +183,33 @@ class UserController {
         }
     }
 
+    def justDeleteMe() {
+        User user = User.get(params.id)
+
+        user.enabled = false
+
+        try {
+            /*if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }*/
+            userService.save(user)
+        } catch (ValidationException e) {
+            respond user.errors, view:'edit'
+            return
+        }
+
+        /*request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+                redirect action:"index", method:"GET"
+            }
+            '*'{ render status: NO_CONTENT }
+        }*/
+
+        redirect(view: 'user/show', action: 'index')
+    }
+
+
     protected void notFound() {
         request.withFormat {
             form multipartForm {
