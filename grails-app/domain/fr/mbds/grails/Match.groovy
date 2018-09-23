@@ -6,6 +6,13 @@ class Match {
     int winnerScore
     int looserScore
 
+    User winner
+    User looser
+    int winnerScore
+    int looserScore
+
+    Date dateCreated
+
     static constraints = {
 
     }

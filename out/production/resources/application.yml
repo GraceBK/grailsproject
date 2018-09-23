@@ -60,6 +60,7 @@ grails:
             xml:
               - text/xml
               - application/xml
+
     urlmapping:
         cache:
             maxsize: 1000
@@ -129,6 +130,11 @@ environments:
 server:
     port: 8081
     contextPath: /tp
+
+guides:
+  cdnFolder: "/var/www/uploadImages"
+  cdnRootUrl: "http://localhost:8888"
+
 
 # Access image in server Apache
 imagepathfile:

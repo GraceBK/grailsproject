@@ -43,40 +43,34 @@
         </li>
     </content-->
 
-<div id="content" role="main">
-    <sec:ifNotLoggedIn>
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
-
-        <!--div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-            <li class="controller">
-            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-            </li>
-        </g:each>
-                </ul>
-            </div-->
+<div class="container">
+    <div id="container h-100" role="main">
+        <div class="row justify-content-center h-75 align-items-center">
             <sec:ifNotLoggedIn>
-                <g:link controller="login" action="auth">
-                    <div class="alert alert-link" role="alert">Login</div>
-                </g:link>
-            </sec:ifNotLoggedIn>
+                <div class="jumbotron">
+                    <g:link class="btn btn-primary" controller="login" action="auth">
+                        <span class="btn-lg" role="alert">Login</span>
+                    </g:link>
 
-            <sec:ifLoggedIn>
-                <h2><g:message code="grailsproject.home.about.me"/></h2>
-                <h2><sec:username/></h2>
-            </sec:ifLoggedIn>
-        </section>
-    </sec:ifNotLoggedIn>
+                    <hr class="my-4">
+
+                    <h1>Welcome to Grails</h1>
+
+                    <p class="lead">
+                        Congratulations, you have successfully started your first Grails application! At the moment
+                        this is the default page, feel free to modify it to either redirect to a controller or display
+                        whatever content you may choose. Below is a list of controllers that are currently deployed in
+                        this application, click on each to execute its default action:
+                    </p>
+
+                    <sec:ifLoggedIn>
+                        <h2><g:message code="grailsproject.home.about.me"/></h2>
+                        <h2><sec:username/></h2>
+                    </sec:ifLoggedIn>
+                </div>
+            </sec:ifNotLoggedIn>
+        </div>
+    </div>
 </div>
 
 </body>

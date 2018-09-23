@@ -1,6 +1,8 @@
 package fr.mbds.grails
 
 import grails.validation.ValidationException
+import org.springframework.web.multipart.MultipartFile
+
 import static org.springframework.http.HttpStatus.*
 
 class UserController {
@@ -41,11 +43,6 @@ class UserController {
 
     def save(User user) {
 
-        /*if (user.avatar == null) {
-            notFound()
-            return
-        }*/
-
         String baseImage = UUID.randomUUID().toString()
         def downloadedFile = request.getFile("avatarFile")
 
@@ -53,6 +50,8 @@ class UserController {
             notFound()
             return
         }
+
+        println("----------------"+params)
 
         String isUpload = avatarService.uploadFile(downloadedFile, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
 
@@ -79,13 +78,79 @@ class UserController {
         respond userService.get(id)
     }
 
+    def updateAvatar() {
+        User user = User.get(params.id)
+        String baseImage = UUID.randomUUID().toString()
+        def file = request.getFile('avatarFile')
+
+        // user.avatar = null
+
+        println("+++++++++++++"+params)
+
+        String isUpload = avatarService.uploadFile(file, "${baseImage}.jpg", grailsApplication.config.imagepathfile.filePath)
+        if (isUpload) {
+            user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+        }
+
+        if (!user.avatar) {
+            response.sendError(404)
+            return
+        }
+
+        try {
+            /*if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }*/
+            userService.save(user)
+        } catch (ValidationException e) {
+            respond user.errors, view:'edit'
+            return
+        }
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                redirect user
+            }
+            '*'{ respond user, [status: OK] }
+        }
+
+//        def f = request.getPart("file")
+//        println("+++++++++++++"+f)
+//        String isUpload = avatarService.uploadFeaturedImage(f as MultipartFile, grailsApplication.config.imagepathfile.filePath)
+
+
+        /*if (user.avatar == null) {
+
+            if (file.empty) {
+                flash.message = "File cannot be empty"
+            } else {
+                String isUpload = avatarService.uploadFeaturedImage(file, grailsApplication.config.imagepathfile.filePath)
+                //user.avatar = file.bytes
+                if (isUpload) {
+                    user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+                }
+                user.save(flush: true, failOnError: true)
+            }
+        } else {
+            print "something else"
+        }*/
+        //redirect(view: 'user/show', action: 'index')
+    }
+
     def update(User user) {
+
         if (user == null) {
             notFound()
             return
         }
 
+        println("----------------"+params)
+
         try {
+            /*if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }*/
             userService.save(user)
         } catch (ValidationException e) {
             respond user.errors, view:'edit'
@@ -117,6 +182,33 @@ class UserController {
             '*'{ render status: NO_CONTENT }
         }
     }
+
+    def justDeleteMe() {
+        User user = User.get(params.id)
+
+        user.enabled = false
+
+        try {
+            /*if (isUpload) {
+                user.avatar = grailsApplication.config.imagepathfile.fileUrl + "${baseImage}.jpg"
+            }*/
+            userService.save(user)
+        } catch (ValidationException e) {
+            respond user.errors, view:'edit'
+            return
+        }
+
+        /*request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+                redirect action:"index", method:"GET"
+            }
+            '*'{ render status: NO_CONTENT }
+        }*/
+
+        redirect(view: 'user/show', action: 'index')
+    }
+
 
     protected void notFound() {
         request.withFormat {

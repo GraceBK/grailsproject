@@ -46,24 +46,35 @@
             </thead>
             <tbody>
             <g:each in="${userList}">
-                <tr>
-                    <td width="200">
-                        <g:if test="${it.avatar == null}">
-                            <g:img class="img-fluid" dir="avatar_profile" file="default_profile.jpg"/>
-                        </g:if>
-                        <g:if test="${it.avatar != null}">
-                            <img class="img-fluid" src="${it.avatar}">
-                        </g:if>
-                    </td>
-                    <th style="padding-left: 0;">
-                        <div class="card-body" style="padding-left: 5px; padding-top: 5px">
-                            <h5 class="card-title">${it.username}</h5>
-                            <g:link controller="user" action="show" class="card-link" id="${it.id}">Details</g:link>
-                            <a href="#" class="card-link">Edit</a>
-                            <g:link controller="user" action="delete" class="card-link" id="${it.id}">Supprimer</g:link>
-                        </div>
-                    </th>
-                </tr>
+                <g:if test="${it.enabled == true}">
+                    <tr>
+                        <td width="200">
+                            <g:if test="${it.avatar == null}">
+                                <g:img class="img-fluid" dir="avatar_profile" file="default_profile.jpg"/>
+                            </g:if>
+                            <g:if test="${it.avatar != null}">
+                                <img class="img-fluid" src="${it.avatar}">
+                            </g:if>
+                        </td>
+                        <script>
+                            $(function () {
+                                $(".content a").each(function () {
+                                    $(this).attr("rel", "external")
+                                })
+                            })
+                        </script>
+                        <th style="padding-left: 0;">
+                            <div class="card-body" style="padding-left: 5px; padding-top: 5px">
+                                <h5 class="card-title">${it.username}</h5>
+                                <p class="card-text">Role User</p>
+                                <g:link controller="user" action="show" class="card-link btn btn-info" id="${it.id}">Details</g:link>
+                                <g:link controller="user" action="edit" class="card-link btn btn-primary" id="${it.id}">Edit</g:link>
+                                <g:link controller="user" action="justDeleteMe" class="card-link btn btn-danger" id="${it.id}">Delete</g:link>
+                                <!--a href="edit.gsp" rel="external">COUCOU</a-->
+                            </div>
+                        </th>
+                    </tr>
+                </g:if>
             </g:each>
             </tbody>
         </table>

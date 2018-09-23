@@ -7,6 +7,7 @@ class Message {
     String content
     Boolean lu = Boolean.FALSE
 
+
     static constraints = {
         author nullable: false
         target nullable: false

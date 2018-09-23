@@ -5,7 +5,7 @@
     <title>Welcome to Grails</title>
 </head>
 <body>
-    <!--content tag="nav">
+<!--content tag="nav">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -37,13 +37,13 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
+    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
+</g:each>
             </ul>
         </li>
     </content-->
 
-    <div id="content" role="main">
+<div id="content" role="main">
     <sec:ifNotLoggedIn>
         <section class="row colset-2-its">
             <h1>Welcome to Grails</h1>
@@ -55,14 +55,14 @@
                 this application, click on each to execute its default action:
             </p>
 
-            <!--div id="controllers" role="navigation">
+        <!--div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>
                     <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
+            <li class="controller">
+            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
+            </li>
+        </g:each>
                 </ul>
             </div-->
             <sec:ifNotLoggedIn>
@@ -70,17 +70,14 @@
                     <div class="alert alert-link" role="alert">Login</div>
                 </g:link>
             </sec:ifNotLoggedIn>
+
+            <sec:ifLoggedIn>
+                <h2><g:message code="grailsproject.home.about.me"/></h2>
+                <h2><sec:username/></h2>
+            </sec:ifLoggedIn>
         </section>
     </sec:ifNotLoggedIn>
-
-    <sec:ifLoggedIn>
-        <h1 style="margin-top: 100px">AZERTY</h1>
-        <h2><g:message code="grailsproject.home.about.me"/></h2>
-        <h2><sec:username/></h2>
-        <h2><f:display bean="user"/></h2>
-        <!--img src="${createLink(controller:'user', action:'displayStaffImage', id:"${validKeysInstance.id}") }" width='100'/-->
-    </sec:ifLoggedIn>
-    </div>
+</div>
 
 </body>
 </html>
