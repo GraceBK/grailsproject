@@ -5,7 +5,7 @@ class Message {
     User author
     User target
     String content
-    Boolean lu = Boolean.FALSE
+    Boolean lu = Boolean.TRUE
 
 
     static constraints = {
