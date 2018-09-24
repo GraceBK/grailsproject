@@ -37,7 +37,7 @@ class MessageController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'message.label', default: 'Message'), message.id])
+                //flash.message = (String)message(code: 'default.created.message', args: [message(code: 'match.label', default: 'Match'), match.id])
                 redirect message
             }
             '*' { respond message, [status: CREATED] }
