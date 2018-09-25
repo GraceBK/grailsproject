@@ -31,16 +31,19 @@ class ApiController {
         switch (request.getMethod()){
             // Si c'est une requete GET
             case "GET":
-                Long userId = request.getParameter("id")
+                Long userId = Long.parseLong(params.id)
                 // On vérifie si l'id est nul, si oui
                 if (userId != null){
-                    User user = User.get(id);
+                    User user = User.get(userId)
+                    System.out.println(userId+" "+user)
                     // On vérifie si l'utilisateur existe, si oui
                     if (user) {
                         // L'afficher au format JSON
                         render(user as JSON);
                     }else { //  sinon renvoyer la bonne erreur
-                        response.status = 400;
+                        //response.sendError(404) as JSON
+                        render("404 Not Found")
+                        response.status = 404
                     }
                 }else{  // Sinon, on renvoie la liste de tous les utilisateurs
                     render(User.list() as JSON)
