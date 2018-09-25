@@ -4,6 +4,7 @@ import grails.converters.JSON
 
 class ApiController {
 
+    UserService userService
     def index() {
         //render "ok"
         switch (request.getMethod()){
@@ -35,26 +36,86 @@ class ApiController {
                 // On vérifie si l'id est nul, si oui
                 if (userId != null){
                     User user = User.get(userId)
-                    System.out.println(userId+" "+user)
                     // On vérifie si l'utilisateur existe, si oui
                     if (user) {
                         // L'afficher au format JSON
-                        render(user as JSON);
+                        response.status = 200
+                        render(user as JSON)
                     }else { //  sinon renvoyer la bonne erreur
-                        //response.sendError(404) as JSON
-                        render("404 Not Found")
                         response.status = 404
                     }
                 }else{  // Sinon, on renvoie la liste de tous les utilisateurs
-                    render(User.list() as JSON)
+                    response.status = 405
                 }
                 break
             case "POST":
-                User user = new User();
-                user.id = request.getParameter("id");
-                user.username = request.getParameter("username");
-                user.password = request.getParameter("password");
+                String username = request.getParameter("username")
+                if (User.findAllByUsername(username)){
+                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+                }else {
+                    User user = new User()
+                    user.username = request.getParameter("username")
+                    user.password = request.getParameter("password")
+                    userService.save(user)
+                    response.status = 200
+                    render user as JSON
+                }
+                break
+            case "DELETE":
 
+                break
+            case "PUT":
+                Long userId = Long.parseLong(request.JSON.id)
+                String username = request.JSON.username
+                String password = request.JSON.password
+                User user1 = User.get(userId)
+                if (user1){
+                    user1.setUsername(username)
+                    user1.setPassword(password)
+                    userService.save(user1)
+                    response.status = 200
+                    render user as JSON
+                }else {
+                    render("Cet utilisateur n'existe pas dans la base, mise à jour impossible")
+                    response.status = 405
+
+                }
+                break
+            default:
+                response.status = 400
+        }
+    }
+
+
+    /**
+     * Méthode qui permet de gerer les Requestes sur un message
+     * params message (author, target, content, lu)
+     * @param id
+     * @return
+     */
+    def message() {
+        switch (request.getMethod()) {
+            case "GET":
+                def sms = Message.get(params.id)
+                if (sms) {
+                    render(sms as JSON)
+                    return null
+                } else {
+                    render("Not Found")
+                    return null
+                }
+                break
+            case "POST":
+                def sms = new Message(request.JSON as Map)
+                if (sms.save(flush : true)) {
+                    System.out.println(sms)
+                    render(sms as JSON)
+                    return null
+                } else {
+                    System.out.println(sms)
+                    render("Cann't save")
+                    return null
+                }
                 break
             case "DELETE":
                 break
