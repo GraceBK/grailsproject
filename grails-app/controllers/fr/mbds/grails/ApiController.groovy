@@ -132,6 +132,19 @@ class ApiController {
                 }
                 break
             case "PUT":
+                def smsInstance = Message.get(request.JSON.id)
+                if (!smsInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    if (smsInstance.save(flush : true)) {
+                        render(smsInstance as JSON)
+                        return null
+                    } else {
+                        render("Cann't update")
+                        return null
+                    }
+                }
                 break
         }
     }
