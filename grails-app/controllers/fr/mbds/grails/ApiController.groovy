@@ -26,19 +26,36 @@ class ApiController {
     *
     * Avec un POST, je fais soit un create, si le user n'existe pas, ou un update s'il existe
     * */
-    def user(Long id){
+    def user(){
+        // On vérifie le VERBE
         switch (request.getMethod()){
+            // Si c'est une requete GET
             case "GET":
-                if (id != 0){
-                    render(User.get(id)) as JSON
-                }else{
-                    render(User.list()) as JSON
+                Long userId = request.getParameter("id")
+                // On vérifie si l'id est nul, si oui
+                if (userId != null){
+                    User user = User.get(id);
+                    // On vérifie si l'utilisateur existe, si oui
+                    if (user) {
+                        // L'afficher au format JSON
+                        render(user as JSON);
+                    }else { //  sinon renvoyer la bonne erreur
+                        response.status = 400;
+                    }
+                }else{  // Sinon, on renvoie la liste de tous les utilisateurs
+                    render(User.list() as JSON)
                 }
                 break
             case "POST":
                 User user = new User();
-                user.username = request.getHeader(user.username)
-                user.password = request.getHeader(user.password)
+                user.id = request.getParameter("id");
+                user.username = request.getParameter("username");
+                user.password = request.getParameter("password");
+
+                break
+            case "DELETE":
+                break
+            case "PUT":
                 break
         }
     }
