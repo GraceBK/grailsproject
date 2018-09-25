@@ -95,6 +95,7 @@ class ApiController {
                 if (user1){
                     user1.setUsername(username)
                     user1.setPassword(password)
+                    userService.save(user1)
                     response.status = 200
                     render user as JSON
                 }else {
@@ -105,6 +106,56 @@ class ApiController {
                 break
             default:
                 response.status = 400
+        }
+    }
+
+
+    /**
+     * Méthode qui permet de gerer les Requestes sur un message
+     * params message (author, target, content, lu)
+     * @param id
+     * @return
+     */
+    def message() {
+        switch (request.getMethod()) {
+            case "GET":
+                def sms = Message.get(params.id)
+                if (sms) {
+                    render(sms as JSON)
+                    return null
+                } else {
+                    render("Not Found")
+                    return null
+                }
+                break
+            case "POST":
+                /*def jsonObject = request.JSON.target
+                println requesr.JSON.target
+                System.out.println("coucou "+jsonObject)*/
+                def sms = new Message(request.JSON as Map)
+                if (sms.save(flush : true)) {
+                    System.out.println(sms)
+                    render(sms as JSON)
+                    return null
+                } else {
+                    System.out.println(sms)
+                    render("Cann't save")
+                    return null
+                }
+                break
+            case "DELETE":
+                def smsInstance = Message.get(params.id)
+                if (!smsInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    smsInstance.delete(flush: true)
+                    render(status: 200, text: "200 OK")
+                    return null
+                }
+                break
+            case "PUT":
+                break
         }
     }
 }
