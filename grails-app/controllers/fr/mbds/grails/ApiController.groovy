@@ -106,6 +106,9 @@ class ApiController {
                 }
                 break
             case "POST":
+                /*def jsonObject = request.JSON.target
+                println requesr.JSON.target
+                System.out.println("coucou "+jsonObject)*/
                 def sms = new Message(request.JSON as Map)
                 if (sms.save(flush : true)) {
                     System.out.println(sms)
@@ -118,6 +121,15 @@ class ApiController {
                 }
                 break
             case "DELETE":
+                def smsInstance = Message.get(params.id)
+                if (!smsInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    smsInstance.delete(flush: true)
+                    render(status: 200, text: "200 OK")
+                    return null
+                }
                 break
             case "PUT":
                 break
