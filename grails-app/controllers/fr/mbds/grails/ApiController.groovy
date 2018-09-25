@@ -73,7 +73,12 @@ class ApiController {
                 break
             case "PUT":
                 println request.JSON
-                String userJSON = JSON.parse(request.JSON.text);
+                User user = User.get(request.JSON.id)
+                user.properties = request.JSON
+                userService.save(user)
+
+
+               // String userJSON = JSON.parse(request.JSON.text);
                 User user = new User(userJSON.user)
                 if (user.save(flush: true)){
                     response.status = 200
