@@ -57,16 +57,16 @@ class ApiController {
                     render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
 
                 }
-//                String username = request.getParameter("username")
-//                if (User.findAllByUsername(username)){
-//                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
-//                }else {
-//                    User user = new User()
-//                    user.username = request.getParameter("username")
-//                    user.password = request.getParameter("password")
-//                    response.status = 200
-//                    render user as JSON
-//                }
+                String username = request.getParameter("username")
+                if (User.findAllByUsername(username)){
+                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+                }else {
+                    //User user = new User()
+                    user.username = request.getParameter("username")
+                    user.password = request.getParameter("password")
+                    response.status = 200
+                    render user as JSON
+                }
                 break
             case "DELETE":
 
