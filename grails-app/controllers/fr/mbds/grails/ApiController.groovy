@@ -48,21 +48,46 @@ class ApiController {
                 }
                 break
             case "POST":
-                String username = request.getParameter("username")
-                if (User.findAllByUsername(username)){
-                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
-                }else {
-                    User user = new User()
-                    user.username = request.getParameter("username")
-                    user.password = request.getParameter("password")
+                String userJSON = JSON.parse(request.reader.text);
+                User user = new User(userJSON.user);
+                if (user.save(flush: true)){
                     response.status = 200
                     render user as JSON
+                }else {
+                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+
                 }
+//                String username = request.getParameter("username")
+//                if (User.findAllByUsername(username)){
+//                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+//                }else {
+//                    User user = new User()
+//                    user.username = request.getParameter("username")
+//                    user.password = request.getParameter("password")
+//                    response.status = 200
+//                    render user as JSON
+//                }
                 break
             case "DELETE":
 
                 break
             case "PUT":
+                println request.JSON
+                String userJSON = JSON.parse(request.JSON.text);
+                User user = new User(userJSON.user)
+                if (user.save(flush: true)){
+                    response.status = 200
+                    render user as JSON
+                }
+
+
+
+
+
+
+
+
+                //////////////////////////////////////////////
                 Long userId = Long.parseLong(request.getParameter("id"))
                 String username = request.getParameter("username")
                 String password = request.getParameter("password")
