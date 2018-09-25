@@ -4,7 +4,6 @@ import grails.converters.JSON
 
 class ApiController {
 
-    UserService userService
     def index() {
         //render "ok"
         switch (request.getMethod()){
@@ -49,14 +48,22 @@ class ApiController {
                 }
                 break
             case "POST":
+                String userJSON = JSON.parse(request.reader.text);
+                User user = new User(userJSON.user);
+                if (user.save(flush: true)){
+                    response.status = 200
+                    render user as JSON
+                }else {
+                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+
+                }
                 String username = request.getParameter("username")
                 if (User.findAllByUsername(username)){
                     render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
                 }else {
-                    User user = new User()
+                    //User user = new User()
                     user.username = request.getParameter("username")
                     user.password = request.getParameter("password")
-                    userService.save(user)
                     response.status = 200
                     render user as JSON
                 }
@@ -65,9 +72,25 @@ class ApiController {
 
                 break
             case "PUT":
-                Long userId = Long.parseLong(request.JSON.id)
-                String username = request.JSON.username
-                String password = request.JSON.password
+                println request.JSON
+                String userJSON = JSON.parse(request.JSON.text);
+                User user = new User(userJSON.user)
+                if (user.save(flush: true)){
+                    response.status = 200
+                    render user as JSON
+                }
+
+
+
+
+
+
+
+
+                //////////////////////////////////////////////
+                Long userId = Long.parseLong(request.getParameter("id"))
+                String username = request.getParameter("username")
+                String password = request.getParameter("password")
                 User user1 = User.get(userId)
                 if (user1){
                     user1.setUsername(username)
