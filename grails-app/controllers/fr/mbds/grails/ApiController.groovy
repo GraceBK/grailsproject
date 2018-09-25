@@ -31,32 +31,55 @@ class ApiController {
         switch (request.getMethod()){
             // Si c'est une requete GET
             case "GET":
-                Long userId = request.getParameter("id")
+                Long userId = Long.parseLong(params.id)
                 // On vérifie si l'id est nul, si oui
                 if (userId != null){
-                    User user = User.get(id);
+                    User user = User.get(userId)
                     // On vérifie si l'utilisateur existe, si oui
                     if (user) {
                         // L'afficher au format JSON
-                        render(user as JSON);
+                        response.status = 200
+                        render(user as JSON)
                     }else { //  sinon renvoyer la bonne erreur
-                        response.status = 400;
+                        response.status = 404
                     }
                 }else{  // Sinon, on renvoie la liste de tous les utilisateurs
-                    render(User.list() as JSON)
+                    response.status = 405
                 }
                 break
             case "POST":
-                User user = new User();
-                user.id = request.getParameter("id");
-                user.username = request.getParameter("username");
-                user.password = request.getParameter("password");
-
+                String username = request.getParameter("username")
+                if (User.findAllByUsername(username)){
+                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+                }else {
+                    User user = new User()
+                    user.username = request.getParameter("username")
+                    user.password = request.getParameter("password")
+                    response.status = 200
+                    render user as JSON
+                }
                 break
             case "DELETE":
+
                 break
             case "PUT":
+                Long userId = Long.parseLong(request.getParameter("id"))
+                String username = request.getParameter("username")
+                String password = request.getParameter("password")
+                User user1 = User.get(userId)
+                if (user1){
+                    user1.setUsername(username)
+                    user1.setPassword(password)
+                    response.status = 200
+                    render user as JSON
+                }else {
+                    render("Cet utilisateur n'existe pas dans la base, mise à jour impossible")
+                    response.status = 405
+
+                }
                 break
+            default:
+                response.status = 400
         }
     }
 }
