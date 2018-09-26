@@ -77,14 +77,14 @@ class ApiController {
                 user.properties = request.JSON
                 userService.save(user)
 
-
+/*
                // String userJSON = JSON.parse(request.JSON.text);
                 User user = new User(userJSON.user)
                 if (user.save(flush: true)){
                     response.status = 200
                     render user as JSON
                 }
-
+*/
 
 
 
@@ -139,7 +139,7 @@ class ApiController {
                 System.out.println("coucou "+jsonObject)*/
                 def sms = new Message(request.JSON as Map)
                 if (sms.save(flush : true)) {
-                    System.out.println(sms)
+                    System.out.println(sms + " COUCOU")
                     render(sms as JSON)
                     return null
                 } else {
@@ -160,11 +160,16 @@ class ApiController {
                 }
                 break
             case "PUT":
+                // TODO Update message
+                def jsonObject = request.JSON.id
                 def smsInstance = Message.get(request.JSON.id)
+                println(" coucou "+smsInstance + " - " + params.author)
                 if (!smsInstance) {
                     render(status: 400, text: "400 Bad Request")
                     return null
                 } else {
+                    println(" ++++++ "+smsInstance)
+                    //smsInstance.author = params.
                     if (smsInstance.save(flush : true)) {
                         render(smsInstance as JSON)
                         return null
@@ -172,6 +177,100 @@ class ApiController {
                         render("Cann't update")
                         return null
                     }
+                }
+                break
+        }
+    }
+
+
+    def messages() {
+        switch (request.getMethod()) {
+            case "GET":
+                render(Message.getAll() as JSON)
+                break
+            /*case "DELETE":
+                render(Message.deleteAll() as JSON)
+                break*/
+        }
+    }
+
+
+
+    def match() {
+        switch (request.getMethod()) {
+            case "GET":
+                def matchInstance = Match.get(params.id)
+                if (matchInstance) {
+                    render(matchInstance as JSON)
+                    return null
+                } else {
+                    render("Not Found")
+                    return null
+                }
+                break
+            case "POST":
+                /*def jsonObject = request.JSON.target
+                println requesr.JSON.target
+                System.out.println("coucou "+jsonObject)*/
+                def matchInstance = new Match(request.JSON as Map)
+                if (matchInstance.save(flush : true)) {
+                    System.out.println(matchInstance + " COUCOU")
+                    render(matchInstance as JSON)
+                    return null
+                } else {
+                    System.out.println(matchInstance)
+                    render("Cann't save")
+                    return null
+                }
+                break
+            case "DELETE":
+                def matchInstance = Match.get(params.id)
+                if (!matchInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    matchInstance.delete(flush: true)
+                    render(status: 200, text: "200 OK")
+                    return null
+                }
+                break
+            case "PUT":
+                // TODO Update message
+                def jsonObject = request.JSON.id
+                def matchInstance = Match.get(request.JSON.id)
+                println(" coucou "+matchInstance + " - " + params.author)
+                if (!matchInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    println(" ++++++ "+matchInstance)
+                    //matchInstance.author = params.
+                    if (matchInstance.save(flush : true)) {
+                        render(matchInstance as JSON)
+                        return null
+                    } else {
+                        render("Cann't update")
+                        return null
+                    }
+                }
+                break
+        }
+    }
+
+    def matchs() {
+        switch (request.getMethod()) {
+            case "GET":
+                render(Match.getAll() as JSON)
+                break
+            case "DELETE":
+                def matchInstance = Match.get(params.id)
+                if (!matchInstance) {
+                    render(status: 400, text: "400 Bad Request")
+                    return null
+                } else {
+                    matchInstance.delete(flush: true)
+                    render(status: 200, text: "200 OK")
+                    return null
                 }
                 break
         }
