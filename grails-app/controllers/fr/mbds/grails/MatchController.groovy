@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Transactional(readOnly = true)
+@Transactional
 class MatchController {
 
     MatchService matchService

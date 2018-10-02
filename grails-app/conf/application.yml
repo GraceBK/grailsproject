@@ -138,5 +138,5 @@ guides:
 
 # Access image in server Apache
 imagepathfile:
-    filePath: /var/www/uploadImages
+    filePath: /Applications/MAMP/htdocs
     fileUrl: http://localhost:8888/

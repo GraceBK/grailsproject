@@ -82,39 +82,9 @@ class ApiController {
             case "PUT":
                 println request.JSON
                 User user = User.get(request.JSON.id)
-<<<<<<< HEAD
                 if(user){
                     user.properties = request.JSON
                     userService.save(user)
-=======
-                user.properties = request.JSON
-                userService.save(user)
-
-/*
-               // String userJSON = JSON.parse(request.JSON.text);
-                User user = new User(userJSON.user)
-                if (user.save(flush: true)){
-                    response.status = 200
-                    render user as JSON
-                }
-*/
-
-
-
-
-
-
-
-                //////////////////////////////////////////////
-                Long userId = Long.parseLong(request.getParameter("id"))
-                String username = request.getParameter("username")
-                String password = request.getParameter("password")
-                User user1 = User.get(userId)
-                if (user1){
-                    user1.setUsername(username)
-                    user1.setPassword(password)
-                    userService.save(user1)
->>>>>>> 7f8c211f812464915a68a83aa7f8c66bf1c46b3e
                     response.status = 200
                 }else{
                     response.status = 405

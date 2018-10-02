@@ -6,7 +6,7 @@ import grails.validation.ValidationException
 
 import static org.springframework.http.HttpStatus.*
 
-@Transactional(readOnly = true)
+@Transactional
 class UserController {
 
     UserService userService
@@ -46,7 +46,6 @@ class UserController {
         response.outputStream.flush()
     }
 
-    @Transactional
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(User user) {
 
@@ -81,11 +80,13 @@ class UserController {
         }
     }
 
+    @Transactional
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Long id) {
         respond userService.get(id)
     }
 
+    @Transactional
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def updateAvatar() {
         User user = User.get(params.id)
