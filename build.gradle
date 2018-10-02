@@ -65,6 +65,10 @@ dependencies {
 
     // Ajout de la dependance MySQL
     runtime 'mysql:mysql-connector-java:5.1.29'
+
+    // Ajout de la dependance quartz pour gerer le CRON
+    compile 'org.grails.plugins:quartz:2.0.13'
+
 }
 
 bootRun {

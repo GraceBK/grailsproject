@@ -69,46 +69,27 @@ class ApiController {
                 }
                 break
             case "DELETE":
-
+                User user1 = User.get(request.JSON.id)
+                if (user1){
+                    userService.delete(user1)
+                    response.status = 200
+                    render("L'utilisateur" + user1 + "a été supprimé de la base")
+                }else {
+                    response.status = 405
+                    render("Cet utilisateur n'existe pas dans la base, impossible de le supprimer")
+                }
                 break
             case "PUT":
                 println request.JSON
                 User user = User.get(request.JSON.id)
-                user.properties = request.JSON
-                userService.save(user)
-
-
-               // String userJSON = JSON.parse(request.JSON.text);
-                User user = new User(userJSON.user)
-                if (user.save(flush: true)){
+                if(user){
+                    user.properties = request.JSON
+                    userService.save(user)
                     response.status = 200
-                    render user as JSON
-                }
-
-
-
-
-
-
-
-
-                //////////////////////////////////////////////
-                Long userId = Long.parseLong(request.getParameter("id"))
-                String username = request.getParameter("username")
-                String password = request.getParameter("password")
-                User user1 = User.get(userId)
-                if (user1){
-                    user1.setUsername(username)
-                    user1.setPassword(password)
-                    userService.save(user1)
-                    response.status = 200
-                    render user as JSON
-                }else {
-                    render("Cet utilisateur n'existe pas dans la base, mise à jour impossible")
+                }else{
                     response.status = 405
-
+                    render("Cet utilisateur n'existe pas dans la base, impossible de le mettre a jour")
                 }
-                break
             default:
                 response.status = 400
         }
