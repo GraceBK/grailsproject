@@ -1,27 +1,35 @@
 package fr.mbds.grails
 
+import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
+@Transactional(readOnly = true)
 class MessageController {
 
     MessageService messageService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond messageService.list(params), model:[messageCount: messageService.count()]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def show(Long id) {
         respond messageService.get(id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
         respond new Message(params)
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(Message message) {
         if (message == null) {
             notFound()
@@ -44,10 +52,14 @@ class MessageController {
         }
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Long id) {
         respond messageService.get(id)
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def update(Message message) {
         if (message == null) {
             notFound()
@@ -70,6 +82,8 @@ class MessageController {
         }
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def delete(Long id) {
         if (id == null) {
             notFound()

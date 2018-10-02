@@ -70,15 +70,15 @@
                             <g:link class="dropdown-item" action="create" controller="user"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityName]" /></g:link--%>
                         </div>
                     </li-->
-                    <li class="nav-item dropdown">
+                    <!--li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuRole" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Role
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuRole">
-                            <g:link class="dropdown-item" action="index" controller="role"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.list.label" args="[entityNameRole]" /></g:link>
-                            <g:link class="dropdown-item" action="create" controller="role"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityNameRole]" /></g:link>
+                            <%--g:link class="dropdown-item" action="index" controller="role"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.list.label" args="[entityNameRole]" /></g:link>
+                            <g:link class="dropdown-item" action="create" controller="role"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <g:message code="default.new.label" args="[entityNameRole]" /></g:link--%>
                         </div>
-                    </li>
+                    </li-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuMatch" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Match

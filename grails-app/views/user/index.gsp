@@ -36,6 +36,7 @@
 <%--f:table collection="${userList}" properties="['username', 'passwordExpired', 'accountExpired', 'accountLocked', 'enabled']"/--%>
 
     <div class="row justify-content-center">
+<sec:ifAnyGranted roles="ROLE_ADMIN">
         <table class="table table-borderless">
             <thead>
             <tr>
@@ -78,6 +79,9 @@
             </g:each>
             </tbody>
         </table>
+</sec:ifAnyGranted>
+<sec:ifAnyGranted roles="ROLE_USER">
+</sec:ifAnyGranted>
     </div>
     <div class="pagination justify-content-center">
         <g:paginate total="${userCount ?: 0}" />

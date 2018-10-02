@@ -1,10 +1,12 @@
 package fr.mbds.grails
 
+import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import grails.validation.ValidationException
-import org.springframework.web.multipart.MultipartFile
 
 import static org.springframework.http.HttpStatus.*
 
+@Transactional(readOnly = true)
 class UserController {
 
     UserService userService
@@ -13,15 +15,18 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond userService.list(params), model:[userCount: userService.count()]
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def show(Long id) {
         respond userService.get(id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         respond new User(params)
     }
@@ -41,6 +46,8 @@ class UserController {
         response.outputStream.flush()
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(User user) {
 
         String baseImage = UUID.randomUUID().toString()
@@ -74,10 +81,12 @@ class UserController {
         }
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Long id) {
         respond userService.get(id)
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def updateAvatar() {
         User user = User.get(params.id)
         String baseImage = UUID.randomUUID().toString()
@@ -138,6 +147,8 @@ class UserController {
         //redirect(view: 'user/show', action: 'index')
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def update(User user) {
 
         if (user == null) {
@@ -166,6 +177,8 @@ class UserController {
         }
     }
 
+    @Transactional
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         if (id == null) {
             notFound()
@@ -183,6 +196,7 @@ class UserController {
         }
     }
 
+    @Secured(['ROLE_ADMIN'])
     def justDeleteMe() {
         User user = User.get(params.id)
 
