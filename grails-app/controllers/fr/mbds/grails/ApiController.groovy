@@ -69,11 +69,24 @@ class ApiController {
                 }
                 break
             case "DELETE":
-
+                User user1 = User.get(request.JSON.id)
+                if (user1){
+                    userService.delete(user1)
+                    response.status = 200
+                    render("L'utilisateur" + user1 + "a été supprimé de la base")
+                }else {
+                    response.status = 405
+                    render("Cet utilisateur n'existe pas dans la base, impossible de le supprimer")
+                }
                 break
             case "PUT":
                 println request.JSON
                 User user = User.get(request.JSON.id)
+<<<<<<< HEAD
+                if(user){
+                    user.properties = request.JSON
+                    userService.save(user)
+=======
                 user.properties = request.JSON
                 userService.save(user)
 
@@ -101,14 +114,12 @@ class ApiController {
                     user1.setUsername(username)
                     user1.setPassword(password)
                     userService.save(user1)
+>>>>>>> 7f8c211f812464915a68a83aa7f8c66bf1c46b3e
                     response.status = 200
-                    render user as JSON
-                }else {
-                    render("Cet utilisateur n'existe pas dans la base, mise à jour impossible")
+                }else{
                     response.status = 405
-
+                    render("Cet utilisateur n'existe pas dans la base, impossible de le mettre a jour")
                 }
-                break
             default:
                 response.status = 400
         }
