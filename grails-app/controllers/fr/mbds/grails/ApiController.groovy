@@ -33,8 +33,16 @@ class ApiController {
         switch (request.getMethod()){
             // Si c'est une requete GET
             case "GET":
-                Long userId = Long.parseLong(params.id)
+                Long userId;
+                try {
+                    userId = Long.parseLong(params.id)
+
+                }catch(Exception){
+                    response.status = 400
+                    render("Vérifiez les paramètres de votre requête, ils doivent être incorrects")
+                }
                 // On vérifie si l'id est nul, si oui
+                //println(params)
                 if (userId != null){
                     User user = User.get(userId)
                     // On vérifie si l'utilisateur existe, si oui
@@ -44,8 +52,9 @@ class ApiController {
                         render(user as JSON)
                     }else { //  sinon renvoyer la bonne erreur
                         response.status = 404
+                        render("Cet utilisateur n'existe pas dans la base des Utilisateurs")
                     }
-                }else{  // Sinon, on renvoie la liste de tous les utilisateurs
+                }else{  // Sinon, on renvoie une erreur
                     response.status = 405
                 }
                 break
@@ -95,13 +104,15 @@ class ApiController {
     def users(){
         switch (request.getMethod()){
             case "GET":
-                def parametres = getParams();
-                if (params){
+                if (params.containsKey("id")){
                     response.status = 400
                     render("Cette méthode n'est pas sensée utiliser des paramètres")
                 }else{
+                response.status = 200
                     render(User.list() as JSON)
                 }
+                break
+
         }
     }
 
