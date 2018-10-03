@@ -1,6 +1,7 @@
 package fr.mbds.grails
 
 import grails.converters.JSON
+import org.hibernate.mapping.Map
 import org.springframework.validation.BindingResult
 
 class ApiController {
@@ -49,30 +50,18 @@ class ApiController {
                 }
                 break
             case "POST":
-                String userJSON = JSON.parse(request.reader.text);
-                User user = new User(userJSON.user);
+                def user = new User(request.JSON as Map)
                 if (user.save(flush: true)){
-                    response.status = 200
+                    response.status = 201
                     render user as JSON
                 }else {
                     render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
-
-                }
-                String username = request.getParameter("username")
-                if (User.findAllByUsername(username)){
-                    render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
-                }else {
-                    //User user = new User()
-                    user.username = request.getParameter("username")
-                    user.password = request.getParameter("password")
-                    response.status = 200
-                    render user as JSON
+                    response.status = 405
                 }
                 break
             case "DELETE":
-                User user1 = User.get(request.JSON.id)
-                if (user1){
-                    userService.delete(user1)
+                User user1 = User.get(params.id)
+                if (user1.delete(flush: true)){
                     response.status = 200
                     render("L'utilisateur" + user1 + "a été supprimé de la base")
                 }else {
@@ -85,16 +74,23 @@ class ApiController {
                 User user = User.get(request.JSON.id)
                 if(user){
                     user.properties = request.JSON
-                    userService.save(user)
-                    response.status = 200
+                    if (user.save(flush: true)){
+                        response.status = 200
+                        render("L'utilisateur " + user.id + "a été modifié avec succès")
+                    }else{
+                        response.status = 405
+                        render("La modification de l'utilisateur est impossible")
+                    }
+
                 }else{
-                    response.status = 405
+                    response.status = 404
                     render("Cet utilisateur n'existe pas dans la base, impossible de le mettre a jour")
                 }
             default:
                 response.status = 400
         }
     }
+
 
 
     /**
