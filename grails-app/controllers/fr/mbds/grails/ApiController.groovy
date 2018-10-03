@@ -219,11 +219,22 @@ class ApiController {
     }
 
 
+    /**
+     * Méthode qui permet de gerer les Requestes sur l'ensemble des Messages
+     * params message (Author, Target, Content, Lu)
+     */
     def messages() {
         switch (request.getMethod()) {
+        /**
+         * HTTP Method    | GET
+         * URI            | http://localhost:8081/tp/api/messages
+         * Operation      | Get list of Message
+         * Operation Type | Read Only
+         */
             case "GET":
                 render(Message.getAll() as JSON)
                 break
+            // TODO : delete all Message with lu = true
             /*case "DELETE":
                 render(Message.deleteAll() as JSON)
                 break*/
@@ -348,22 +359,23 @@ class ApiController {
         }
     }
 
+    /**
+     * Méthode qui permet de gerer les Requestes sur l'ensemble des Matchs
+     * params match (WinnerScore, LooserScore, Winner, Looser)
+     */
     def matchs() {
         switch (request.getMethod()) {
+        /**
+         * HTTP Method    | GET
+         * URI            | http://localhost:8081/tp/api/matchs
+         * Operation      | Get list of Match
+         * Operation Type | Read Only
+         */
             case "GET":
                 render(Match.getAll() as JSON)
                 break
-            case "DELETE":
-                def matchInstance = Match.get(params.id)
-                if (!matchInstance) {
-                    render(status: 400, text: "400 Bad Request")
-                    return null
-                } else {
-                    matchInstance.delete(flush: true)
-                    render(status: 200, text: "200 OK")
-                    return null
-                }
-                break
+            /*case "DELETE":
+                break*/
         }
     }
 }
