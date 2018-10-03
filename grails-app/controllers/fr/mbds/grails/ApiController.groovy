@@ -98,10 +98,8 @@ class ApiController {
 
 
     /**
-     * Méthode qui permet de gerer les Requestes sur un message
+     * Méthode qui permet de gerer les Requestes sur un Message
      * params message (Author, Target, Content, Lu)
-     * @param id
-     * @return
      */
     def message() {
         switch (request.getMethod()) {
@@ -233,9 +231,20 @@ class ApiController {
     }
 
 
-
+    /**
+     * Méthode qui permet de gerer les Requestes sur un Match
+     * params match (WinnerScore, LooserScore, Winner, Looser)
+     * @param id
+     * @return
+     */
     def match() {
         switch (request.getMethod()) {
+        /**
+         * HTTP Method    | GET
+         * URI            | http://localhost:8081/tp/api/match/1
+         * Operation      | Get Match of Id 1
+         * Operation Type | Read Only
+         */
             case "GET":
                 def matchInstance = Match.get(params.id)
                 if (matchInstance) {
@@ -246,21 +255,46 @@ class ApiController {
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/match/(Optional 2)
+         * Operation      | Insert Match with Id (Optional 2)
+         * Operation Type | Non-Idempotent
+         * ------------------------------------------------------------------
+         *
+         * Headers = JSON (application/json)
+         *
+         * Body =
+         *
+         {
+             "winnerScore": 2,
+             "looserScore": 1,
+             "winner": {
+                "id": 1
+             },
+             "looser": {
+                "id": 2
+             }
+         }
+         */
             case "POST":
-                /*def jsonObject = request.JSON.target
-                println requesr.JSON.target
-                System.out.println("coucou "+jsonObject)*/
                 def matchInstance = new Match(request.JSON as Map)
                 if (matchInstance.save(flush : true)) {
-                    System.out.println(matchInstance + " COUCOU")
+//                    System.out.println(matchInstance + " COUCOU")
                     render(matchInstance as JSON)
                     return null
                 } else {
                     System.out.println(matchInstance)
-                    render("Cann't save")
+                    render("Can't save")
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | DELETE
+         * URI            | http://localhost:8081/tp/api/match/1
+         * Operation      | Delete Match with Id 1
+         * Operation Type | Idempotent
+         */
             case "DELETE":
                 def matchInstance = Match.get(params.id)
                 if (!matchInstance) {
@@ -272,22 +306,41 @@ class ApiController {
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | PUT
+         * URI            | http://localhost:8081/tp/api/match/2
+         * Operation      | Delete Match with Id 2
+         * Operation Type | N/A
+         * ------------------------------------------------------------------
+         *
+         * Headers = JSON (application/json)
+         *
+         * Body =
+         *
+         {
+             "id": 2,
+             "winnerScore": 2,
+             "looserScore": 1,
+             "winner": {
+                "id": 1
+             },
+             "looser": {
+                "id": 2
+             }
+         }
+         */
             case "PUT":
-                // TODO Update message
-                def jsonObject = request.JSON.id
                 def matchInstance = Match.get(request.JSON.id)
-                println(" coucou "+matchInstance + " - " + params.author)
                 if (!matchInstance) {
                     render(status: 400, text: "400 Bad Request")
                     return null
                 } else {
-                    println(" ++++++ "+matchInstance)
-                    //matchInstance.author = params.
+                    matchInstance.properties = request.JSON
                     if (matchInstance.save(flush : true)) {
                         render(matchInstance as JSON)
                         return null
                     } else {
-                        render("Cann't update")
+                        render("Can't update")
                         return null
                     }
                 }
