@@ -1,6 +1,7 @@
 package fr.mbds.grails
 
 import grails.converters.JSON
+import org.springframework.validation.BindingResult
 
 class ApiController {
 
@@ -98,12 +99,18 @@ class ApiController {
 
     /**
      * Méthode qui permet de gerer les Requestes sur un message
-     * params message (author, target, content, lu)
+     * params message (Author, Target, Content, Lu)
      * @param id
      * @return
      */
     def message() {
         switch (request.getMethod()) {
+        /**
+         * HTTP Method    | GET
+         * URI            | http://localhost:8081/tp/api/message/1
+         * Operation      | Get Message of Id 1
+         * Operation Type | Read Only
+         */
             case "GET":
                 def sms = Message.get(params.id)
                 if (sms) {
@@ -114,21 +121,49 @@ class ApiController {
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/message/(Optional 4)
+         * Operation      | Insert Message with Id (Optional 4)
+         * Operation Type | Non-Idempotent
+         * ------------------------------------------------------------------
+         *
+         * Headers = JSON (application/json)
+         *
+         * Body =
+         *
+         {
+            "target": {
+                "id": 1
+            },
+            "lu": false,
+            "content": "Coucou",
+            "author": {
+                "id": 2
+            }
+         }
+         */
             case "POST":
                 /*def jsonObject = request.JSON.target
                 println requesr.JSON.target
                 System.out.println("coucou "+jsonObject)*/
                 def sms = new Message(request.JSON as Map)
                 if (sms.save(flush : true)) {
-                    System.out.println(sms + " COUCOU")
+//                    System.out.println(sms + " COUCOU")
                     render(sms as JSON)
                     return null
                 } else {
                     System.out.println(sms)
-                    render("Cann't save")
+                    render("Can't save")
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | DELETE
+         * URI            | http://localhost:8081/tp/api/message/1
+         * Operation      | Delete Message with Id 1
+         * Operation Type | Idempotent
+         */
             case "DELETE":
                 def smsInstance = Message.get(params.id)
                 if (!smsInstance) {
@@ -140,22 +175,44 @@ class ApiController {
                     return null
                 }
                 break
+        /**
+         * HTTP Method    | PUT
+         * URI            | http://localhost:8081/tp/api/message/2
+         * Operation      | Delete Message with Id 2
+         * Operation Type | N/A
+         * ------------------------------------------------------------------
+         *
+         * Headers = JSON (application/json)
+         *
+         * Body =
+         *
+         {
+             "id": 2,
+             "target": {
+                "id": 1
+             },
+             "lu": true,
+             "content": "Hello World",
+             "author": {
+                "id": 2
+             }
+         }
+         */
             case "PUT":
-                // TODO Update message
-                def jsonObject = request.JSON.id
+                //def jsonObject = request.JSON.id
+                println request.JSON
                 def smsInstance = Message.get(request.JSON.id)
-                println(" coucou "+smsInstance + " - " + params.author)
+                println(" coucou "+smsInstance.properties)
                 if (!smsInstance) {
                     render(status: 400, text: "400 Bad Request")
                     return null
                 } else {
-                    println(" ++++++ "+smsInstance)
-                    //smsInstance.author = params.
+                    smsInstance.properties = request.JSON
                     if (smsInstance.save(flush : true)) {
                         render(smsInstance as JSON)
                         return null
                     } else {
-                        render("Cann't update")
+                        render("Can't update")
                         return null
                     }
                 }
