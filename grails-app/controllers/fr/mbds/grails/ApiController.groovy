@@ -92,6 +92,19 @@ class ApiController {
     }
 
 
+    def users(){
+        switch (request.getMethod()){
+            case "GET":
+                def parametres = getParams();
+                if (params){
+                    response.status = 400
+                    render("Cette méthode n'est pas sensée utiliser des paramètres")
+                }else{
+                    render(User.list() as JSON)
+                }
+        }
+    }
+
 
     /**
      * Méthode qui permet de gerer les Requestes sur un Message
