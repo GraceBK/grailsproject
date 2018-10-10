@@ -18,7 +18,27 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:table collection="${messageList}" />
+            <%--f:table collection="${messageList}" /--%>
+
+            <table class="table table-hover">
+                <thead>
+                <g:sortableColumn property="author" title="Author"/>
+                <g:sortableColumn property="target" title="Target"/>
+                <g:sortableColumn property="content" title="Content"/>
+                <g:sortableColumn property="lu" title="Lu"/>
+                </thead>
+
+                <tbody>
+                <g:each in="${messageList}">
+                    <tr>
+                        <td><g:link controller="user" action="show" id="${it.author.id}">${it.author.username}</g:link></td>
+                        <td><g:link controller="user" action="show" id="${it.target.id}">${it.target.username}</g:link></td>
+                        <td><g:link controller="message" action="show" id="${it.id}">${it.content}</g:link></td>
+                        <td><g:link controller="message" action="show" id="${it.id}">${it.lu}</g:link></td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
 
             <div class="pagination">
                 <g:paginate total="${messageCount ?: 0}" />

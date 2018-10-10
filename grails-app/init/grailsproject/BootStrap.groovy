@@ -5,10 +5,19 @@ import fr.mbds.grails.Message
 import fr.mbds.grails.Role
 import fr.mbds.grails.User
 import fr.mbds.grails.UserRole
+import grails.converters.JSON
 
 class BootStrap {
 
     def init = { servletContext ->
+
+        /*JSON.registerObjectMarshaller(User) {
+            def output = [:]
+            output['id'] = it.id
+            output['username'] = it.username
+
+            output
+        }*/
 
         if (Role.count == 0) {
             def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true, failOnError: true)
@@ -29,6 +38,12 @@ class BootStrap {
             new Message(author: playerUser, target: playerTwoUser, content: "nananère").save(flush: true, failOnError: true)
             new Message(author: playerTwoUser, target: playerUser, content: ":(").save(flush: true, failOnError: true)
         }
+
+        /*JSON.registerObjectMarshaller(User) {
+            return [
+                    username: user.id
+            ]
+        }*/
 
     }
     def destroy = {
