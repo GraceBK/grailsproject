@@ -265,10 +265,30 @@ class ApiController {
             case "GET":
                 render(Message.getAll() as JSON)
                 break
-            // TODO : delete all Message with lu = true
-            /*case "DELETE":
-                render(Message.deleteAll() as JSON)
-                break*/
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/matchs
+         * Operation      | Insert list of Match
+         * Operation Type | Non-Idempotent
+         */
+            case "POST":
+                request.JSON.each {
+                    def messageInstance = new Message(
+                            author: it.author,
+                            target: it.target,
+                            content: it.content,
+                            lu: it.lu
+                    )
+                    if (messageInstance.save(flush : true)) {
+                        println("${it} Created")
+                    } else {
+                        response.status = 405
+                        render(status: 405, text: "Bad Request")
+                        return null
+                    }
+                }
+                render(status: 201, text: "Message Add")
+                break
         }
     }
 
@@ -415,8 +435,32 @@ class ApiController {
             case "GET":
                 render(Match.getAll() as JSON)
                 break
-            /*case "DELETE":
-                break*/
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/matchs
+         * Operation      | Insert list of Match
+         * Operation Type | Non-Idempotent
+         */
+            case "POST":
+                println("-----> "+ request.JSON)
+                request.JSON.each {
+                    def matchInstance = new Match(
+                            winner: it.winner,
+                            winnerScore: it.winnerScore,
+                            looserScore: it.looserScore,
+                            looser: it.looser
+
+                    )
+                    if (matchInstance.save(flush : true)) {
+                        println("${it} Created")
+                    } else {
+                        response.status = 405
+                        render(status: 405, text: "Bad Request")
+                        return null
+                    }
+                }
+                render(status: 201, text: "Matches Add")
+                break
         }
     }
 }
