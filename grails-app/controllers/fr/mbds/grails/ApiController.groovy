@@ -59,7 +59,8 @@ class ApiController {
                 }
                 break
             case "POST":
-                def user = new User(request.JSON as Map)
+                print("-------------------"+request.JSON)
+                def user = new User(request.JSON)
                 if (user.save(flush: true)){
                     response.status = 201
                     render user as JSON
@@ -168,7 +169,7 @@ class ApiController {
                 /*def jsonObject = request.JSON.target
                 println requesr.JSON.target
                 System.out.println("coucou "+jsonObject)*/
-                def sms = new Message(request.JSON as Map)
+                def sms = new Message(request.JSON)
                 if (sms.save(flush : true)) {
                     response.status = 201
                     println("Created")
@@ -343,7 +344,7 @@ class ApiController {
          }
          */
             case "POST":
-                def matchInstance = new Match(request.JSON as Map)
+                def matchInstance = new Match(request.JSON)
                 if (matchInstance.save(flush : true)) {
                     response.status = 201
                     println("Created")
