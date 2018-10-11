@@ -61,6 +61,8 @@ class ApiController {
             case "POST":
                 def user = new User(request.JSON as Map)
                 if (user.save(flush: true)){
+                    Role role = Role.get('ROLE_USER');
+                    UserRole.create(user: user, role: role, flush: true);
                     response.status = 201
                     render user as JSON
                 }else {

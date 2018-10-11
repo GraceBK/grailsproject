@@ -23,7 +23,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/logout/**',      access: ['permitAll']],
 
 	[pattern: '/dbconsole/*',    access: ['ROLE_ADMIN']],
-		[pattern: '/api/**', access: ['ROLE_ADMIN']]
+		[pattern: '/api/**', access: ['ROLE_ADMIN', 'ROLE_USER']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
@@ -35,7 +35,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS'],
 	//Traditional, stateful chain
 	[
-			pattern: '/api/**', access: ['ROLE_ADMIN'],
+			pattern: '/api/**', access: ['ROLE_ADMIN', 'ROLE_USER'],
 			filters: 'JOINED_FILTERS, -anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,' +
 					'-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
 	]
