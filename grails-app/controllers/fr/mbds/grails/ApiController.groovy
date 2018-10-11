@@ -59,7 +59,8 @@ class ApiController {
                 }
                 break
             case "POST":
-                def user = new User(request.JSON as Map)
+                print("-------------------"+request.JSON)
+                def user = new User(request.JSON)
                 if (user.save(flush: true)){
                     Role role = Role.get('ROLE_USER');
                     UserRole.create(user: user, role: role, flush: true);
@@ -134,10 +135,13 @@ class ApiController {
             case "GET":
                 def sms = Message.get(params.id)
                 if (sms) {
+                    response.status = 200
+                    println("OK")
                     render(sms as JSON)
                     return null
                 } else {
-                    render("Not Found")
+                    println("Not Found")
+                    render(status: 404, text: "Not Found")
                     return null
                 }
                 break
@@ -167,14 +171,16 @@ class ApiController {
                 /*def jsonObject = request.JSON.target
                 println requesr.JSON.target
                 System.out.println("coucou "+jsonObject)*/
-                def sms = new Message(request.JSON as Map)
+                def sms = new Message(request.JSON)
                 if (sms.save(flush : true)) {
-//                    System.out.println(sms + " COUCOU")
+                    response.status = 201
+                    println("Created")
                     render(sms as JSON)
                     return null
                 } else {
-                    System.out.println(sms)
-                    render("Can't save")
+                    response.status = 409
+                    println("Conflict")
+                    render("Conflict Can't save")
                     return null
                 }
                 break
@@ -187,11 +193,13 @@ class ApiController {
             case "DELETE":
                 def smsInstance = Message.get(params.id)
                 if (!smsInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
+                    println("OK")
                     smsInstance.delete(flush: true)
-                    render(status: 200, text: "200 OK")
+                    render(status: 200, text: "OK")
                     return null
                 }
                 break
@@ -222,17 +230,21 @@ class ApiController {
                 //def jsonObject = request.JSON.id
                 println request.JSON
                 def smsInstance = Message.get(request.JSON.id)
-                println(" coucou "+smsInstance.properties)
+//                println(" coucou "+smsInstance.properties)
                 if (!smsInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
                     smsInstance.properties = request.JSON
                     if (smsInstance.save(flush : true)) {
+                        response.status = 200
+                        println("OK")
                         render(smsInstance as JSON)
                         return null
                     } else {
-                        render("Can't update")
+                        println("Can't update")
+                        render(status: 404, text: "Can't update")
                         return null
                     }
                 }
@@ -256,10 +268,30 @@ class ApiController {
             case "GET":
                 render(Message.getAll() as JSON)
                 break
-            // TODO : delete all Message with lu = true
-            /*case "DELETE":
-                render(Message.deleteAll() as JSON)
-                break*/
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/matchs
+         * Operation      | Insert list of Match
+         * Operation Type | Non-Idempotent
+         */
+            case "POST":
+                request.JSON.each {
+                    def messageInstance = new Message(
+                            author: it.author,
+                            target: it.target,
+                            content: it.content,
+                            lu: it.lu
+                    )
+                    if (messageInstance.save(flush : true)) {
+                        println("${it} Created")
+                    } else {
+                        response.status = 405
+                        render(status: 405, text: "Bad Request")
+                        return null
+                    }
+                }
+                render(status: 201, text: "Message Add")
+                break
         }
     }
 
@@ -281,10 +313,13 @@ class ApiController {
             case "GET":
                 def matchInstance = Match.get(params.id)
                 if (matchInstance) {
+                    response.status = 200
+                    println("OK")
                     render(matchInstance as JSON)
                     return null
                 } else {
-                    render("Not Found")
+                    println("Not Found")
+                    render(status: 404, text: "Not Found")
                     return null
                 }
                 break
@@ -311,14 +346,15 @@ class ApiController {
          }
          */
             case "POST":
-                def matchInstance = new Match(request.JSON as Map)
+                def matchInstance = new Match(request.JSON)
                 if (matchInstance.save(flush : true)) {
-//                    System.out.println(matchInstance + " COUCOU")
+                    response.status = 201
+                    println("Created")
                     render(matchInstance as JSON)
                     return null
                 } else {
-                    System.out.println(matchInstance)
-                    render("Can't save")
+                    println("Conflict")
+                    render(status: 409, text: "Can't save")
                     return null
                 }
                 break
@@ -331,9 +367,11 @@ class ApiController {
             case "DELETE":
                 def matchInstance = Match.get(params.id)
                 if (!matchInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
+                    println("OK")
                     matchInstance.delete(flush: true)
                     render(status: 200, text: "200 OK")
                     return null
@@ -365,15 +403,19 @@ class ApiController {
             case "PUT":
                 def matchInstance = Match.get(request.JSON.id)
                 if (!matchInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
                     matchInstance.properties = request.JSON
                     if (matchInstance.save(flush : true)) {
+                        response.status = 200
+                        println("OK")
                         render(matchInstance as JSON)
                         return null
                     } else {
-                        render("Can't update")
+                        println("Can't update")
+                        render(status: 404, text: "Can't update")
                         return null
                     }
                 }
@@ -396,8 +438,32 @@ class ApiController {
             case "GET":
                 render(Match.getAll() as JSON)
                 break
-            /*case "DELETE":
-                break*/
+        /**
+         * HTTP Method    | POST
+         * URI            | http://localhost:8081/tp/api/matchs
+         * Operation      | Insert list of Match
+         * Operation Type | Non-Idempotent
+         */
+            case "POST":
+                println("-----> "+ request.JSON)
+                request.JSON.each {
+                    def matchInstance = new Match(
+                            winner: it.winner,
+                            winnerScore: it.winnerScore,
+                            looserScore: it.looserScore,
+                            looser: it.looser
+
+                    )
+                    if (matchInstance.save(flush : true)) {
+                        println("${it} Created")
+                    } else {
+                        response.status = 405
+                        render(status: 405, text: "Bad Request")
+                        return null
+                    }
+                }
+                render(status: 201, text: "Matches Add")
+                break
         }
     }
 }
