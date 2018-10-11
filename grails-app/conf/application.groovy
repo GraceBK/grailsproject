@@ -26,12 +26,32 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
+		//Stateless chain
+		[
+				pattern: '/**',
+				filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+		],
+
+		//Traditional, stateful chain
+		[
+				pattern: '/stateful/**',
+				filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'
+		]
+]
+
+grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS']
+	[pattern: '/**',             filters: 'JOINED_FILTERS'],
+	//Traditional, stateful chain
+	[
+			pattern: '/api/**',
+			filters: 'JOINED_FILTERS, -anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,' +
+					'-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+	]
 ]
 
 // DONE Correction de Bug lors que l'utilisateur se deconnecte
