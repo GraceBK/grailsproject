@@ -132,10 +132,13 @@ class ApiController {
             case "GET":
                 def sms = Message.get(params.id)
                 if (sms) {
+                    response.status = 200
+                    println("OK")
                     render(sms as JSON)
                     return null
                 } else {
-                    render("Not Found")
+                    println("Not Found")
+                    render(status: 404, text: "Not Found")
                     return null
                 }
                 break
@@ -167,12 +170,14 @@ class ApiController {
                 System.out.println("coucou "+jsonObject)*/
                 def sms = new Message(request.JSON as Map)
                 if (sms.save(flush : true)) {
-//                    System.out.println(sms + " COUCOU")
+                    response.status = 201
+                    println("Created")
                     render(sms as JSON)
                     return null
                 } else {
-                    System.out.println(sms)
-                    render("Can't save")
+                    response.status = 409
+                    println("Conflict")
+                    render("Conflict Can't save")
                     return null
                 }
                 break
@@ -185,11 +190,13 @@ class ApiController {
             case "DELETE":
                 def smsInstance = Message.get(params.id)
                 if (!smsInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
+                    println("OK")
                     smsInstance.delete(flush: true)
-                    render(status: 200, text: "200 OK")
+                    render(status: 200, text: "OK")
                     return null
                 }
                 break
@@ -220,17 +227,21 @@ class ApiController {
                 //def jsonObject = request.JSON.id
                 println request.JSON
                 def smsInstance = Message.get(request.JSON.id)
-                println(" coucou "+smsInstance.properties)
+//                println(" coucou "+smsInstance.properties)
                 if (!smsInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
                     smsInstance.properties = request.JSON
                     if (smsInstance.save(flush : true)) {
+                        response.status = 200
+                        println("OK")
                         render(smsInstance as JSON)
                         return null
                     } else {
-                        render("Can't update")
+                        println("Can't update")
+                        render(status: 404, text: "Can't update")
                         return null
                     }
                 }
@@ -279,10 +290,13 @@ class ApiController {
             case "GET":
                 def matchInstance = Match.get(params.id)
                 if (matchInstance) {
+                    response.status = 200
+                    println("OK")
                     render(matchInstance as JSON)
                     return null
                 } else {
-                    render("Not Found")
+                    println("Not Found")
+                    render(status: 404, text: "Not Found")
                     return null
                 }
                 break
@@ -311,12 +325,13 @@ class ApiController {
             case "POST":
                 def matchInstance = new Match(request.JSON as Map)
                 if (matchInstance.save(flush : true)) {
-//                    System.out.println(matchInstance + " COUCOU")
+                    response.status = 201
+                    println("Created")
                     render(matchInstance as JSON)
                     return null
                 } else {
-                    System.out.println(matchInstance)
-                    render("Can't save")
+                    println("Conflict")
+                    render(status: 409, text: "Can't save")
                     return null
                 }
                 break
@@ -329,9 +344,11 @@ class ApiController {
             case "DELETE":
                 def matchInstance = Match.get(params.id)
                 if (!matchInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
+                    println("OK")
                     matchInstance.delete(flush: true)
                     render(status: 200, text: "200 OK")
                     return null
@@ -363,15 +380,19 @@ class ApiController {
             case "PUT":
                 def matchInstance = Match.get(request.JSON.id)
                 if (!matchInstance) {
-                    render(status: 400, text: "400 Bad Request")
+                    println("Bad Request")
+                    render(status: 400, text: "Bad Request")
                     return null
                 } else {
                     matchInstance.properties = request.JSON
                     if (matchInstance.save(flush : true)) {
+                        response.status = 200
+                        println("OK")
                         render(matchInstance as JSON)
                         return null
                     } else {
-                        render("Can't update")
+                        println("Can't update")
+                        render(status: 404, text: "Can't update")
                         return null
                     }
                 }
