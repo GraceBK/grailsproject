@@ -22,7 +22,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/logout',         access: ['permitAll']],
 	[pattern: '/logout/**',      access: ['permitAll']],
 
-	[pattern: '/dbconsole/*',    access: ['ROLE_ADMIN']]
+	[pattern: '/dbconsole/*',    access: ['ROLE_ADMIN']],
+		[pattern: '/api/**', access: ['ROLE_ADMIN']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
@@ -31,8 +32,27 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS']
+	[pattern: '/**',             filters: 'JOINED_FILTERS'],
+	//Traditional, stateful chain
+	[
+			pattern: '/api/**', access: ['ROLE_ADMIN'],
+			filters: 'JOINED_FILTERS, -anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,' +
+					'-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+	]
 ]
+
+grails.plugin.springsecurity.rest.login.active = true
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
+grails.plugin.springsecurity.rest.login.failureStatusCode = 401
+grails.plugin.springsecurity.rest.login.useJsonCredentials = true
+grails.plugin.springsecurity.rest.login.usernamePropertyName = 'username'
+grails.plugin.springsecurity.rest.login.passwordPropertyName = 'password'
+grails.plugin.springsecurity.rest.token.storage.useMemcached = false
+grails.plugin.springsecurity.rest.token.storage.useGorm = false
+grails.plugin.springsecurity.rest.token.storage.useGrailsCache = false
+grails.plugin.springsecurity.rest.token.generation.jwt.algorithm = 'HS256'
+grails.plugin.springsecurity.rest.token.storage.jwt.useSignedJwt = true
+grails.plugin.springsecurity.rest.token.storage.jwt.secret = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhYWFhIn0.Gc8l1o5crDuDaQSQtgPROVzisxRjceOyharRoZ7uPac'
 
 // DONE Correction de Bug lors que l'utilisateur se deconnecte
 grails.plugin.springsecurity.logout.postOnly = false

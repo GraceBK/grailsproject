@@ -23,6 +23,8 @@ apply plugin:"org.grails.grails-gsp"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local" }
+
 }
 
 dependencies {
@@ -61,7 +63,7 @@ dependencies {
 
     // Ajout de la dependance Spring security et Spring Security Rest
     compile 'org.grails.plugins:spring-security-core:3.2.3'
-    //compile 'org.grails.plugins:spring-security-rest:2.0.0.RC1'
+    compile 'org.grails.plugins:spring-security-rest:2.0.0.BUILD-SNAPSHOT'
 
     // Ajout de la dependance MySQL
     runtime 'mysql:mysql-connector-java:5.1.29'

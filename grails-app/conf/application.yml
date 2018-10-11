@@ -140,3 +140,15 @@ guides:
 imagepathfile:
     filePath: /Applications/MAMP/htdocs
     fileUrl: http://localhost:8888/
+
+filterChain:
+    chainMap:
+    # Anonymous access
+    - pattern: 'api/anonymous/**'
+      filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'
+    # Stateless chain
+    - pattern: '/api/**'
+      filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+    # Traditional chain
+    - pattern: '/*'
+      filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter,-customRestAuthenticationFilter'

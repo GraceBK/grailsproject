@@ -9,6 +9,8 @@ import grails.compiler.GrailsCompileStatic
 @ToString(includes='username', includeNames=true, includePackage=false)
 class User implements Serializable {
 
+    transient springSecurityService
+
     private static final long serialVersionUID = 1
 
     String username
@@ -25,6 +27,8 @@ class User implements Serializable {
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
     }
+
+    static transients = ['springSecurityService']
 
     static constraints = {
         password nullable: false, blank: false, password: true
