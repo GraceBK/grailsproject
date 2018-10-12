@@ -6,6 +6,9 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.mbds.grails
 grails.plugin.springsecurity.authority.className = 'fr.mbds.grails.Role'
 grails.plugin.springsecurity.requestMap.className = 'fr.mbds.grails.UserRole'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
+
+grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -23,7 +26,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/logout/**',      access: ['permitAll']],
 
 	[pattern: '/dbconsole/*',    access: ['ROLE_ADMIN']],
-	[pattern: '/api/**', access: ['ROLE_ADMIN', 'ROLE_USER']]
+	[pattern: '/api/**', access: ['ROLE_ADMIN', 'ROLE_USER']],
+	[pattern: '/api/logout', access: ['isAuthenticated()']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
