@@ -62,6 +62,8 @@ class ApiController {
                 print("-------------------"+request.JSON)
                 def user = new User(request.JSON)
                 if (user.save(flush: true)){
+                    Role role = Role.get('ROLE_USER');
+                    UserRole.create(user: user, role: role, flush: true);
                     response.status = 201
                     render user as JSON
                 }else {
