@@ -1,0 +1,1035 @@
+{
+	"info": {
+		"_postman_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"askiamoha\",\n    \"password\": \"salut\",\n    \"authority\": \"ROLE_USER\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Admin\",\n    \"password\": \"coucou\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Many Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"GraceBK\",\n    \"password\": \"salut\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Add Message",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target\": {\n        \"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Coucou\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Message",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Echec recuperation message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"0"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:17:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "Recuperer message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:16:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"target\": {\n        \"id\": 3\n    },\n    \"lu\": false,\n    \"content\": \"nananère\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target\": {\n    \t\"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Hello World\",\n    \"author\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Many Messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou toi\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Mouahahaha\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Salut les BG\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t}\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Match",
+			"item": [
+				{
+					"name": "Add Match",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"winnerScore\": 2,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 3\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Match",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Match",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Match",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 2,\n\t\"winnerScore\": 2,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 1\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add All Matchs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/matchs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"matchs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Many Matchs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"winnerScore\": 2,\n\t    \"looserScore\": 1,\n\t    \"winner\": {\n\t    \t\"id\": 3\n\t    },\n\t    \"looser\": {\n\t    \t\"id\": 2\n\t    }\n\t},\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/matchs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"matchs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Many Matchs",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"winnerScore\": 2,\n\t    \"looserScore\": 1,\n\t    \"winner\": {\n\t    \t\"id\": 3\n\t    },\n\t    \"looser\": {\n\t    \t\"id\": 2\n\t    }\n\t},\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-FR"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Oct 2018 09:01:46 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "\n<html>\n    <head>\n        <meta name=\"layout\" content=\"login\"/>\n        <title></title>\n        <link rel=\"stylesheet\" href=\"/tp/assets/bootstrap_min.css?compile=false\" />\n    </head>\n    <body>\n        <div class=\"container h-100\">\n            <div class=\"row justify-content-center h-75 align-items-center\">\n                <div>\n                    <div class=\"card\">\n                        <div class=\"card-body\">\n                            <form method=\"POST\" action=\"/tp/login/authenticate\" class=\"form-signin was-validated\" style=\"width: 300px\">\n                                <h2 class=\"form-signin-heading\">Authentification</h2>\n                                <div class=\"form-group\">\n                                    <label for=\"username\" class=\"sr-only\">Nom d'utilisateur</label>\n                                    <input type=\"text\" name=\"username\" id=\"username\" class=\"form-control\" placeholder=\"Nom d'utilisateur\" required autofocus>\n                            \n                                </div>\n                                <div class=\"form-group\">\n                                    <label for=\"password\" class=\"sr-only\">Mot de passe</label>\n                                    <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Mot de passe\" required>\n                            \n                                </div>\n                                <div class=\"custom-control custom-checkbox mb-3\">\n                                    <input type=\"checkbox\" name=\"remember_me\" value=\"remember-me\" class=\"custom-control-input\" id=\"customControlValidation1\">\n                                    <label class=\"custom-control-label\" for=\"customControlValidation1\">Se souvenir de moi</label>\n                                </div>\n                                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Se connecter</button>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </body>\n</html>"
+						},
+						{
+							"name": "Add Many Matchs with Bad Data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\n\t},\n    {\n        \"winnerScore\": 1000,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd24612-e914-401d-8c5d-74b76133c8aa",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    ",
+									"    pm.globals.set(\"token\", jsonData.access_token);",
+									"    ",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"aaaa\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Admin Failure",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"aaaajj\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:18:35 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Login Admin reussi",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"aaaa\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2284"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:17:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"admin\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ],\n    \"token_type\": \"Bearer\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5MjcxMDc5LCJpYXQiOjE1MzkyNjc0Nzl9.-6pyRNqrby_UM6gTJGZb8lmb6xw1VDmAjNHVeUPga1I\",\n    \"expires_in\": 3600,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiaWF0IjoxNTM5MjY3NDc5fQ.MxDkSU4L5WVSN98i-5MrtDCEOhQWPdD3OFN00c_Rr6k\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e383a19d-2970-4857-847b-bfc78b9a9bae",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    ",
+									"    pm.globals.set(\"token_user\", jsonData.access_token);",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"player\",\n\t\"password\": \"coucou\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
