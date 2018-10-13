@@ -43,7 +43,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS'],
 	//Traditional, stateful chain
 	[
-			pattern: '/api/**',
+			pattern: '/api/**', access: ['ROLE_ADMIN', 'ROLE_USER'],
 			filters: 'JOINED_FILTERS, -anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,' +
 					'-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
 	]

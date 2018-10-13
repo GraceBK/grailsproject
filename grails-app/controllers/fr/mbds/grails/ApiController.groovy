@@ -60,16 +60,38 @@ class ApiController {
                 break
             case "POST":
                 print("-------------------"+request.JSON)
-                def user = new User(request.JSON)
-                if (user.save(flush: true)){
-                    Role role = Role.get('ROLE_USER');
-                    UserRole.create(user: user, role: role, flush: true);
+                def paramms = request.JSON
+                String username = paramms.username
+                String password = paramms.password
+                String authority = paramms.authority
+                def user = new User(username: username, password: password).save(flush:true, failOnError:true)
+                Role role = Role.findByAuthority('ROLE_USER')
+                print("-------------------"+role + "\n")
+
+                //def instance = new UserRole(user, role)
+                if (UserRole.create(user, role, true)){
                     response.status = 201
                     render user as JSON
                 }else {
                     render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
                     response.status = 405
                 }
+//            request.JSON.each { userparams ->
+//                String username = userparams.username
+//                String password = userparams.password
+//                String authority = userparams.authority
+//
+//                User user = User.findOrCreateByUsernameAndPassword(username, password)
+//                Role role = Role.get(authority)
+//                //UserRole.create(user: user, role: role)
+//                if (UserRole.create(user: user, role: role).save(flush: true)){
+//                    response.status = 201
+//                   render user as JSON
+//                }else {
+//                    //render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+//                    response.status = 405
+//                }
+
                 break
             case "DELETE":
                 User user1 = User.get(params.id)
