@@ -1,0 +1,390 @@
+{
+	"id": "d8ea3efd-704f-4d14-95ec-9085e733c4e5",
+	"name": "Authentification",
+	"allTests": [],
+	"timestamp": "2018-10-14T12:38:31.084Z",
+	"collection_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+	"folder_id": "62edfbd6-4177-4359-93d2-1726ad990d4f",
+	"target_type": "folder",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [],
+		"folders_order": [
+			"52787013-eaff-44a2-a33a-861c9e6d5195",
+			"9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+			"f4294472-0382-4d3c-a971-c1dd173cbe35",
+			"62edfbd6-4177-4359-93d2-1726ad990d4f"
+		],
+		"owner": "5083741",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": {
+		"id": "62edfbd6-4177-4359-93d2-1726ad990d4f",
+		"name": "Authentification",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"collection": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"folder": null,
+		"order": [
+			"6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"ef58aa11-ba30-45dd-a65a-ad195564da24",
+			"55a6a12f-7eec-431a-a333-18e9c31f2a44",
+			"cdd7535f-3902-4722-a575-67e1c5606d72",
+			"e4b5b25f-b121-49c6-8399-12d88c3c4102"
+		],
+		"folders_order": [],
+		"type": "folder",
+		"depth": 1
+	},
+	"environment": null,
+	"globals": [
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdjA4VVFSUit1eHlDSVJFd2tZUUNHN0V6ZTRtV1Z3azVUY3dHRE1jMWtHam1kaFwvcndPek1NRE1MZDQyNUNnb0tDRUpDWW12SmY0S05mNERSZ3BiYTFqZkx3WjQweEtsMjMzejdcL1hwN2ZnV2oxc0NyekRBdWJLUkZrWEVaV1cyNHpDd21oZUd1RnhVV1RZcXVSTHd0Z1cyYXdQVUpRZ2hpQ0hucTRIRzh5WFpZWFRDWjFaYzdtNWk0UnRmQVMyV3lBZU9HWVRudUtyTVYzWElueXVBXC9BaFYxOEMyRXNUV1laa21pQ3VtV2xHeDJOVGVZcnNGVU5ZdFZzdVZIVHhLNlFlazRFM1lZT29hU2RRU21NVXl3d24xU3BNclJPcGk4TmxzNEx1b3RkSTBZeGpXemx0emRTZEp5M3JxXC85ellsSmRpR3oxRHI2b0FPZGZmY1F5UFBFeTBxSVNnMVY5TE90Mld1VXI3QnZUang5K2VPZnh4KzdiZERBT3JreGYzZlZQUFpCZWhmZlBqenRDdzZTQnpNREZtdllJMnVKamZURmZPcVFhXC84OCt6OWw5T3JcL2ZVUlV2YUlOXC8rXC9qXC9uWGcrWjZpeXJYekRDbmhuWkV0THMxXC8wemtDXC9lVDMyeWhGN1Y0cmdYU0h5VWRwcmNTRlRIRnJSa2xidnAyOEhCbE9XNStiTGVhS1wvN3RnUmFzaDRaVUg1V2hcL2JhaVdOR3VEaTZQdmg4KyswVU03MkIwaDRrQ3FmT3BDclJVNUIwMGUrZW5jeE1udndcL0tCSU9cL09md0xrdEpRSXhFREFBQT0iLCJzdWIiOiJwbGF5ZXIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiU3ByaW5nIFNlY3VyaXR5IFJFU1QgR3JhaWxzIFBsdWdpbiIsImV4cCI6MTUzOTI3MjU0OSwiaWF0IjoxNTM5MjY4OTQ5fQ._s8CmIqI4kuIB1pBcfClx80AmpvEKieW3h7dGWjU21E",
+			"key": "token2",
+			"enabled": true
+		},
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NTIxOTA2LCJpYXQiOjE1Mzk1MTgzMDZ9.ixiRz2JSvDJHz-PCAJSTU5n0qSO1-V3-kAO04bUMkBE",
+			"key": "token_admin",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Logout Admin",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed",
+				"detail": {
+					"name": "Method Not Allowed",
+					"detail": "A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource."
+				}
+			},
+			"tests": {
+				"name": "Deconnexion Admin",
+				"status": "pass",
+				"Status code is 401 (Unauthorized)": true
+			},
+			"testPassFailCounts": {
+				"Deconnexion Admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"608"
+			],
+			"allTests": [
+				{
+					"Deconnexion Admin": true,
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "608",
+			"totalRequestTime": "608",
+			"iterationResults": {}
+		},
+		{
+			"name": "Logout User",
+			"id": "ef58aa11-ba30-45dd-a65a-ad195564da24",
+			"url": "http://localhost:8081/tp/api/logout",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Deconnexion User",
+				"status": "pass",
+				"Status code is 401 (Unauthorized)": true
+			},
+			"testPassFailCounts": {
+				"Deconnexion User": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"26"
+			],
+			"allTests": [
+				{
+					"Deconnexion User": true,
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "26",
+			"totalRequestTime": "26",
+			"iterationResults": {}
+		},
+		{
+			"name": "Bad Login",
+			"id": "55a6a12f-7eec-431a-a333-18e9c31f2a44",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401 (Unauthorized)",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"476"
+			],
+			"allTests": [
+				{
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "476",
+			"totalRequestTime": "476",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login Admin",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass",
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"247"
+			],
+			"allTests": [
+				{
+					"Your test name": true,
+					"Status code is 200": true
+				}
+			],
+			"time": "247",
+			"totalRequestTime": "247",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass",
+				"Status code is 200 (OK)": true
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"158"
+			],
+			"allTests": [
+				{
+					"Your test name": true,
+					"Status code is 200 (OK)": true
+				}
+			],
+			"time": "158",
+			"totalRequestTime": "158",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 9,
+	"totalFail": 0,
+	"totalTime": 1515,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Logout Admin",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"time": "2018-10-14T12:38:31.084Z",
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed",
+				"detail": {
+					"name": "Method Not Allowed",
+					"detail": "A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Deconnexion Admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Logout User",
+			"id": "ef58aa11-ba30-45dd-a65a-ad195564da24",
+			"url": "http://localhost:8081/tp/api/logout",
+			"time": "2018-10-14T12:38:31.084Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Deconnexion User": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Bad Login",
+			"id": "55a6a12f-7eec-431a-a333-18e9c31f2a44",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T12:38:31.084Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login Admin",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T12:38:31.084Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T12:38:31.084Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

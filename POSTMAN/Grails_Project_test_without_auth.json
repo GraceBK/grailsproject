@@ -1,0 +1,1211 @@
+{
+	"id": "5e920eef-6d7e-4a20-8a33-e34dac734e09",
+	"name": "Grails Project",
+	"allTests": [],
+	"timestamp": "2018-10-14T08:18:15.961Z",
+	"collection_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [],
+		"folders_order": [
+			"52787013-eaff-44a2-a33a-861c9e6d5195",
+			"9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+			"f4294472-0382-4d3c-a971-c1dd173cbe35",
+			"62edfbd6-4177-4359-93d2-1726ad990d4f"
+		],
+		"owner": "5083741",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5MzU4OTY5LCJpYXQiOjE1MzkzNTUzNjl9.sng6p7SF1o7wfa4tPfZuhBoqWz_ndfMuJANgdHaQfds",
+			"key": "token",
+			"enabled": true
+		},
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdjA4VVFSUit1eHlDSVJFd2tZUUNHN0V6ZTRtV1Z3azVUY3dHRE1jMWtHam1kaFwvcndPek1NRE1MZDQyNUNnb0tDRUpDWW12SmY0S05mNERSZ3BiYTFqZkx3WjQweEtsMjMzejdcL1hwN2ZnV2oxc0NyekRBdWJLUkZrWEVaV1cyNHpDd21oZUd1RnhVV1RZcXVSTHd0Z1cyYXdQVUpRZ2hpQ0hucTRIRzh5WFpZWFRDWjFaYzdtNWk0UnRmQVMyV3lBZU9HWVRudUtyTVYzWElueXVBXC9BaFYxOEMyRXNUV1laa21pQ3VtV2xHeDJOVGVZcnNGVU5ZdFZzdVZIVHhLNlFlazRFM1lZT29hU2RRU21NVXl3d24xU3BNclJPcGk4TmxzNEx1b3RkSTBZeGpXemx0emRTZEp5M3JxXC85ellsSmRpR3oxRHI2b0FPZGZmY1F5UFBFeTBxSVNnMVY5TE90Mld1VXI3QnZUang5K2VPZnh4KzdiZERBT3JreGYzZlZQUFpCZWhmZlBqenRDdzZTQnpNREZtdllJMnVKamZURmZPcVFhXC84OCt6OWw5T3JcL2ZVUlV2YUlOXC8rXC9qXC9uWGcrWjZpeXJYekRDbmhuWkV0THMxXC8wemtDXC9lVDMyeWhGN1Y0cmdYU0h5VWRwcmNTRlRIRnJSa2xidnAyOEhCbE9XNStiTGVhS1wvN3RnUmFzaDRaVUg1V2hcL2JhaVdOR3VEaTZQdmg4KyswVU03MkIwaDRrQ3FmT3BDclJVNUIwMGUrZW5jeE1udndcL0tCSU9cL09md0xrdEpRSXhFREFBQT0iLCJzdWIiOiJwbGF5ZXIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiU3ByaW5nIFNlY3VyaXR5IFJFU1QgR3JhaWxzIFBsdWdpbiIsImV4cCI6MTUzOTI3MjU0OSwiaWF0IjoxNTM5MjY4OTQ5fQ._s8CmIqI4kuIB1pBcfClx80AmpvEKieW3h7dGWjU21E",
+			"key": "token2",
+			"enabled": true
+		},
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdjA4VVFSUit1eHlDSVJFd2tZUUNHN0V6ZTRtV1Z3azVUY3dHRE1jMWtHam1kaFwvcndPek1NRE1MZDQyNUNnb0tDRUpDWW12SmY0S05mNERSZ3BiYTFqZkx3WjQweEtsMjMzejdcL1hwN2ZnV2oxc0NyekRBdWJLUkZrWEVaV1cyNHpDd21oZUd1RnhVV1RZcXVSTHd0Z1cyYXdQVUpRZ2hpQ0hucTRIRzh5WFpZWFRDWjFaYzdtNWk0UnRmQVMyV3lBZU9HWVRudUtyTVYzWElueXVBXC9BaFYxOEMyRXNUV1laa21pQ3VtV2xHeDJOVGVZcnNGVU5ZdFZzdVZIVHhLNlFlazRFM1lZT29hU2RRU21NVXl3d24xU3BNclJPcGk4TmxzNEx1b3RkSTBZeGpXemx0emRTZEp5M3JxXC85ellsSmRpR3oxRHI2b0FPZGZmY1F5UFBFeTBxSVNnMVY5TE90Mld1VXI3QnZUang5K2VPZnh4KzdiZERBT3JreGYzZlZQUFpCZWhmZlBqenRDdzZTQnpNREZtdllJMnVKamZURmZPcVFhXC84OCt6OWw5T3JcL2ZVUlV2YUlOXC8rXC9qXC9uWGcrWjZpeXJYekRDbmhuWkV0THMxXC8wemtDXC9lVDMyeWhGN1Y0cmdYU0h5VWRwcmNTRlRIRnJSa2xidnAyOEhCbE9XNStiTGVhS1wvN3RnUmFzaDRaVUg1V2hcL2JhaVdOR3VEaTZQdmg4KyswVU03MkIwaDRrQ3FmT3BDclJVNUIwMGUrZW5jeE1udndcL0tCSU9cL09md0xrdEpRSXhFREFBQT0iLCJzdWIiOiJwbGF5ZXIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiU3ByaW5nIFNlY3VyaXR5IFJFU1QgR3JhaWxzIFBsdWdpbiIsImV4cCI6MTUzOTM0OTg1NywiaWF0IjoxNTM5MzQ2MjU3fQ.uc8p6MJr8w6wafLZd5v2uWJM9K3iX0ezHuyQBYncJLE",
+			"key": "token_user",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Add User",
+			"id": "44ebb0e8-769b-4041-b50e-4f6816796ca0",
+			"url": "http://localhost:8081/tp/api/user/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete User",
+			"id": "c6cc6971-e8f3-44ac-88de-1089414490d3",
+			"url": "http://localhost:8081/tp/api/user/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show User",
+			"id": "b344391e-a2db-4297-b324-2dcf9c45d7a6",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update User",
+			"id": "c1ed952c-f43e-451a-84a5-b73ba4a5752d",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Users",
+			"id": "c91afe0e-19d9-44ed-9879-bd10a3af7df4",
+			"url": "http://localhost:8081/tp/api/users",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show All Users",
+			"id": "867ef3ab-0b7b-4bb6-a0e6-86ab8ac74877",
+			"url": "http://localhost:8081/tp/api/users",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "14",
+			"totalRequestTime": "14",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/0",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Match",
+			"id": "c6e7440a-d2f5-449c-b8e0-b3e31b1befa2",
+			"url": "http://localhost:8081/tp/api/match/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Match",
+			"id": "a8d64d73-9560-4393-87d9-ae7cf1e6e696",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show Match",
+			"id": "4c265d75-382c-4811-a50d-facb8498ecf4",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update Match",
+			"id": "37d5dc17-60f0-4063-9f6b-7535519d260b",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"17"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "17",
+			"totalRequestTime": "17",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add All Matchs",
+			"id": "97d2f1ce-664a-4aba-97b0-3492f1094ed4",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Matchs",
+			"id": "63e72d2e-9e7e-4ee1-a430-79fd44d625ff",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass",
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"425"
+			],
+			"allTests": [
+				{
+					"Your test name": true,
+					"Status code is 200": true
+				}
+			],
+			"time": "425",
+			"totalRequestTime": "425",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"143"
+			],
+			"allTests": [
+				{
+					"Your test name": true
+				}
+			],
+			"time": "143",
+			"totalRequestTime": "143",
+			"iterationResults": {}
+		},
+		{
+			"name": "Logout",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"76"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "76",
+			"totalRequestTime": "76",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 21,
+	"totalFail": 0,
+	"totalTime": 793,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Add User",
+			"id": "44ebb0e8-769b-4041-b50e-4f6816796ca0",
+			"url": "http://localhost:8081/tp/api/user/",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete User",
+			"id": "c6cc6971-e8f3-44ac-88de-1089414490d3",
+			"url": "http://localhost:8081/tp/api/user/3",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show User",
+			"id": "b344391e-a2db-4297-b324-2dcf9c45d7a6",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update User",
+			"id": "c1ed952c-f43e-451a-84a5-b73ba4a5752d",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Users",
+			"id": "c91afe0e-19d9-44ed-9879-bd10a3af7df4",
+			"url": "http://localhost:8081/tp/api/users",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show All Users",
+			"id": "867ef3ab-0b7b-4bb6-a0e6-86ab8ac74877",
+			"url": "http://localhost:8081/tp/api/users",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/0",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Match",
+			"id": "c6e7440a-d2f5-449c-b8e0-b3e31b1befa2",
+			"url": "http://localhost:8081/tp/api/match/",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Match",
+			"id": "a8d64d73-9560-4393-87d9-ae7cf1e6e696",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show Match",
+			"id": "4c265d75-382c-4811-a50d-facb8498ecf4",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update Match",
+			"id": "37d5dc17-60f0-4063-9f6b-7535519d260b",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add All Matchs",
+			"id": "97d2f1ce-664a-4aba-97b0-3492f1094ed4",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Matchs",
+			"id": "63e72d2e-9e7e-4ee1-a430-79fd44d625ff",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Logout",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"time": "2018-10-14T08:18:15.961Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}

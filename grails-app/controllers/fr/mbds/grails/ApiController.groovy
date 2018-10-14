@@ -110,7 +110,7 @@ class ApiController {
                     user.properties = request.JSON
                     if (user.save(flush: true)){
                         response.status = 200
-                        render("L'utilisateur " + user.id + "a été modifié avec succès")
+                        render("L'utilisateur " + user.id + " a été modifié avec succès")
                     }else{
                         response.status = 405
                         render("La modification de l'utilisateur est impossible")
@@ -137,7 +137,6 @@ class ApiController {
                     render(User.list() as JSON)
                 }
                 break
-
         }
     }
 
@@ -197,7 +196,7 @@ class ApiController {
                 if (sms.save(flush : true)) {
                     response.status = 201
                     println("Created")
-                    render(sms as JSON)
+                    render("Good Nouveau Message")//sms as JSON
                     return null
                 } else {
                     response.status = 409
@@ -262,7 +261,7 @@ class ApiController {
                     if (smsInstance.save(flush : true)) {
                         response.status = 200
                         println("OK")
-                        render(smsInstance as JSON)
+                        render("UPDATE")//smsInstance as JSON
                         return null
                     } else {
                         println("Can't update")
@@ -312,7 +311,7 @@ class ApiController {
                         return null
                     }
                 }
-                render(status: 201, text: "Message Add")
+                render(status: 201, text: "MESSAGES ADD")
                 break
         }
     }
@@ -423,12 +422,23 @@ class ApiController {
          }
          */
             case "PUT":
-                def matchInstance = Match.get(request.JSON.id)
-                if (!matchInstance) {
+                Match matchInstance = Match.get(request.JSON.id)
+
+                if (matchInstance) {
+                    matchInstance.properties = request.JSON
+                    if (matchInstance.save(flush : true)) {
+                        response.status = 200
+                        println("Mise à jour avec succès")
+                        render("Le Match " + matchInstance.id + "modifié")
+                        // render(matchInstance as JSON)
+                    } else {
+                        println("Can't update")
+                        render(status: 404, text: "Can't update")
+                    }
+                } else {
                     println("Bad Request")
                     render(status: 400, text: "Bad Request")
-                    return null
-                } else {
+                }/* else {
                     matchInstance.properties = request.JSON
                     if (matchInstance.save(flush : true)) {
                         response.status = 200
@@ -440,7 +450,7 @@ class ApiController {
                         render(status: 404, text: "Can't update")
                         return null
                     }
-                }
+                }*/
                 break
         }
     }

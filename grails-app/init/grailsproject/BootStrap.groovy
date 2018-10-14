@@ -11,7 +11,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-/*        JSON.registerObjectMarshaller(User) {
+        JSON.registerObjectMarshaller(User) {
             def output = [:]
             output['id'] = it.id
             output['dateCreated'] = it.dateCreated
@@ -23,7 +23,7 @@ class BootStrap {
             output['avatar'] = it.avatar
 
             output
-        }*/
+        }
 
         if (Role.count == 0) {
             def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true, failOnError: true)
