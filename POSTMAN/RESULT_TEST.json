@@ -1,0 +1,1484 @@
+{
+	"id": "d8c3e348-a150-46b2-97bf-cec1dc8227ae",
+	"name": "Grails Project",
+	"allTests": [],
+	"timestamp": "2018-10-14T22:38:10.858Z",
+	"collection_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"auth": null,
+		"events": [
+			{
+				"listen": "prerequest",
+				"script": {
+					"id": "37f88ba4-a8b0-46e8-9d64-fe75273a2cd6",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			},
+			{
+				"listen": "test",
+				"script": {
+					"id": "3cce8f9f-964b-420b-b892-00740bae88e7",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			}
+		],
+		"variables": [],
+		"order": [],
+		"folders_order": [
+			"62edfbd6-4177-4359-93d2-1726ad990d4f",
+			"52787013-eaff-44a2-a33a-861c9e6d5195",
+			"9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+			"f4294472-0382-4d3c-a971-c1dd173cbe35"
+		],
+		"owner": "5083741",
+		"permissions": {
+			"team": {
+				"id": "171537",
+				"access": "write"
+			},
+			"users": []
+		},
+		"favorite": true,
+		"shared": true,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdjA4VVFSUit1eHlDSVJFd2tZUUNHN0V6ZTRtV1Z3azVUY3dHRE1jMWtHam1kaFwvcndPek1NRE1MZDQyNUNnb0tDRUpDWW12SmY0S05mNERSZ3BiYTFqZkx3WjQweEtsMjMzejdcL1hwN2ZnV2oxc0NyekRBdWJLUkZrWEVaV1cyNHpDd21oZUd1RnhVV1RZcXVSTHd0Z1cyYXdQVUpRZ2hpQ0hucTRIRzh5WFpZWFRDWjFaYzdtNWk0UnRmQVMyV3lBZU9HWVRudUtyTVYzWElueXVBXC9BaFYxOEMyRXNUV1laa21pQ3VtV2xHeDJOVGVZcnNGVU5ZdFZzdVZIVHhLNlFlazRFM1lZT29hU2RRU21NVXl3d24xU3BNclJPcGk4TmxzNEx1b3RkSTBZeGpXemx0emRTZEp5M3JxXC85ellsSmRpR3oxRHI2b0FPZGZmY1F5UFBFeTBxSVNnMVY5TE90Mld1VXI3QnZUang5K2VPZnh4KzdiZERBT3JreGYzZlZQUFpCZWhmZlBqenRDdzZTQnpNREZtdllJMnVKamZURmZPcVFhXC84OCt6OWw5T3JcL2ZVUlV2YUlOXC8rXC9qXC9uWGcrWjZpeXJYekRDbmhuWkV0THMxXC8wemtDXC9lVDMyeWhGN1Y0cmdYU0h5VWRwcmNTRlRIRnJSa2xidnAyOEhCbE9XNStiTGVhS1wvN3RnUmFzaDRaVUg1V2hcL2JhaVdOR3VEaTZQdmg4KyswVU03MkIwaDRrQ3FmT3BDclJVNUIwMGUrZW5jeE1udndcL0tCSU9cL09md0xrdEpRSXhFREFBQT0iLCJzdWIiOiJwbGF5ZXIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiU3ByaW5nIFNlY3VyaXR5IFJFU1QgR3JhaWxzIFBsdWdpbiIsImV4cCI6MTUzOTI3MjU0OSwiaWF0IjoxNTM5MjY4OTQ5fQ._s8CmIqI4kuIB1pBcfClx80AmpvEKieW3h7dGWjU21E",
+			"key": "token2",
+			"enabled": true
+		},
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NTUyMDg5LCJpYXQiOjE1Mzk1NDg0ODl9.Hquwcm9r41ERYqtzgwcQCW6xjoLDA-8Y6CpBUYY4b68",
+			"key": "token_admin",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Logout Admin",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Deconnexion Admin",
+				"status": "pass",
+				"Status code is 401 (Unauthorized)": true
+			},
+			"testPassFailCounts": {
+				"Deconnexion Admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"572"
+			],
+			"allTests": [
+				{
+					"Deconnexion Admin": true,
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "572",
+			"totalRequestTime": "572",
+			"iterationResults": {}
+		},
+		{
+			"name": "Logout User",
+			"id": "ef58aa11-ba30-45dd-a65a-ad195564da24",
+			"url": "http://localhost:8081/tp/api/logout",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Deconnexion User",
+				"status": "pass",
+				"Status code is 401 (Unauthorized)": true
+			},
+			"testPassFailCounts": {
+				"Deconnexion User": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Deconnexion User": true,
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Bad Login",
+			"id": "55a6a12f-7eec-431a-a333-18e9c31f2a44",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"tests": {
+				"name": "Status code is 401 (Unauthorized)",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"294"
+			],
+			"allTests": [
+				{
+					"Status code is 401 (Unauthorized)": true
+				}
+			],
+			"time": "294",
+			"totalRequestTime": "294",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login Admin",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass",
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"234"
+			],
+			"allTests": [
+				{
+					"Your test name": true,
+					"Status code is 200": true
+				}
+			],
+			"time": "234",
+			"totalRequestTime": "234",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Your test name",
+				"status": "pass",
+				"Status code is 200 (OK)": true
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"125"
+			],
+			"allTests": [
+				{
+					"Your test name": true,
+					"Status code is 200 (OK)": true
+				}
+			],
+			"time": "125",
+			"totalRequestTime": "125",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add User",
+			"id": "44ebb0e8-769b-4041-b50e-4f6816796ca0",
+			"url": "http://localhost:8081/tp/api/user/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Created",
+				"status": "pass",
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"315"
+			],
+			"allTests": [
+				{
+					"Created": true,
+					"Schema is valid": true
+				}
+			],
+			"time": "315",
+			"totalRequestTime": "315",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete User",
+			"id": "c6cc6971-e8f3-44ac-88de-1089414490d3",
+			"url": "http://localhost:8081/tp/api/user/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"150"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "150",
+			"totalRequestTime": "150",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show User",
+			"id": "b344391e-a2db-4297-b324-2dcf9c45d7a6",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200 (OK)",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"28"
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true
+				}
+			],
+			"time": "28",
+			"totalRequestTime": "28",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update User",
+			"id": "c1ed952c-f43e-451a-84a5-b73ba4a5752d",
+			"url": "http://localhost:8081/tp/api/user/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200 (OK)",
+				"status": "pass",
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"142"
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true,
+					"Body matches string": true
+				}
+			],
+			"time": "142",
+			"totalRequestTime": "142",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show All Users",
+			"id": "867ef3ab-0b7b-4bb6-a0e6-86ab8ac74877",
+			"url": "http://localhost:8081/tp/api/users",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Resultat JSON is array": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"41"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Resultat JSON is array": true
+				}
+			],
+			"time": "41",
+			"totalRequestTime": "41",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"81"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "81",
+			"totalRequestTime": "81",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"40"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "40",
+			"totalRequestTime": "40",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"32"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Schema is valid": true
+				}
+			],
+			"time": "32",
+			"totalRequestTime": "32",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"25"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body is correct": true
+				}
+			],
+			"time": "25",
+			"totalRequestTime": "25",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"57"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Body is correct": true
+				}
+			],
+			"time": "57",
+			"totalRequestTime": "57",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Resultat JSON is array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"27"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Resultat JSON is array": true
+				}
+			],
+			"time": "27",
+			"totalRequestTime": "27",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Match",
+			"id": "c6e7440a-d2f5-449c-b8e0-b3e31b1befa2",
+			"url": "http://localhost:8081/tp/api/match/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"41"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Schema is valid": true
+				}
+			],
+			"time": "41",
+			"totalRequestTime": "41",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Match",
+			"id": "a8d64d73-9560-4393-87d9-ae7cf1e6e696",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"26"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "26",
+			"totalRequestTime": "26",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show Match",
+			"id": "4c265d75-382c-4811-a50d-facb8498ecf4",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"19"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Schema is valid": true
+				}
+			],
+			"time": "19",
+			"totalRequestTime": "19",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update Match",
+			"id": "37d5dc17-60f0-4063-9f6b-7535519d260b",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"40"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "40",
+			"totalRequestTime": "40",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add All Matchs",
+			"id": "97d2f1ce-664a-4aba-97b0-3492f1094ed4",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Resultat JSON is array",
+				"status": "pass",
+				"Status code is 200 (OK)": true
+			},
+			"testPassFailCounts": {
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"23"
+			],
+			"allTests": [
+				{
+					"Resultat JSON is array": true,
+					"Status code is 200 (OK)": true
+				}
+			],
+			"time": "23",
+			"totalRequestTime": "23",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Matchs",
+			"id": "63e72d2e-9e7e-4ee1-a430-79fd44d625ff",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"54"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Body is correct": true
+				}
+			],
+			"time": "54",
+			"totalRequestTime": "54",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 41,
+	"totalFail": 0,
+	"totalTime": 2373,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Logout Admin",
+			"id": "6f9a9687-6e12-47ee-a312-f1e5b6c10cf1",
+			"url": "http://localhost:8081/tp/api/logout",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Deconnexion Admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Logout User",
+			"id": "ef58aa11-ba30-45dd-a65a-ad195564da24",
+			"url": "http://localhost:8081/tp/api/logout",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Deconnexion User": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Bad Login",
+			"id": "55a6a12f-7eec-431a-a333-18e9c31f2a44",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized",
+				"detail": {
+					"name": "Unauthorized",
+					"detail": "Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 401 (Unauthorized)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login Admin",
+			"id": "cdd7535f-3902-4722-a575-67e1c5606d72",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login User",
+			"id": "e4b5b25f-b121-49c6-8399-12d88c3c4102",
+			"url": "http://localhost:8081/tp/api/login",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add User",
+			"id": "44ebb0e8-769b-4041-b50e-4f6816796ca0",
+			"url": "http://localhost:8081/tp/api/user/",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete User",
+			"id": "c6cc6971-e8f3-44ac-88de-1089414490d3",
+			"url": "http://localhost:8081/tp/api/user/2",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show User",
+			"id": "b344391e-a2db-4297-b324-2dcf9c45d7a6",
+			"url": "http://localhost:8081/tp/api/user/1",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update User",
+			"id": "c1ed952c-f43e-451a-84a5-b73ba4a5752d",
+			"url": "http://localhost:8081/tp/api/user/2",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show All Users",
+			"id": "867ef3ab-0b7b-4bb6-a0e6-86ab8ac74877",
+			"url": "http://localhost:8081/tp/api/users",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Match",
+			"id": "c6e7440a-d2f5-449c-b8e0-b3e31b1befa2",
+			"url": "http://localhost:8081/tp/api/match/",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Match",
+			"id": "a8d64d73-9560-4393-87d9-ae7cf1e6e696",
+			"url": "http://localhost:8081/tp/api/match/1",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show Match",
+			"id": "4c265d75-382c-4811-a50d-facb8498ecf4",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update Match",
+			"id": "37d5dc17-60f0-4063-9f6b-7535519d260b",
+			"url": "http://localhost:8081/tp/api/match/2",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add All Matchs",
+			"id": "97d2f1ce-664a-4aba-97b0-3492f1094ed4",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Matchs",
+			"id": "63e72d2e-9e7e-4ee1-a430-79fd44d625ff",
+			"url": "http://localhost:8081/tp/api/matchs",
+			"time": "2018-10-14T22:38:10.858Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
