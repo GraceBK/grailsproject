@@ -22,19 +22,41 @@
 
             <table class="table table-hover">
                 <thead>
-                <g:sortableColumn property="author" title="Author"/>
-                <g:sortableColumn property="target" title="Target"/>
-                <g:sortableColumn property="content" title="Content"/>
-                <g:sortableColumn property="lu" title="Lu"/>
+                    <g:sortableColumn property="id" title="Message N°"/>
+                    <g:sortableColumn property="author" title="Author"/>
+                    <g:sortableColumn property="target" title="Target"/>
+                    <g:sortableColumn property="content" title="Content"/>
+                    <g:sortableColumn property="lu" title="Lu"/>
                 </thead>
 
                 <tbody>
                 <g:each in="${messageList}">
                     <tr>
-                        <td><g:link controller="user" action="show" id="${it.author.id}">${it.author.username}</g:link></td>
-                        <td><g:link controller="user" action="show" id="${it.target.id}">${it.target.username}</g:link></td>
-                        <td><g:link controller="message" action="show" id="${it.id}">${it.content}</g:link></td>
-                        <td><g:link controller="message" action="show" id="${it.id}">${it.lu}</g:link></td>
+                        <td>
+                            <div class="card-body" style="padding-left: 5px; padding-top: 5px">
+                                <g:link controller="message" action="show" class="card-link btn btn-info" id="${it.id}">Voir Message ${it.id}</g:link>
+                            </div>
+                        </td>
+                        <td>
+                            <g:if test="${it.author.avatar == null}">
+                                <g:img class="img-thumbnail rounded-circle" width="60" dir="avatar_profile" file="default_profile.jpg"/>
+                            </g:if>
+                            <g:if test="${it.author.avatar != null}">
+                                <img class="img-thumbnail rounded-circle" width="60" src="${it.author.avatar}" alt="${it.author.username}">
+                            </g:if>
+                            <g:link controller="user" action="show" id="${it.author.id}">${it.author.username}</g:link>
+                        </td>
+                        <td>
+                            <g:if test="${it.target.avatar == null}">
+                                <g:img class="img-thumbnail rounded-circle" width="60" dir="avatar_profile" file="default_profile.jpg"/>
+                            </g:if>
+                            <g:if test="${it.target.avatar != null}">
+                                <img class="img-thumbnail rounded-circle" width="60" src="${it.target.avatar}" alt="${it.target.username}">
+                            </g:if>
+                            <g:link controller="user" action="show" id="${it.target.id}">${it.target.username}</g:link>
+                        </td>
+                        <td><h5>${it.content}</h5></td>
+                        <td><h3>${it.lu}</h3></td>
                     </tr>
                 </g:each>
                 </tbody>

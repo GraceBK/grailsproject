@@ -22,6 +22,7 @@
 
             <table class="table table-hover">
                 <thead>
+                    <g:sortableColumn property="id" title="Match N°"/>
                     <g:sortableColumn property="winner" title="Winner"/>
                     <g:sortableColumn property="winnerScore" title="Winner Score"/>
                     <g:sortableColumn property="looserScore" title="Looser Score"/>
@@ -31,10 +32,31 @@
                 <tbody>
                     <g:each in="${matchList}">
                         <tr>
-                            <td><g:link controller="user" action="show" id="${it.winner.id}">${it.winner.username}</g:link></td>
-                            <td><g:link controller="match" action="show" id="${it.id}">${it.winnerScore}</g:link></td>
-                            <td><g:link controller="match" action="show" id="${it.id}">${it.looserScore}</g:link></td>
-                            <td><g:link controller="user" action="show" id="${it.looser.id}">${it.looser.username}</g:link></td>
+                            <td>
+                                <div class="card-body" style="padding-left: 5px; padding-top: 5px">
+                                    <g:link controller="match" action="show" class="card-link btn btn-info" id="${it.id}">Details du match ${it.id}</g:link>
+                                </div>
+                            </td>
+                            <td>
+                                <g:if test="${it.winner.avatar == null}">
+                                    <g:img class="img-thumbnail rounded-circle" width="60" dir="avatar_profile" file="default_profile.jpg"/>
+                                </g:if>
+                                <g:if test="${it.winner.avatar != null}">
+                                    <img class="img-thumbnail rounded-circle" width="60" src="${it.winner.avatar}" alt="${it.winner.username}">
+                                </g:if>
+                                <g:link controller="user" action="show" id="${it.winner.id}">${it.winner.username}</g:link>
+                            </td>
+                            <td><h3>${it.winnerScore}</h3></td>
+                            <td><h3>${it.looserScore}</h3></td>
+                            <td>
+                                <g:if test="${it.looser.avatar == null}">
+                                    <g:img class="img-thumbnail rounded-circle" width="60" dir="avatar_profile" file="default_profile.jpg"/>
+                                </g:if>
+                                <g:if test="${it.looser.avatar != null}">
+                                    <img class="img-thumbnail rounded-circle" width="60" src="${it.looser.avatar}" alt="${it.looser.username}">
+                                </g:if>
+                                <g:link controller="user" action="show" id="${it.looser.id}">${it.looser.username}</g:link>
+                            </td>
                         </tr>
                     </g:each>
                 </tbody>
