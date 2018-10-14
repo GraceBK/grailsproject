@@ -18,10 +18,12 @@ connectez-vous ensuite sur http://localhost:8081/tp
 ### Identifiant Admin et User
 * Admin
 username = admin
+
 password = aaaa
 
 * User
 username = player
+
 password = coucou
 
 NB : le server Apache est sur le port 8080
