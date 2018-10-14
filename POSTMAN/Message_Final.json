@@ -1,0 +1,472 @@
+{
+	"id": "3a55cba5-8f8c-413a-81fc-8eb8e16ed6d7",
+	"name": "Message",
+	"allTests": [],
+	"timestamp": "2018-10-14T15:47:07.689Z",
+	"collection_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+	"folder_id": "9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+	"target_type": "folder",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [],
+		"folders_order": [
+			"52787013-eaff-44a2-a33a-861c9e6d5195",
+			"9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+			"f4294472-0382-4d3c-a971-c1dd173cbe35",
+			"62edfbd6-4177-4359-93d2-1726ad990d4f"
+		],
+		"owner": "5083741",
+		"permissions": {
+			"team": {
+				"id": "171537",
+				"access": "write"
+			},
+			"users": []
+		},
+		"favorite": true,
+		"shared": true,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": {
+		"id": "9faccc53-0379-41e1-ae0d-201b7b58ccd9",
+		"name": "Message",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"collection": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"folder": null,
+		"order": [
+			"6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"d0a48611-db66-455f-809e-588f081eb58b"
+		],
+		"folders_order": [],
+		"type": "folder",
+		"depth": 1
+	},
+	"environment": null,
+	"globals": [
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdjA4VVFSUit1eHlDSVJFd2tZUUNHN0V6ZTRtV1Z3azVUY3dHRE1jMWtHam1kaFwvcndPek1NRE1MZDQyNUNnb0tDRUpDWW12SmY0S05mNERSZ3BiYTFqZkx3WjQweEtsMjMzejdcL1hwN2ZnV2oxc0NyekRBdWJLUkZrWEVaV1cyNHpDd21oZUd1RnhVV1RZcXVSTHd0Z1cyYXdQVUpRZ2hpQ0hucTRIRzh5WFpZWFRDWjFaYzdtNWk0UnRmQVMyV3lBZU9HWVRudUtyTVYzWElueXVBXC9BaFYxOEMyRXNUV1laa21pQ3VtV2xHeDJOVGVZcnNGVU5ZdFZzdVZIVHhLNlFlazRFM1lZT29hU2RRU21NVXl3d24xU3BNclJPcGk4TmxzNEx1b3RkSTBZeGpXemx0emRTZEp5M3JxXC85ellsSmRpR3oxRHI2b0FPZGZmY1F5UFBFeTBxSVNnMVY5TE90Mld1VXI3QnZUang5K2VPZnh4KzdiZERBT3JreGYzZlZQUFpCZWhmZlBqenRDdzZTQnpNREZtdllJMnVKamZURmZPcVFhXC84OCt6OWw5T3JcL2ZVUlV2YUlOXC8rXC9qXC9uWGcrWjZpeXJYekRDbmhuWkV0THMxXC8wemtDXC9lVDMyeWhGN1Y0cmdYU0h5VWRwcmNTRlRIRnJSa2xidnAyOEhCbE9XNStiTGVhS1wvN3RnUmFzaDRaVUg1V2hcL2JhaVdOR3VEaTZQdmg4KyswVU03MkIwaDRrQ3FmT3BDclJVNUIwMGUrZW5jeE1udndcL0tCSU9cL09md0xrdEpRSXhFREFBQT0iLCJzdWIiOiJwbGF5ZXIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiU3ByaW5nIFNlY3VyaXR5IFJFU1QgR3JhaWxzIFBsdWdpbiIsImV4cCI6MTUzOTI3MjU0OSwiaWF0IjoxNTM5MjY4OTQ5fQ._s8CmIqI4kuIB1pBcfClx80AmpvEKieW3h7dGWjU21E",
+			"key": "token2",
+			"enabled": true
+		},
+		{
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NTMyOTM4LCJpYXQiOjE1Mzk1MjkzMzh9.yJXxO0nDM2jqrGr_Jk5kyu3dmeMv7xw5TPha9zjj8Y0",
+			"key": "token_admin",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"52"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "52",
+			"totalRequestTime": "52",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"100"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Body is correct": true
+				}
+			],
+			"time": "100",
+			"totalRequestTime": "100",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Successful POST request",
+				"status": "pass",
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"56"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Schema is valid": true
+				}
+			],
+			"time": "56",
+			"totalRequestTime": "56",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"70"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body is correct": true
+				}
+			],
+			"time": "70",
+			"totalRequestTime": "70",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"96"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Body is correct": true
+				}
+			],
+			"time": "96",
+			"totalRequestTime": "96",
+			"iterationResults": {}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Resultat JSON is array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"34"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Resultat JSON is array": true
+				}
+			],
+			"time": "34",
+			"totalRequestTime": "34",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 12,
+	"totalFail": 0,
+	"totalTime": 408,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Add Message",
+			"id": "6377e662-8167-41f5-afeb-aa4a3fba4bd7",
+			"url": "http://localhost:8081/tp/api/message/",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Message",
+			"id": "a7ad2c86-34e2-4b73-b6a5-78b1f951949a",
+			"url": "http://localhost:8081/tp/api/message/1",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show Message",
+			"id": "e5dc9ba0-eb09-4a11-bd6a-e3f26b026dc6",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update Message",
+			"id": "25582cc3-6e71-4adf-a148-840244d0c5e4",
+			"url": "http://localhost:8081/tp/api/message/3",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add Many Messages",
+			"id": "02560f07-b42d-4503-914f-3aa4ba2b366c",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Show All Messages",
+			"id": "d0a48611-db66-455f-809e-588f081eb58b",
+			"url": "http://localhost:8081/tp/api/messages",
+			"time": "2018-10-14T15:47:07.689Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resultat JSON is array": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
