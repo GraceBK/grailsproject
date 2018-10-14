@@ -8,7 +8,7 @@ class ApiController {
 
     def index() {
         //render "ok"
-        switch (request.getMethod()){
+        switch (request.getMethod()) {
             case "POST":
                 render("POST\n")
                 println(request.getHeader('Allow text/xml'))
@@ -28,51 +28,55 @@ class ApiController {
     *
     * Avec un POST, je fais soit un create, si le user n'existe pas, ou un update s'il existe
     * */
-    def user(){
+
+    def user() {
         // On vérifie le VERBE
-        switch (request.getMethod()){
-            // Si c'est une requete GET
+        switch (request.getMethod()) {
+        // Si c'est une requete GET
             case "GET":
                 Long userId;
                 try {
                     userId = Long.parseLong(params.id)
 
-                }catch(Exception){
+                } catch (Exception) {
                     response.status = 400
                     render("Vérifiez les paramètres de votre requête, ils doivent être incorrects")
                 }
                 // On vérifie si l'id est nul, si oui
                 //println(params)
-                if (userId != null){
+                if (userId != null) {
                     User user = User.get(userId)
                     // On vérifie si l'utilisateur existe, si oui
                     if (user) {
                         // L'afficher au format JSON
                         response.status = 200
                         render(user as JSON)
-                    }else { //  sinon renvoyer la bonne erreur
+                    } else { //  sinon renvoyer la bonne erreur
                         response.status = 404
                         render("Cet utilisateur n'existe pas dans la base des Utilisateurs")
                     }
-                }else{  // Sinon, on renvoie une erreur
+                } else {  // Sinon, on renvoie une erreur
                     response.status = 405
                 }
                 break
             case "POST":
-                print("-------------------"+request.JSON)
+                print("-------------------" + request.JSON)
                 def paramms = request.JSON
                 String username = paramms.username
                 String password = paramms.password
                 String authority = paramms.authority
-                def user = new User(username: username, password: password).save(flush:true, failOnError:true)
-                Role role = Role.findByAuthority('ROLE_USER')
-                print("-------------------"+role + "\n")
+                def user = new User(username: username, password: password)
+                if (!User.findAllByUsername(username)) {
+                    user.save(flush: true, failOnError: true)
+                    Role role = Role.findByAuthority('ROLE_USER')
+                    print("-------------------" + role + "\n")
 
-                //def instance = new UserRole(user, role)
-                if (UserRole.create(user, role, true)){
-                    response.status = 201
-                    render user as JSON
-                }else {
+                    //def instance = new UserRole(user, role)
+                    if (UserRole.create(user, role, true)) {
+                        response.status = 201
+                        render user as JSON
+                    }
+                } else {
                     render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
                     response.status = 405
                 }
@@ -95,10 +99,11 @@ class ApiController {
                 break
             case "DELETE":
                 User user1 = User.get(params.id)
-                if (user1.delete(flush: true)){
+                if (user1) {
+                    user1.enabled = false
                     response.status = 200
                     render("L'utilisateur" + user1 + "a été supprimé de la base")
-                }else {
+                } else {
                     response.status = 405
                     render("Cet utilisateur n'existe pas dans la base, impossible de le supprimer")
                 }
@@ -106,17 +111,17 @@ class ApiController {
             case "PUT":
                 println request.JSON
                 User user = User.get(request.JSON.id)
-                if(user){
+                if (user) {
                     user.properties = request.JSON
-                    if (user.save(flush: true)){
+                    if (user.save(flush: true)) {
                         response.status = 200
                         render("L'utilisateur " + user.id + " a été modifié avec succès")
-                    }else{
+                    } else {
                         response.status = 405
                         render("La modification de l'utilisateur est impossible")
                     }
 
-                }else{
+                } else {
                     response.status = 404
                     render("Cet utilisateur n'existe pas dans la base, impossible de le mettre a jour")
                 }
@@ -126,20 +131,41 @@ class ApiController {
     }
 
 
-    def users(){
-        switch (request.getMethod()){
+    def users() {
+        switch (request.getMethod()) {
             case "GET":
-                if (params.containsKey("id")){
+                if (params.containsKey("id")) {
                     response.status = 400
                     render("Cette méthode n'est pas sensée utiliser des paramètres")
-                }else{
-                response.status = 200
+                } else {
+                    response.status = 200
                     render(User.list() as JSON)
+                }
+                break
+            case "POST":
+                request.JSON.each {
+                    String username = it.username
+                    String password = it.password
+                    String authority = it.authority
+                    def user = new User(username: username, password: password)
+                    if (!User.findAllByUsername(username)) {
+                        user.save(flush: true, failOnError: true)
+                        Role role = Role.findByAuthority(authority)
+                        print("-------------------" + role + "\n")
+
+                        //def instance = new UserRole(user, role)
+                        if (UserRole.create(user, role, true)) {
+                            response.status = 201
+                            render user as JSON
+                        }
+                    } else {
+                        render("Cet utilisateur existe deja dans la base, vous ne pouvez pas le rajouter")
+                        response.status = 405
+                    }
                 }
                 break
         }
     }
-
 
     /**
      * Méthode qui permet de gerer les Requestes sur un Message
@@ -176,24 +202,16 @@ class ApiController {
          * Headers = JSON (application/json)
          *
          * Body =
-         *
-         {
-            "target": {
-                "id": 1
-            },
-            "lu": false,
-            "content": "Coucou",
-            "author": {
-                "id": 2
-            }
-         }
-         */
+         *{"target": {"id": 1},
+         "lu": false,
+         "content": "Coucou",
+         "author": {"id": 2}}*/
             case "POST":
                 /*def jsonObject = request.JSON.target
                 println requesr.JSON.target
                 System.out.println("coucou "+jsonObject)*/
                 def sms = new Message(request.JSON)
-                if (sms.save(flush : true)) {
+                if (sms.save(flush: true)) {
                     response.status = 201
                     println("Created")
                     render("Good Nouveau Message")//sms as JSON
@@ -234,19 +252,11 @@ class ApiController {
          * Headers = JSON (application/json)
          *
          * Body =
-         *
-         {
-             "id": 2,
-             "target": {
-                "id": 1
-             },
-             "lu": true,
-             "content": "Hello World",
-             "author": {
-                "id": 2
-             }
-         }
-         */
+         *{"id": 2,
+         "target": {"id": 1},
+         "lu": true,
+         "content": "Hello World",
+         "author": {"id": 2}}*/
             case "PUT":
                 //def jsonObject = request.JSON.id
                 println request.JSON
@@ -258,7 +268,7 @@ class ApiController {
                     return null
                 } else {
                     smsInstance.properties = request.JSON
-                    if (smsInstance.save(flush : true)) {
+                    if (smsInstance.save(flush: true)) {
                         response.status = 200
                         println("OK")
                         render("UPDATE")//smsInstance as JSON
@@ -272,7 +282,6 @@ class ApiController {
                 break
         }
     }
-
 
     /**
      * Méthode qui permet de gerer les Requestes sur l'ensemble des Messages
@@ -303,7 +312,7 @@ class ApiController {
                             content: it.content,
                             lu: it.lu
                     )
-                    if (messageInstance.save(flush : true)) {
+                    if (messageInstance.save(flush: true)) {
                         println("${it} Created")
                     } else {
                         response.status = 405
@@ -315,7 +324,6 @@ class ApiController {
                 break
         }
     }
-
 
     /**
      * Méthode qui permet de gerer les Requestes sur un Match
@@ -354,21 +362,13 @@ class ApiController {
          * Headers = JSON (application/json)
          *
          * Body =
-         *
-         {
-             "winnerScore": 2,
-             "looserScore": 1,
-             "winner": {
-                "id": 1
-             },
-             "looser": {
-                "id": 2
-             }
-         }
-         */
+         *{"winnerScore": 2,
+         "looserScore": 1,
+         "winner": {"id": 1},
+         "looser": {"id": 2}}*/
             case "POST":
                 def matchInstance = new Match(request.JSON)
-                if (matchInstance.save(flush : true)) {
+                if (matchInstance.save(flush: true)) {
                     response.status = 201
                     println("Created")
                     render(matchInstance as JSON)
@@ -408,25 +408,17 @@ class ApiController {
          * Headers = JSON (application/json)
          *
          * Body =
-         *
-         {
-             "id": 2,
-             "winnerScore": 2,
-             "looserScore": 1,
-             "winner": {
-                "id": 1
-             },
-             "looser": {
-                "id": 2
-             }
-         }
-         */
+         *{"id": 2,
+         "winnerScore": 2,
+         "looserScore": 1,
+         "winner": {"id": 1},
+         "looser": {"id": 2}}*/
             case "PUT":
                 Match matchInstance = Match.get(request.JSON.id)
 
                 if (matchInstance) {
                     matchInstance.properties = request.JSON
-                    if (matchInstance.save(flush : true)) {
+                    if (matchInstance.save(flush: true)) {
                         response.status = 200
                         println("Mise à jour avec succès")
                         render("Le Match " + matchInstance.id + "modifié")
@@ -477,7 +469,7 @@ class ApiController {
          * Operation Type | Non-Idempotent
          */
             case "POST":
-                println("-----> "+ request.JSON)
+                println("-----> " + request.JSON)
                 request.JSON.each {
                     def matchInstance = new Match(
                             winner: it.winner,
@@ -486,7 +478,7 @@ class ApiController {
                             looser: it.looser
 
                     )
-                    if (matchInstance.save(flush : true)) {
+                    if (matchInstance.save(flush: true)) {
                         println("${it} Created")
                     } else {
                         response.status = 405
