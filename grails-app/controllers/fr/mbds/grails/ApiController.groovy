@@ -101,8 +101,10 @@ class ApiController {
                 User user1 = User.get(params.id)
                 if (user1) {
                     user1.enabled = false
-                    response.status = 200
-                    render("L'utilisateur" + user1 + "a été supprimé de la base")
+                    if (user1.save(flush: true)) {
+                        response.status = 200
+                        render("L'utilisateur" + user1 + "a été supprimé de la base")
+                    }
                 } else {
                     response.status = 405
                     render("Cet utilisateur n'existe pas dans la base, impossible de le supprimer")

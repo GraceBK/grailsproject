@@ -60,25 +60,25 @@ class MessageController {
 
     @Transactional
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
-    def update(Message message) {
-        if (message == null) {
+    def update(Message message1) {
+        if (message1 == null) {
             notFound()
             return
         }
 
         try {
-            messageService.save(message)
+            messageService.save(message1)
         } catch (ValidationException e) {
-            respond message.errors, view:'edit'
+            respond message1.errors, view:'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), message.id])
-                redirect message
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), message1.id])
+                redirect message1
             }
-            '*'{ respond message, [status: OK] }
+            '*'{ respond message1, [status: OK] }
         }
     }
 
