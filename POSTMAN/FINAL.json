@@ -1,0 +1,2810 @@
+{
+	"info": {
+		"_postman_id": "c4c66e6f-3470-4b3b-b1ae-6ba7a749eccf",
+		"name": "Grails Project",
+		"description": "Request REST for Grails Project (MBDS 2018-2019)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "Logout Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84e72574-7b45-48f9-a859-ec30b3c01144",
+								"exec": [
+									"// Je supprime le TOKEN ADMIN",
+									"pm.test(\"Deconnexion Admin\", function () {",
+									"    pm.globals.unset(\"token_admin\");",
+									"});",
+									"// Je verifie si le Status code est 401 (Unauthorized)",
+									"pm.test(\"Status code is 401 (Unauthorized)\", function () {",
+									"    //pm.response.to.have.status(401);",
+									"    pm.expect(pm.response.code).to.be.oneOf([401,405]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"logout"
+							]
+						},
+						"description": "Permet de se déconnecter d'un utilisateur avec le Role Admin depuis Postman\n\n## HEADERS\ntoken_admin\n\nDELETE /logout - destroys session"
+					},
+					"response": [
+						{
+							"name": "Logout Admin",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 19:21:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Logout User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84e72574-7b45-48f9-a859-ec30b3c01144",
+								"exec": [
+									"// Je supprime le TOKEN USER",
+									"pm.test(\"Deconnexion User\", function () {",
+									"    pm.globals.unset(\"token_user\");",
+									"});",
+									"// Je verifie si le Status code est 401 (Unauthorized)",
+									"pm.test(\"Status code is 401 (Unauthorized)\", function () {",
+									"    //pm.response.to.have.status(401);",
+									"    pm.expect(pm.response.code).to.be.oneOf([401,405]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"logout"
+							]
+						},
+						"description": "Permet de se déconnecter d'un utilisateur avec le Role User depuis Postman\n\n## HEADERS\ntoken_user\n\nDELETE /logout - destroys session"
+					},
+					"response": []
+				},
+				{
+					"name": "Bad Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4e45fe2-9f61-45f1-9083-5e1b59734dc1",
+								"exec": [
+									"pm.test(\"Status code is 401 (Unauthorized)\", function () {",
+									"    //pm.response.to.have.status(401);",
+									"    pm.expect(pm.response.code).to.be.oneOf([401,405]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"mouahahah\",\n\t\"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"login"
+							]
+						},
+						"description": "Exemple de Test avec un mauvais utilisateur\n# HEADERS\n**Content-Type** | application/json\n\n# BODY\n```json\n{\n\t\"username\": \"mouahahah\",\n\t\"password\": \"test\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fbd24612-e914-401d-8c5d-74b76133c8aa",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.globals.set(\"token_admin\", jsonData.access_token);",
+									"    ",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"aaaa\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"login"
+							]
+						},
+						"description": "Exemple de Test avec utilisateur Admin. Retourne un objet JSON\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# BODY\n```json\n{\n\t\"username\": \"admin\",\n\t\"password\": \"aaaa\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e383a19d-2970-4857-847b-bfc78b9a9bae",
+								"exec": [
+									"// SET le TOKEN dans une variable token_user",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.globals.set(\"token_user\", jsonData.access_token);",
+									"});",
+									"// Je verifie si le Status code est 200 (OK)",
+									"pm.test(\"Status code is 200 (OK)\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"player\",\n\t\"password\": \"coucou\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"login"
+							]
+						},
+						"description": "Exemple de Test avec utilisateur User. Retourne un objet JSON\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# BODY\n```json\n{\n\t\"username\": \"player\",\n\t\"password\": \"coucou\"\n}\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "372cd266-7c08-4876-86f7-4fd1303f1407",
+								"exec": [
+									"// Test POST un user sans etre Authentifié",
+									"/*pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});*/",
+									"",
+									"// Test Status",
+									"if (pm.globals.get(\"token_admin\")) {",
+									"    pm.test(\"Created\", function () {",
+									"        pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"    });",
+									"} else if (pm.globals.get(\"token_user\")) {",
+									"    pm.test(\"Created\", function () {",
+									"        pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"    });",
+									"} else {",
+									"    pm.test(\"Unauthorized\", function () {",
+									"        pm.expect(pm.response.code).to.be.oneOf([401,405]);",
+									"    });",
+									"}",
+									"",
+									"//",
+									"var schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"username\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"password\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"authority\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"username\",",
+									"    \"password\",",
+									"    \"authority\"",
+									"  ]",
+									"};",
+									"",
+									"var dataBody = {",
+									"    \"username\": \"GraceBK\",",
+									"    \"password\": \"aaaa\",",
+									"    \"authority\": \"ROLE_USER\"",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"    pm.expect(tv4.validate(dataBody, schema)).to.be.true;",
+									"  //request.json();",
+									"});",
+									"",
+									"pm.sendRequest(\"http://localhost:8081/tp/api/user/\", function (err, response) {",
+									"    console.log(response.json());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2289f89c-4f8b-41cb-986d-3aff20e4b8e3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"GraceBK12\",\n    \"password\": \"aaaa\",\n    \"authority\": \"ROLE_USER\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								""
+							]
+						},
+						"description": "Ajout d'un User dans la base de données. Retourne un message de confirmation\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# BODY\n```json\n{\n\t\"username\": \"string\",\n\t\"password\": \"string\",\n\t\"authority\": \"ROLE_ADMIN/ROLE_USER\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d60a11e-b8f4-487e-aa8d-fb1b0c0bc906",
+								"exec": [
+									"// Test DELETE un user sans etre Authentifié",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ab20162b-0b35-4dda-85dd-ccff7870475b",
+								"exec": [
+									"console.log(\"Test DELETE un user sans etre Authentifié\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"2"
+							]
+						},
+						"description": "Permet de supprimer un User. Retourne un message de confirmation\n\n# HEADERS\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 2"
+					},
+					"response": []
+				},
+				{
+					"name": "Show User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "53aaf75a-3bbe-4491-8fc1-c3ede02e0427",
+								"exec": [
+									"console.log(\"Test GET un user sans etre Authentifié\")"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09d04fc-eb85-4c57-a66b-c71fed7656c3",
+								"exec": [
+									"// Test GET un user sans etre Authentifié",
+									"pm.test(\"Status code is 200 (OK)\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"/*",
+									"var schema2 = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"target\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"author\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"content\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"lu\": {",
+									"            \"type\": \"boolean\"",
+									"        }",
+									"    }",
+									"}",
+									"var schema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"dateCreated\": {",
+									"            \"type\": \"date\"",
+									"        },",
+									"        \"passwordExpired\": {",
+									"            \"type\": \"boolean\"",
+									"        },",
+									"        \"username\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"accountLocked\": {",
+									"            \"type\": \"boolean\"",
+									"        },",
+									"        \"accountExpired\": {",
+									"            \"type\": \"boolean\"",
+									"        },",
+									"        \"enable\": {",
+									"            \"type\": \"boolean\"",
+									"        },",
+									"        \"avatar\": {",
+									"            \"type\": \"string\"",
+									"        }",
+									"    }",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"    pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+									"    console.log(\"Schema is valid\");",
+									"});*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"1"
+							]
+						},
+						"description": "Selectionne le User avec l'id egale à l'id en parametre. Retourne l'objet JSON de l'utilisateur\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 1"
+					},
+					"response": [
+						{
+							"name": "Show User SANS Authentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"user",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:03:07 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "84e54e1c-b9e2-467f-afb8-9db370974390",
+								"exec": [
+									"console.log(\"Test PUT un user sans etre Authentifié\")"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7795de85-296d-45cc-98d6-5ee27a4fe849",
+								"exec": [
+									"pm.test(\"Status code is 200 (OK)\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"L'utilisateur 3 a été modifié avec succès\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : 3,\n    \"username\": \"player4\",\n    \"password\": \"coucou\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"user",
+								"2"
+							]
+						},
+						"description": "Mise à jour de User avec l'id egale à l'id en parametre. Retourne un message de confirmation\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 2"
+					},
+					"response": [
+						{
+							"name": "Update User SANS etre Authentifié",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\" : 3,\n    \"username\": \"player4\",\n    \"password\": \"coucou\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/user/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"user",
+										"3"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:23:25 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Show All Users",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ff016462-bf07-4c60-8ac7-1d0bd3e95d05",
+								"exec": [
+									"console.log(\"Test GET users sans etre Authentifié\")"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6fc1bca2-4582-4de1-bb95-f45e39df4b58",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"let responseBodyIsArray = JSON.parse(responseBody);",
+									"pm.test(\"Resultat JSON is array\", function () {",
+									"    Array.isArray(responseBodyIsArray);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"users"
+							]
+						},
+						"description": "Affiche tout les Users. Retourne une liste d'objet JSON \n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}"
+					},
+					"response": [
+						{
+							"name": "Show All Users SANS AUthentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:31:12 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Add Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc5a68cd-3c86-4c57-a6c4-81822c346985",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Good Nouveau Message\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target\": {\n        \"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Coucou Toi\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								""
+							]
+						},
+						"description": "Permet de créer un nouveau Message dans la base tout en spécifiant le target, author et le contenu du Message.\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token}}\n\n# BODY\n```json\n{\n    \"target\": {\n        \"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Coucou Toi\",\n    \"author\": {\n        \"id\": 2\n    }\n}\n```"
+					},
+					"response": [
+						{
+							"name": "Add Message SANS Authentification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"target\": {\n        \"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Coucou\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "738b6cd2-c74d-499a-a295-ceff7dbd4498",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"1"
+							]
+						},
+						"description": "Permet de faire supprimer un Message existant avec l'id correspondant a l'id en parametre. Retourne un message de confirmation.\n\n# HEADER\n**Authorization** | Bearer {{token}}\n\n# PARAMS\n**id** | 1"
+					},
+					"response": [
+						{
+							"name": "Delete Message SANS Authentification",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:32 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Show Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4412f756-8bd8-4a6e-b70e-995875ba5c97",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"",
+									"var schema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"target\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"author\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"content\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"lu\": {",
+									"            \"type\": \"boolean\"",
+									"        }",
+									"    }",
+									"}",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+									"  console.log(\"Schema is valid\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"3"
+							]
+						},
+						"description": "Permet de récupérer un Message avec tous ses paramètres en spécifiant son Id en paramètre. Retourne un objet JSON.\n\n# HEADERS\n**Authorization** | Bearer {{token}}\n\n**Content-Type** | application/json\n\n# PARAMS\n**id** | 3"
+					},
+					"response": [
+						{
+							"name": "Show Message SANS Authentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"0"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Echec recuperation message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"0"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:17:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "Recuperer message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 4,\n\t\"username\": \"Grace\",\n\t\"password\": \"azerty\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Oct 2018 14:16:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"target\": {\n        \"id\": 3\n    },\n    \"lu\": false,\n    \"content\": \"nananère\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1250964-97e2-47a8-ba92-626db1c70a4b",
+								"exec": [
+									"// Test Sans etre Authentifié",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"UPDATE\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : 3,\n    \"target\": {\n    \t\"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Hello World ZOZO\",\n    \"author\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/message/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"message",
+								"3"
+							]
+						},
+						"description": "Permet de faire une mise à jour du Message correspondant à l'id en parametre si il existe. Retourne un message de confirmation.\n\n# HEADERS\n**Authorization** | Bearer {{token}}\n\n**Content-Type** | application/json\n\n# PARAMS\n**id** | 3\n\n# BODY\n\n``json\n{\n\t\"id\" : 3,\n    \"target\": {\n    \t\"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Hello World ZOZO\",\n    \"author\": {\n    \t\"id\": 2\n    }\n}\n```"
+					},
+					"response": [
+						{
+							"name": "Update Message With a Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\" : 1,\n    \"target\": {\n    \t\"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Hello World\",\n    \"author\": {\n    \t\"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:28:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						},
+						{
+							"name": "Update Message SANS Authentification",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\" : 1,\n    \"target\": {\n    \t\"id\": 1\n    },\n    \"lu\": false,\n    \"content\": \"Hello World\",\n    \"author\": {\n    \t\"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"message",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:52 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add Many Messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32b8a79c-a644-4bb5-b47e-0c13dfac90df",
+								"exec": [
+									"// Test Sans etre Authentifié",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"MESSAGES ADD\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou toi\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Mouahahaha\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Salut les BG\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t}\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"messages"
+							]
+						},
+						"description": "Crée plusieurs messages entre utilisateurs. Retourne un message de confirmation\n\n# HEADERS\n** Content-Type** | application/json\n\n** Authorization** | Bearer {{token}}\n\n\n# BODY\n[\n    {\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou toi\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Mouahahaha\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Salut les BG\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t}\n]"
+					},
+					"response": [
+						{
+							"name": "Add Many Messages SANS Authentification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Coucou toi\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Mouahahaha\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t},\n\t{\n\t    \"target\": {\n\t        \"id\": 1\n\t    },\n\t    \"lu\": false,\n\t    \"content\": \"Salut les BG\",\n\t    \"author\": {\n\t        \"id\": 2\n\t    }\n\t}\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/messages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:48 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Show All Messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e2021ea-14ea-4e7f-99cc-a10c3cc47efe",
+								"exec": [
+									"// Test Sans etre Authentifié",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"let responseBodyIsArray = JSON.parse(responseBody);",
+									"pm.test(\"Resultat JSON is array\", function () {",
+									"    Array.isArray(responseBodyIsArray);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"messages"
+							]
+						},
+						"description": "Permet de récupérer tous les messages de la base. Retourne une liste de message\n\n# Hearders\n**Authorization** | Bearer {{token}}"
+					},
+					"response": [
+						{
+							"name": "Show All Messages SANS Authentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/messages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 12:49:44 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Match",
+			"item": [
+				{
+					"name": "Add Match",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c9e337a-8f72-4467-a637-0f692bacf803",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+									"});",
+									"",
+									"var schema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"winner\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"looser\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"dateCreated\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"winnerScore\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"looserScore\": {",
+									"            \"type\": \"number\"",
+									"        }",
+									"    }",
+									"}",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+									"  console.log(\"Schema is valid\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"winnerScore\": 200,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 3\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								""
+							]
+						},
+						"description": "Permet de créer un nouveau Match dans la base tout en spécifiant le winner et le looser avec leur scores respectif. Retourne un message de confirmation\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}"
+					},
+					"response": [
+						{
+							"name": "Add Match SANS authentification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"winnerScore\": 2,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 3\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/match/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"match",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:45:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Match",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ef677318-8c8b-4027-bca3-cd93ed54a4ab",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"200 OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"1"
+							]
+						},
+						"description": "Permet de faire supprimer un Match existant en donnant son Id en paramètre. Retourne un message de confirmation\n\n# HEADERS\n**Accept** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 1"
+					},
+					"response": [
+						{
+							"name": "Delete Match SANS authentification",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/match/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"match",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:46:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Delete Match With Bad ID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/match/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"match",
+										"4"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 14:22:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Bad Request"
+						}
+					]
+				},
+				{
+					"name": "Show Match",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "577422db-c4e2-4008-97a2-e781279538b0",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"",
+									"var schema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"winnerScore\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"dateCreated\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"looserScore\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"winner\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"looser\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"            }",
+									"        }",
+									"    }",
+									"}",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+									"  console.log(\"Schema is valid\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"2"
+							]
+						},
+						"description": "Permet de récupérer un Match avec tous ses paramètres en spécifiant son Id en paramètre. Retourne un message de confirmation\n\n# HEADERS\n**Accept** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 2"
+					},
+					"response": [
+						{
+							"name": "Show Match SANS authentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/match/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"match",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:46:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update Match",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a2273f8-20a5-4678-a96a-2695a6b1affd",
+								"exec": [
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"});",
+									"console.log(pm.requestBody);",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Le Match 2modifié\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 2,\n\t\"winnerScore\": 500,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 1\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/match/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"match",
+								"2"
+							]
+						},
+						"description": "Permet de faire une mise à jour d’un Match si le Match l'id en parametre exit. Retourne un message de confirmation\n\n# HEADERS\n**Content-Type** | application/json\n\n**Authorization** | Bearer {{token_admin}}\n\n# PARAMS\n**id** | 2"
+					},
+					"response": [
+						{
+							"name": "Update Match SANS authentification",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 2,\n\t\"winnerScore\": 2,\n    \"looserScore\": 1,\n    \"winner\": {\n    \t\"id\": 1\n    },\n    \"looser\": {\n    \t\"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/match/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"match",
+										"2"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:47:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add All Matchs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44d6b44a-a548-42c8-a13d-80f44144a685",
+								"exec": [
+									"// Test Sans etre Authentifié",
+									"/*pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+									"});",
+									"var jsonObject = xml2Json(responseBody);",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.value).to.eql(100);",
+									"});",
+									"*/",
+									"//let parsedResponseBody = JSON.parse(responseBody);",
+									"//tests['JSON array is not empty'] = (parsedResponseBody.length > 0);",
+									"",
+									"// Je test si j'obtiens une list en retour",
+									"let responseBodyIsArray = JSON.parse(responseBody);",
+									"pm.test(\"Resultat JSON is array\", function () {",
+									"    Array.isArray(responseBodyIsArray);",
+									"});",
+									"",
+									"// Je verifie si le Status code est 200 (OK)",
+									"pm.test(\"Status code is 200 (OK)\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.sendRequest(\"http://localhost:8081/tp/api/matchs\", function (err, response) {",
+									"    console.log(response.json());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/matchs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"matchs"
+							]
+						},
+						"description": "Permet de recupérer tous les Matchs de la base. Retourne la list des matchs\n\n# HEADERS\n**Accept** | application/json\n\n**Authorization** | Bearer {{token_admin}}"
+					},
+					"response": [
+						{
+							"name": "Add All Matchs SANS authentification",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:48:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add Many Matchs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24f259b5-ee78-4cca-ab97-53c899fec48e",
+								"exec": [
+									"// Test Sans etre Authentifié",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Matches Add\");",
+									"});",
+									"/*",
+									"// Je verifie si le Status code est 201 (Created)",
+									"pm.test(\"Status code is 201 (Created)\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"// Je verifie le Status code du POST",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+									"});",
+									"",
+									"var schema = {",
+									"  \"items\": {",
+									"    \"type\": \"integer\"",
+									"  }",
+									"};",
+									"/*",
+									"var shemaMatch = {",
+									"  \"definitions\": {}, ",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\", ",
+									"  \"$id\": \"http://example.com/root.json\", ",
+									"  \"type\": \"object\", ",
+									"  \"title\": \"The Root Schema\", ",
+									"  \"description\": \"An explanation about the purpose of this instance.\", ",
+									"  \"readOnly\": true, ",
+									"  \"writeOnly\": false, ",
+									"  \"required\": [",
+									"    \"checked\", ",
+									"    \"dimensions\", ",
+									"    \"id\", ",
+									"    \"name\", ",
+									"    \"price\", ",
+									"    \"tags\"",
+									"  ], ",
+									"  \"properties\": {",
+									"    \"checked\": {",
+									"      \"$id\": \"#/properties/checked\", ",
+									"      \"type\": \"boolean\", ",
+									"      \"title\": \"The Checked Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"default\": false, ",
+									"      \"examples\": [",
+									"        false",
+									"      ], ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false",
+									"    }, ",
+									"    \"dimensions\": {",
+									"      \"$id\": \"#/properties/dimensions\", ",
+									"      \"type\": \"object\", ",
+									"      \"title\": \"The Dimensions Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false, ",
+									"      \"required\": [",
+									"        \"width\", ",
+									"        \"height\"",
+									"      ], ",
+									"      \"properties\": {",
+									"        \"width\": {",
+									"          \"$id\": \"#/properties/dimensions/properties/width\", ",
+									"          \"type\": \"integer\", ",
+									"          \"title\": \"The Width Schema\", ",
+									"          \"description\": \"An explanation about the purpose of this instance.\", ",
+									"          \"default\": 0, ",
+									"          \"examples\": [",
+									"            5",
+									"          ], ",
+									"          \"readOnly\": true, ",
+									"          \"writeOnly\": false",
+									"        }, ",
+									"        \"height\": {",
+									"          \"$id\": \"#/properties/dimensions/properties/height\", ",
+									"          \"type\": \"integer\", ",
+									"          \"title\": \"The Height Schema\", ",
+									"          \"description\": \"An explanation about the purpose of this instance.\", ",
+									"          \"default\": 0, ",
+									"          \"examples\": [",
+									"            10",
+									"          ], ",
+									"          \"readOnly\": true, ",
+									"          \"writeOnly\": false",
+									"        }",
+									"      }",
+									"    }, ",
+									"    \"id\": {",
+									"      \"$id\": \"#/properties/id\", ",
+									"      \"type\": \"integer\", ",
+									"      \"title\": \"The Id Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"default\": 0, ",
+									"      \"examples\": [",
+									"        1",
+									"      ], ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false",
+									"    }, ",
+									"    \"name\": {",
+									"      \"$id\": \"#/properties/name\", ",
+									"      \"type\": \"string\", ",
+									"      \"title\": \"The Name Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"default\": \"\", ",
+									"      \"examples\": [",
+									"        \"A green door\"",
+									"      ], ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false, ",
+									"      \"pattern\": \"^(.*)$\"",
+									"    }, ",
+									"    \"price\": {",
+									"      \"$id\": \"#/properties/price\", ",
+									"      \"type\": \"number\", ",
+									"      \"title\": \"The Price Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"default\": 0.0, ",
+									"      \"examples\": [",
+									"        12.5",
+									"      ], ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false",
+									"    }, ",
+									"    \"tags\": {",
+									"      \"$id\": \"#/properties/tags\", ",
+									"      \"type\": \"array\", ",
+									"      \"title\": \"The Tags Schema\", ",
+									"      \"description\": \"An explanation about the purpose of this instance.\", ",
+									"      \"readOnly\": true, ",
+									"      \"writeOnly\": false, ",
+									"      \"items\": {",
+									"        \"$id\": \"#/properties/tags/items\", ",
+									"        \"type\": \"string\", ",
+									"        \"title\": \"The Items Schema\", ",
+									"        \"description\": \"An explanation about the purpose of this instance.\", ",
+									"        \"default\": \"\", ",
+									"        \"examples\": [",
+									"          \"home\", ",
+									"          \"green\"",
+									"        ], ",
+									"        \"readOnly\": true, ",
+									"        \"writeOnly\": false, ",
+									"        \"pattern\": \"^(.*)$\"",
+									"      }",
+									"    }",
+									"  }",
+									"};",
+									"",
+									"var data1 = JSON.parse(responseBody);",
+									"var data2 = [1];",
+									"*/",
+									"/*pm.test('Schema is valid', function(err, reresponse) {",
+									"    response.json();",
+									"    //pm.expect(tv4.validate(response.json(), shemaMatch)).to.be.true;",
+									"  //pm.expect(tv4.validate(data1, schema)).to.be.true;",
+									"  //pm.expect(tv4.validate(data2, schema)).to.be.true;",
+									"});",
+									"*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"winnerScore\": 2,\n\t    \"looserScore\": 1,\n\t    \"winner\": {\n\t    \t\"id\": 3\n\t    },\n\t    \"looser\": {\n\t    \t\"id\": 2\n\t    }\n\t},\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8081/tp/api/matchs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"tp",
+								"api",
+								"matchs"
+							]
+						},
+						"description": "Permet de créer plusieurs matchs entre utilisateurs d’emblée en spécifiant dans les corps de la requête les paramètres des Matchs. Retourne un message de confirmation\n\n# HEADERS\n**Content-type** | application/json\n\n**Authorization** | Bearer {{token_admin}}"
+					},
+					"response": [
+						{
+							"name": "Add Many Matchs",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"winnerScore\": 2,\n\t    \"looserScore\": 1,\n\t    \"winner\": {\n\t    \t\"id\": 3\n\t    },\n\t    \"looser\": {\n\t    \t\"id\": 2\n\t    }\n\t},\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Application-Context",
+									"value": "application:development:8081"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=UTF-8"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-FR"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Oct 2018 09:01:46 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "\n<html>\n    <head>\n        <meta name=\"layout\" content=\"login\"/>\n        <title></title>\n        <link rel=\"stylesheet\" href=\"/tp/assets/bootstrap_min.css?compile=false\" />\n    </head>\n    <body>\n        <div class=\"container h-100\">\n            <div class=\"row justify-content-center h-75 align-items-center\">\n                <div>\n                    <div class=\"card\">\n                        <div class=\"card-body\">\n                            <form method=\"POST\" action=\"/tp/login/authenticate\" class=\"form-signin was-validated\" style=\"width: 300px\">\n                                <h2 class=\"form-signin-heading\">Authentification</h2>\n                                <div class=\"form-group\">\n                                    <label for=\"username\" class=\"sr-only\">Nom d'utilisateur</label>\n                                    <input type=\"text\" name=\"username\" id=\"username\" class=\"form-control\" placeholder=\"Nom d'utilisateur\" required autofocus>\n                            \n                                </div>\n                                <div class=\"form-group\">\n                                    <label for=\"password\" class=\"sr-only\">Mot de passe</label>\n                                    <input type=\"password\" id=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Mot de passe\" required>\n                            \n                                </div>\n                                <div class=\"custom-control custom-checkbox mb-3\">\n                                    <input type=\"checkbox\" name=\"remember_me\" value=\"remember-me\" class=\"custom-control-input\" id=\"customControlValidation1\">\n                                    <label class=\"custom-control-label\" for=\"customControlValidation1\">Se souvenir de moi</label>\n                                </div>\n                                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Se connecter</button>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </body>\n</html>"
+						},
+						{
+							"name": "Add Many Matchs SANS authentification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"winnerScore\": 2,\n\t    \"looserScore\": 1,\n\t    \"winner\": {\n\t    \t\"id\": 3\n\t    },\n\t    \"looser\": {\n\t    \t\"id\": 2\n\t    }\n\t},\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer error=\"invalid_token\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Oct 2018 13:49:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Add Many Matchs with Bad Data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\n\t},\n    {\n        \"winnerScore\": 1000,\n        \"looserScore\": 1,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    },\n    {\n        \"winnerScore\": 20,\n        \"looserScore\": 15,\n        \"winner\": {\n            \"id\": 3\n        },\n        \"looser\": {\n            \"id\": 2\n        }\n    },\n    {\n        \"winnerScore\": 10,\n        \"looserScore\": 9,\n        \"winner\": {\n            \"id\": 2\n        },\n        \"looser\": {\n            \"id\": 3\n        }\n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/tp/api/matchs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"tp",
+										"api",
+										"matchs"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "37f88ba4-a8b0-46e8-9d64-fe75273a2cd6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3cce8f9f-964b-420b-b892-00740bae88e7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
