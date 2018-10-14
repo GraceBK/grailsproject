@@ -17,11 +17,13 @@ connectez-vous ensuite sur http://localhost:8081/tp
 
 ### Identifiant Admin et User
 * Admin
+
 username = admin
 
 password = aaaa
 
 * User
+
 username = player
 
 password = coucou
