@@ -38,9 +38,6 @@
                     <g:form resource="${this.match}" method="POST" style="width: 30rem">
                         <fieldset class="form">
 
-
-                            <%--f:all bean="match"/--%>
-
                             <g:each in="${match}">
                                 <div class="form-group">
                                     <label for="exampleInput1">Winner Score</label>
@@ -73,9 +70,6 @@
 
 
                         </fieldset>
-                        <!--fieldset class="buttons">
-                            <%--g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /--%>
-                        </fieldset-->
                     </g:form>
                 </div>
             </div>

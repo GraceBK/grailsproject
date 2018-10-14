@@ -54,7 +54,6 @@
                                     <g:link controller="user" action="show" class="card-link btn btn-info" id="${it.id}">Details</g:link>
                                     <g:link controller="user" action="edit" class="card-link btn btn-primary" id="${it.id}">Edit</g:link>
                                     <g:link controller="user" action="justDeleteMe" class="card-link btn btn-danger" id="${it.id}">Delete</g:link>
-                                    <!--a href="edit.gsp" rel="external">COUCOU</a-->
                                 </div>
                             </th>
                         </tr>
