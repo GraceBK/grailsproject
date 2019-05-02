@@ -7,7 +7,7 @@ interface MatchService {
 
     Match get(Serializable id)
 
-    List<Match> list(Map args)
+    List<Match> list(PropertyValue.Map args)
 
     Long count()
 
